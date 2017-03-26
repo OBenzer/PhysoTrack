@@ -1,6 +1,14 @@
 package edu.sce.tom.physotrack.Algorithm;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Point;
+import java.util.ArrayList;
+
 import edu.sce.tom.physotrack.R;
 import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.FaceDet;
@@ -97,6 +105,8 @@ public class SessionRunner {
 
         //Saving results to DB//
 
+        //Draw the points and save the image//
+
         //Finish session//
     }
 
@@ -175,4 +185,21 @@ public class SessionRunner {
         this.kissL = null;
         return false;
     }
+
+    private void drawLandmarks(String path, ArrayList<Point> points) {
+        final float radius = (float)0.1;    //The radius of the points will draw on the image
+        Bitmap bmp = BitmapFactory.decodeFile(path);    //Decode image file to bmp object
+        Canvas can = new Canvas(bmp);   //Creates canvas based on the image
+        Paint paint = new Paint();  //Initial paint pobject that indicates what how to draw
+
+        //Setting paint attributes//
+        paint.setColor(Color.BLUE);
+        paint.setStyle(Paint.Style.STROKE);
+
+        for(Point p:points)
+            can.drawCircle(p.x, p.y, radius, paint);    //Draw all points
+
+        //Saving needed!//
+    }
+
 }
