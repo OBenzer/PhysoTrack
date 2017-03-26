@@ -7,6 +7,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 import edu.sce.tom.physotrack.R;
@@ -199,7 +204,25 @@ public class SessionRunner {
         for(Point p:points)
             can.drawCircle(p.x, p.y, radius, paint);    //Draw all points
 
-        //Saving needed!//
+        //Saving//
+        FileOutputStream out = null;
+        File oFile = new File(path);
+        String directory = oFile.getParent();
+        String name = oFile.getName().replaceFirst("[.][^.]+$", "")+"LandmarksDrawed.png"; //Remove file extantion
+        try {
+            out = new FileOutputStream(directory+"/"+name);
+            bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+        try {
+            if (out != null) {
+                out.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        }
     }
 
 }
