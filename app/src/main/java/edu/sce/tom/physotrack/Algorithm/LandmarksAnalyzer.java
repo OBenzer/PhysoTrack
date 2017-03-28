@@ -27,4 +27,6 @@ public class LandmarksAnalyzer {
         return new Point(sumx/size,sumy/size);
 
     }
+
+
 }
