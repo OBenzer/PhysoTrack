@@ -39,4 +39,5 @@ public class LandmarksAnalyzer {
         return p1.x*p2.y-p1.y*p2.x;
     }
 
+    /// Fuck My Life, Max ///
 }
