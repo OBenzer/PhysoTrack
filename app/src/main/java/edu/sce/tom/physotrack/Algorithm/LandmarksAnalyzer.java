@@ -28,7 +28,5 @@ public class LandmarksAnalyzer {
 
     }
 
-    private void calcDistance(Point ){
 
-    }
 }
