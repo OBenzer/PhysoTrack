@@ -23,6 +23,7 @@ public class LandmarksAnalyzer {
     private float rightEyeToBrowDistance;
     private float leftMouthArea;
     private float rightMouthArea;
+    private float mouthEdgeAngle;
 
     public LandmarksAnalyzer(FaceLandmarks f) {
         this.face = f;
@@ -65,6 +66,7 @@ public class LandmarksAnalyzer {
         final int[] innerLeftIndex = {2,3,4,5,6};
         final int[] innerRightIndex = {0,1,2,6,7};
 
+        // Calculating the area of w halfs of the mouth (inner mouth)//
         ArrayList<Point> innerM = face.getInnerMouth();
         ArrayList<Point> innerLeftPoints = new ArrayList<>();
         ArrayList<Point> innerRightPoints = new ArrayList<>();
@@ -79,6 +81,15 @@ public class LandmarksAnalyzer {
         //Calcs the area of the inner mouth Areas polygons//
         leftMouthArea = calcPolygonArea(innerLeftPoints);
         rightMouthArea = calcPolygonArea(innerRightPoints);
+
+        //Calculating needed angles//
+        ArrayList<Point> noseLine = face.getCenterNose();
+        ArrayList<Point> OutherM = face.getOutherMouth();
+        float noseSlope = calcSlope(noseLine.get(0), noseLine.get(noseLine.size()-1));
+        float mouthSlope = calcSlope(OutherM.get(0),OutherM.get(6));
+
+        mouthEdgeAngle = calcAngleBySlopes(noseSlope, mouthSlope);  //works?
+        
     }
 
     private Point calcAvg(ArrayList<Point> land){
@@ -107,6 +118,15 @@ public class LandmarksAnalyzer {
 
     private float calcDistance(Point left, Point right){
         return (float) Math.sqrt((Math.pow((right.x-left.x),2)-(Math.pow((right.y-left.y),2))));
+    }
+
+    private float calcSlope(Point p1, Point p2){
+        return (p1.y-p2.y)/(p1.x-p2.x);
+    }
+
+    private float calcAngleBySlopes(final float m1, final float m2){
+        return (float)(Math.atan(m1)-Math.atan(m2));
+
     }
 
     private Boolean contains(int[] arr, int var){
