@@ -2,17 +2,17 @@ package edu.sce.tom.physotrack.Algorithm;
 
 import android.graphics.Point;
 import android.util.Log;
-
 import java.util.ArrayList;
 
 public class LandmarksAnalyzer {
+    //face subject//
     private final FaceLandmarks face;
 
+    //constant//
+    private static final char LEFT_SIDE='L';
+    private static final char RIGHT_SIDE='R';
 
-    private final char LEFT_SIDE='L';
-    private final char RIGHT_SIDE='R';
-
-    //metrics
+    //metrics//
     private Point leftEyeCenter;
     private Point rightEyeCenter;
     private float leftEyeArea;
@@ -21,6 +21,8 @@ public class LandmarksAnalyzer {
     private Point leftBrowCenter;
     private float leftEyeToBrowDistance;
     private float rightEyeToBrowDistance;
+    private float leftMouthArea;
+    private float rightMouthArea;
 
     public LandmarksAnalyzer(FaceLandmarks f) {
         this.face = f;
@@ -32,10 +34,7 @@ public class LandmarksAnalyzer {
 
     }
 
-    private void calcDistanceFromBrowToEye(Point a,Point b,char side){
-
-    }
-
+    //Method that calc all eye and eyebrow metrics and saves them to the correct attribute//
     private void calcEye(ArrayList<Point> eye,ArrayList<Point> brow,char side) {
         // calculate the center of the eye
         // calculate the area of the eye
@@ -61,6 +60,26 @@ public class LandmarksAnalyzer {
         }
     }
 
+    //Method that calc all the mouth metrics and saves them to the correct attribute//
+    private void CaclMouth(){
+        final int[] innerLeftIndex = {2,3,4,5,6};
+        final int[] innerRightIndex = {0,1,2,6,7};
+
+        ArrayList<Point> innerM = face.getInnerMouth();
+        ArrayList<Point> innerLeftPoints = new ArrayList<>();
+        ArrayList<Point> innerRightPoints = new ArrayList<>();
+
+        for(int i=0; i<innerM.size(); i++) {    //Splits the points into left and right side
+            if(contains(innerLeftIndex,i))
+                innerLeftPoints.add(innerM.get(i));
+            if(contains(innerRightIndex,i))
+                innerRightPoints.add(innerM.get(i));
+        }
+
+        //Calcs the area of the inner mouth Areas polygons//
+        leftMouthArea = calcPolygonArea(innerLeftPoints);
+        rightMouthArea = calcPolygonArea(innerRightPoints);
+    }
 
     private Point calcAvg(ArrayList<Point> land){
         int sumx=0;
@@ -82,7 +101,6 @@ public class LandmarksAnalyzer {
         return Math.abs(area/2);
     }
 
-
     private float calcTwoPointsPolygon(Point p1, Point p2){
         return p1.x*p2.y-p1.y*p2.x;
     }
@@ -90,7 +108,14 @@ public class LandmarksAnalyzer {
     private float calcDistance(Point left, Point right){
         return (float) Math.sqrt((Math.pow((right.x-left.x),2)-(Math.pow((right.y-left.y),2))));
     }
+
+    private Boolean contains(int[] arr, int var){
+        for (int anArr : arr) {
+            if (anArr == var)
+                return true;
+        }
+
+        return false;
+    }
+
 }
-
-
-

@@ -19,12 +19,12 @@ public class FaceLandmarks {
 
     // Constants of the indexes of points by interess erea, taken from dlib library //
     private static final int[] FACEBORDERINDEX = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-    private static final int[] LEFTEYEBREOWINDEX = {17,18,19,20,21};
-    private static final int[] RIGHTEYEBROWINDEX = {22,23,24,25,26};
+    private static final int[] RIGHTEYEBROWINDEX = {17,18,19,20,21};
+    private static final int[] LEFTEYEBREOWINDEX = {22,23,24,25,26};
     private static final int[] CENTERNOSEINDEX = {27,28,29,30};
     private static final int[] BOTOMNOSEINDEX = {31,32,33,34,35};
-    private static final int[] LEFTEYEINDEX = {36,37,38,39,40,41};
-    private static final int[] RIGHTEYEINDEX = {42,43,44,45,46,47};
+    private static final int[] RIGHTEYEINDEX = {36,37,38,39,40,41};
+    private static final int[] LEFTEYEINDEX = {42,43,44,45,46,47};
     private static final int[] OUTMAOUTHINDEX = {48,49,50,51,52,53,54,55,56,57,58,59};
     private static final int[] INNERMOUTHINDEX = {60,61,62,63,64,65,66,67};
 
@@ -70,24 +70,24 @@ public class FaceLandmarks {
     }
 
     // Any getter, creates a copy of the arraylist, by-value return //
-    public ArrayList<Point> getAllLandmarks() { return new ArrayList<Point>(allLandmarks); }
+    public ArrayList<Point> getAllLandmarks() { return new ArrayList<>(allLandmarks); }
 
-    public ArrayList<Point> getLeftEye() { return new ArrayList<Point>(leftEye); }
+    public ArrayList<Point> getLeftEye() { return new ArrayList<>(leftEye); }
 
-    public ArrayList<Point> getLeftEyeBrow() { return new ArrayList<Point>(leftEyeBrow); }
+    public ArrayList<Point> getLeftEyeBrow() { return new ArrayList<>(leftEyeBrow); }
 
-    public ArrayList<Point> getRightEye() { return new ArrayList<Point>(rightEye); }
+    public ArrayList<Point> getRightEye() { return new ArrayList<>(rightEye); }
 
-    public ArrayList<Point> getRightEyeBrow() { return new ArrayList<Point>(rightEyeBrow); }
+    public ArrayList<Point> getRightEyeBrow() { return new ArrayList<>(rightEyeBrow); }
 
-    public ArrayList<Point> getOutherMouth() { return new ArrayList<Point>(outherMouth); }
+    public ArrayList<Point> getOutherMouth() { return new ArrayList<>(outherMouth); }
 
-    public ArrayList<Point> getInnerMouth() { return new ArrayList<Point>(innerMouth); }
+    public ArrayList<Point> getInnerMouth() { return new ArrayList<>(innerMouth); }
 
-    public ArrayList<Point> getCenterNose() { return new ArrayList<Point>(centerNose); }
+    public ArrayList<Point> getCenterNose() { return new ArrayList<>(centerNose); }
 
-    public ArrayList<Point> getNoseBottomLine() { return new ArrayList<Point>(noseBottomLine); }
+    public ArrayList<Point> getNoseBottomLine() { return new ArrayList<>(noseBottomLine); }
 
-    public ArrayList<Point> getFaceBorder() { return new ArrayList<Point>(FaceBorder); }
+    public ArrayList<Point> getFaceBorder() { return new ArrayList<>(FaceBorder); }
 
 }
