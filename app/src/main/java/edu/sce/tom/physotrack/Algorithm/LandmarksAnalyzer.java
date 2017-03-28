@@ -35,8 +35,15 @@ public class LandmarksAnalyzer {
         return Math.abs(area/2);
     }
 
+
     private float calcTwoPointsPolygon(Point p1, Point p2){
         return p1.x*p2.y-p1.y*p2.x;
     }
 
+    private float calcDistance(Point left, Point right){
+        return (float) Math.sqrt((Math.pow((right.x-left.x),2)-(Math.pow((right.y-left.y),2))));
+    }
 }
+
+
+
