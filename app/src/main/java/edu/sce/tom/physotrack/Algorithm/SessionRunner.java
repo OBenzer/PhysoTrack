@@ -1,5 +1,6 @@
 package edu.sce.tom.physotrack.Algorithm;
 
+import edu.sce.tom.physotrack.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,19 +8,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
-
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
-
-import edu.sce.tom.physotrack.R;
+import java.util.List;
 import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
-import java.io.File;
-import java.util.List;
 
 public class SessionRunner {
     //attributes//
@@ -76,32 +73,32 @@ public class SessionRunner {
         //Calculate the positions metrics only if the path attribute is not null
         if(naturalP!=null){
             naturalAR = new LandmarksAnalyzer(naturalL);
-
+            naturalAR.analyzeFace();
         }
 
         if(eyebrowRaisedP!=null){
             eyebrowRaisedAR = new LandmarksAnalyzer(eyebrowRaisedL);
-
+            eyebrowRaisedAR.analyzeFace();
         }
 
         if(eyesClosedP!=null){
             eyesClosedAR = new LandmarksAnalyzer(eyesClosedL);
-
+            eyesClosedAR.analyzeFace();
         }
 
         if(upperlipRasiedP!=null){
             upperlipRasiedAR = new LandmarksAnalyzer(upperlipRasiedL);
-
+            upperlipRasiedAR.analyzeFace();
         }
 
         if(smileP!=null){
             smileAR = new LandmarksAnalyzer(smileL);
-
+            smileAR.analyzeFace();
         }
 
         if(kissP!=null){
             kissAR = new LandmarksAnalyzer(kissL);
-
+            kissAR.analyzeFace();
         }
 
         //Saving results to DB//
@@ -215,13 +212,13 @@ public class SessionRunner {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
-        try {
-            if (out != null) {
-                out.close();
+            try {
+                if (out != null) {
+                    out.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         }
     }
 
