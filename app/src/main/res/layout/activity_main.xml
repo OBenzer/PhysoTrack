@@ -21,25 +21,6 @@
         android:layout_centerVertical="true">
 
         <Button
-            android:id="@+id/btn_tst"
-            android:text="tst"
-            android:textColor="#D3DCE0"
-            android:textSize="20sp"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:background="@drawable/buttonshape"
-            android:shadowColor="#2328A8"
-            android:shadowDx="-0"
-            android:shadowDy="0"
-            android:shadowRadius="0"
-            android:onClick="Main2Activity_on_click"
-            android:layout_alignBaseline="@+id/btn_new_photo"
-            android:layout_alignBottom="@+id/btn_new_photo"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_weight="1" />
-
-        <Button
             android:id="@+id/btn_personal_detail"
             android:text="personal detail"
             android:textColor="#D3DCE0"
