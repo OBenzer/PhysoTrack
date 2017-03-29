@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">PhysoTrack</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_photo_guide">PhotoGuide</string>
+    <string name="title_activity_new_session">NewSession</string>
+    <string name="title_activity_personal_details">PersonalDetails</string>
+    <string name="title_activity_previous_analysis">PreviousAnalysis</string>
 </resources>
