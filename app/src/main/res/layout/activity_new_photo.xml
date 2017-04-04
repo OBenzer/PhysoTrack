@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d5dfe9"
+    android:backgroundTint="#d5dfe9"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -11,58 +13,60 @@
     tools:context="edu.sce.tom.physotrack.NewPhoto">
 
     <Button
+        android:id="@+id/btn_photo_guide"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:text="photo guide"
-        android:id="@+id/btn_photo_guide"
-        android:textColor="#D3DCE0"
-        android:textSize="15sp"
-        android:background="@drawable/buttonshape"
-        android:shadowColor="#2328A8"
-        android:shadowDx="-0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:layout_marginTop="191dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:onClick="btn_photo_guide_On_click" />
+        android:layout_marginTop="191dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="btn_photo_guide_On_click"
+        android:shadowColor="#2328A8"
+        android:shadowDx="-0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="photo guide"
+        android:textColor="#D3DCE0"
+        android:textSize="15sp" />
+
     <Space
         android:layout_width="20px"
         android:layout_height="20px" />
 
     <Button
+        android:id="@+id/btn_new_session"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:text="new session"
-        android:id="@+id/btn_new_session"
-        android:textColor="#D3DCE0"
-        android:textSize="15sp"
-        android:background="@drawable/buttonshape"
-        android:shadowColor="#2328A8"
-        android:shadowDx="-0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:layout_below="@+id/btn_photo_guide"
         android:layout_alignLeft="@+id/btn_photo_guide"
         android:layout_alignStart="@+id/btn_photo_guide"
-        android:onClick="btn_new_session_On_click" />
+        android:layout_below="@+id/btn_photo_guide"
+        android:background="@drawable/buttonshape"
+        android:onClick="btn_new_session_On_click"
+        android:shadowColor="#2328A8"
+        android:shadowDx="-0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="new session"
+        android:textColor="#D3DCE0"
+        android:textSize="15sp" />
+
     <Space
         android:layout_width="20px"
         android:layout_height="20px" />
 
     <Button
+        android:id="@+id/btn_session_analysis"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:text="session analysis"
-        android:id="@+id/btn_session_analysis"
-        android:textColor="#D3DCE0"
-        android:textSize="15sp"
+        android:layout_alignLeft="@+id/btn_new_session"
+        android:layout_alignStart="@+id/btn_new_session"
+        android:layout_below="@+id/btn_new_session"
         android:background="@drawable/buttonshape"
         android:shadowColor="#2328A8"
         android:shadowDx="-0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:layout_below="@+id/btn_new_session"
-        android:layout_alignLeft="@+id/btn_new_session"
-        android:layout_alignStart="@+id/btn_new_session" />
+        android:text="session analysis"
+        android:textColor="#D3DCE0"
+        android:textSize="15sp" />
 </RelativeLayout>

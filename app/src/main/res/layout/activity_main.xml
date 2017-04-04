@@ -4,39 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.sce.tom.physotrack.MainActivity"
+    android:background="#5d6ea6"
+    android:backgroundTint="#d5dfe9"
+    android:backgroundTintMode="src_in"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#5d6ea6"
-    android:backgroundTint="#d5dfe9"
-    android:backgroundTintMode="src_in">
+    tools:context="edu.sce.tom.physotrack.MainActivity">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_personal_detail"
-            android:text="personal detail"
-            android:textColor="#D3DCE0"
-            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:background="@drawable/buttonshape"
-            android:shadowColor="#2328A8"
-            android:shadowDx="-0"
-            android:shadowDy="0"
-            android:shadowRadius="0"
             android:layout_alignBaseline="@+id/btn_new_photo"
             android:layout_alignBottom="@+id/btn_new_photo"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#2328A8"
+            android:shadowDx="-0"
+            android:shadowDy="0"
+            android:shadowRadius="0"
+            android:text="personal detail"
+            android:textColor="#D3DCE0"
+            android:textSize="20sp" />
 
         <Space
             android:layout_width="20px"
@@ -47,22 +47,22 @@
             android:layout_height="20px" />
 
         <Button
-            android:text="Previous analysis"
             android:id="@+id/btn_previous_analysis"
-            android:textColor="#D3DCE0"
-            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="52dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout"
+            android:layout_weight="1"
             android:background="@drawable/buttonshape"
+            android:onClick="btn_previous_analysis_On_click"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:layout_below="@+id/linearLayout"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_weight="1"
-            android:onClick="btn_previous_analysis_On_click" />
+            android:text="Previous analysis"
+            android:textColor="#D3DCE0"
+            android:textSize="20sp" />
 
         <Space
             android:layout_width="20px"
@@ -70,42 +70,42 @@
 
         <Button
             android:id="@+id/btn_medical_information"
-            android:text="medical information"
-            android:textColor="#D3DCE0"
-            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:background="@drawable/buttonshape"
-            android:shadowColor="#2328A8"
-            android:shadowDx="-0"
-            android:shadowDy="0"
-            android:shadowRadius="0"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="66dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
             android:onClick="btn_medical_information_On_click"
-            android:layout_weight="1" />
+            android:shadowColor="#2328A8"
+            android:shadowDx="-0"
+            android:shadowDy="0"
+            android:shadowRadius="0"
+            android:text="medical information"
+            android:textColor="#D3DCE0"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_new_photo"
-        android:textColor="#D3DCE0"
-        android:textSize="20sp"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
         android:background="@drawable/camera"
+        android:nestedScrollingEnabled="true"
+        android:onClick="btn_new_photo_On_click"
         android:shadowColor="#2328A8"
         android:shadowDx="-0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:layout_weight="1"
-        android:onClick="btn_new_photo_On_click"
-        android:nestedScrollingEnabled="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout" />
+        android:textColor="#D3DCE0"
+        android:textSize="20sp" />
 </RelativeLayout>
 
 

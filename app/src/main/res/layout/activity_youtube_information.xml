@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5d6ea6"
+    android:backgroundTint="#d5dfe9"
+    tools:context="edu.sce.tom.physotrack.youtube_information">
+
+    <VideoView
+        android:id="@+id/informationVideoView"
+        android:layout_width="368dp"
+        android:layout_height="300dp"
+        android:layout_weight="1"
+        android:contentDescription="yoni sade lies lies"
+        android:drawingCacheQuality="high"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp" />
+</android.support.constraint.ConstraintLayout>

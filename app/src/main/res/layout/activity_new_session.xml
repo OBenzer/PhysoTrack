@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d5dfe9"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -11,102 +12,112 @@
     tools:context="edu.sce.tom.physotrack.NewSession">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="kiss"
             android:id="@+id/btn_kiss_photo"
-            android:textColor="#D3DCE0"
-            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
             android:background="@drawable/buttonshape"
+            android:onClick="btn_kiss_photo_On_click"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:onClick="btn_kiss_photo_On_click" />
+            android:text="kiss"
+            android:textColor="#D3DCE0"
+            android:textSize="15sp" />
+
         <Space
             android:layout_width="20px"
             android:layout_height="20px" />
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="smile"
             android:id="@+id/btn_smile_photo"
-            android:textColor="#D3DCE0"
-            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
             android:background="@drawable/buttonshape"
+            android:onClick="btn_smile_photo_On_click"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:onClick="btn_smile_photo_On_click"/>
+            android:text="smile"
+            android:textColor="#D3DCE0"
+            android:textSize="15sp" />
+
         <Space
             android:layout_width="20px"
             android:layout_height="20px" />
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="eyes close"
             android:id="@+id/btn_eyeClose_photo"
-            android:textColor="#D3DCE0"
-            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
             android:background="@drawable/buttonshape"
+            android:onClick="btn_eyeClose_photo_On_click"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:onClick="btn_eyeClose_photo_On_click"/>
+            android:text="eyes close"
+            android:textColor="#D3DCE0"
+            android:textSize="15sp" />
+
         <Space
             android:layout_width="20px"
             android:layout_height="20px" />
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="blankly"
             android:id="@+id/btn_blankly_photo"
-            android:textColor="#D3DCE0"
-            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
             android:background="@drawable/buttonshape"
+            android:onClick="btn_blankly_photo_On_click"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:onClick="btn_blankly_photo_On_click"/>
+            android:text="blankly"
+            android:textColor="#D3DCE0"
+            android:textSize="15sp" />
+
         <Space
             android:layout_width="20px"
             android:layout_height="20px" />
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="rabbit"
             android:id="@+id/btn_rabbit_photo"
-            android:textColor="#D3DCE0"
-            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
             android:background="@drawable/buttonshape"
+            android:onClick="btn_rabbit_photo_On_click"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:onClick="btn_rabbit_photo_On_click"/>
+            android:text="rabbit"
+            android:textColor="#D3DCE0"
+            android:textSize="15sp" />
+
         <Space
             android:layout_width="20px"
             android:layout_height="20px" />
+
         <Button
+            android:id="@+id/btn_browLifts_photo"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:text="brow lifts"
-            android:id="@+id/btn_browLifts_photo"
-            android:textColor="#D3DCE0"
-            android:textSize="15sp"
             android:background="@drawable/buttonshape"
+            android:onClick="btn_browLifts_photo_On_click"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:onClick="btn_browLifts_photo_On_click"/>
+            android:text="brow lifts"
+            android:textColor="#D3DCE0"
+            android:textSize="15sp" />
     </LinearLayout>
 </RelativeLayout>
