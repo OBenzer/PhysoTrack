@@ -21,9 +21,12 @@ public class LandmarksAnalyzer {
     private Point leftBrowCenter;
     private float leftEyeToBrowDistance;
     private float rightEyeToBrowDistance;
-    private float leftMouthArea;
-    private float rightMouthArea;
-    private float mouthEdgeAngle;
+    private float leftInnerMouthArea;
+    private float rightInnerMouthArea;
+    private float leftOuterMouthArea;
+    private float rightOuterMouthArea;
+    private float rightMouthEdgeAngle;
+    private float leftMouthEdgeAngle;
 
     public LandmarksAnalyzer(FaceLandmarks f) {
         this.face = f;
@@ -31,6 +34,7 @@ public class LandmarksAnalyzer {
 
     public void analyzeFace()
     {
+
         // Calc all the metrics of the face //
 
     }
@@ -57,7 +61,7 @@ public class LandmarksAnalyzer {
                 leftBrowCenter=browAvg;
                 leftEyeToBrowDistance=eyeToBrowDis;
             default:
-                Log.d("debug", "calceye function in the default");
+                Log.d("debug", "calcEye function in the default");
         }
     }
 
@@ -79,8 +83,8 @@ public class LandmarksAnalyzer {
         }
 
         //Calcs the area of the inner mouth Areas polygons//
-        leftMouthArea = calcPolygonArea(innerLeftPoints);
-        rightMouthArea = calcPolygonArea(innerRightPoints);
+        leftInnerMouthArea = calcPolygonArea(innerLeftPoints);
+        rightInnerMouthArea = calcPolygonArea(innerRightPoints);
 
         //Calculating needed angles//
         ArrayList<Point> noseLine = face.getCenterNose();
@@ -88,7 +92,8 @@ public class LandmarksAnalyzer {
         float noseSlope = calcSlope(noseLine.get(0), noseLine.get(noseLine.size()-1));
         float mouthSlope = calcSlope(OutherM.get(0),OutherM.get(6));
 
-        mouthEdgeAngle = calcAngleBySlopes(noseSlope, mouthSlope);  //works?
+        rightMouthEdgeAngle = calcAngleBySlopes(noseSlope, mouthSlope);  //works?
+        leftMouthEdgeAngle=180-rightMouthEdgeAngle;
         
     }
 
