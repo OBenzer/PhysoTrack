@@ -11,7 +11,7 @@ public class FaceLandmarks {
     private ArrayList<Point> leftEyeBrow;   // List of 5 points representing the left eye brow
     private ArrayList<Point> rightEye;
     private ArrayList<Point> rightEyeBrow;
-    private ArrayList<Point> outherMouth;         // List of 12 points representing the othre mouth (lips)
+    private ArrayList<Point> outerMouth;         // List of 12 points representing the othre mouth (lips)
     private ArrayList<Point> innerMouth;          // List of 8 point representing the inner of the mouth
     private ArrayList<Point> centerNose;          // List of 4 points representing the nose center line (between the eyes)
     private ArrayList<Point> noseBottomLine;      // List of 5 point representing the bottom line of the nose (nostrals area)
@@ -39,7 +39,7 @@ public class FaceLandmarks {
         leftEyeBrow = new ArrayList<>();
         rightEye = new ArrayList<>();
         rightEyeBrow = new ArrayList<>();
-        outherMouth = new ArrayList<>();
+        outerMouth = new ArrayList<>();
         innerMouth = new ArrayList<>();
         centerNose = new ArrayList<>();
         noseBottomLine = new ArrayList<>();
@@ -63,7 +63,7 @@ public class FaceLandmarks {
             if (i>=RIGHTEYEINDEX[0] && i<=RIGHTEYEINDEX[RIGHTEYEINDEX.length-1])
                 rightEye.add(rawLandmarks.get(i));
             if (i>=OUTMAOUTHINDEX[0] && i<=OUTMAOUTHINDEX[OUTMAOUTHINDEX.length-1])
-                outherMouth.add(rawLandmarks.get(i));
+                outerMouth.add(rawLandmarks.get(i));
             if (i>=INNERMOUTHINDEX[0] && i<=INNERMOUTHINDEX[INNERMOUTHINDEX.length-1])
                 innerMouth.add(rawLandmarks.get(i));
         }
@@ -80,7 +80,7 @@ public class FaceLandmarks {
 
     public ArrayList<Point> getRightEyeBrow() { return new ArrayList<>(rightEyeBrow); }
 
-    public ArrayList<Point> getOutherMouth() { return new ArrayList<>(outherMouth); }
+    public ArrayList<Point> getOuterMouth() { return new ArrayList<>(outerMouth); }
 
     public ArrayList<Point> getInnerMouth() { return new ArrayList<>(innerMouth); }
 
