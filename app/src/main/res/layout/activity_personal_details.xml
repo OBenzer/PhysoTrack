@@ -40,7 +40,7 @@
         <EditText
             android:id="@+id/txt_side_select"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="in_order_for_us_to_provide_you_with_a_service_you_must_enter_the_damaged_side"
@@ -76,7 +76,6 @@
             android:id="@+id/btn_PD_submit"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-
             android:background="@drawable/buttonshape"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
@@ -86,7 +85,6 @@
             android:textColor="#D3DCE0"
             android:textSize="20sp"
             android:onClick="SubmitClicked"
-
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true" />
 
