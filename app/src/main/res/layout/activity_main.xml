@@ -26,30 +26,24 @@
             android:id="@+id/btn_new_photo"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-
-
             android:background="@drawable/buttonshape"
             android:onClick="btn_new_photo_On_click"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:text="NEW PHOTO"
+            android:text="@string/new_photo_button"
             android:textColor="#D3DCE0"
             android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20px" />
+            android:layout_height="10dp" />
 
         <Button
             android:id="@+id/btn_personal_detail"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_alignBaseline="@+id/btn_new_photo"
-            android:layout_alignBottom="@+id/btn_new_photo"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_weight="1"
             android:background="@drawable/buttonshape"
             android:onClick="btn_personal_details_On_click"
@@ -57,22 +51,18 @@
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-
-            android:text="personal detail"
+            android:text="@string/personal_detail_button"
             android:textColor="#D3DCE0"
             android:textSize="20sp" />
 
         <Space
-            android:layout_width="20px"
-            android:layout_height="20px" />
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
         <Button
             android:id="@+id/btn_previous_analysis"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/linearLayout"
             android:layout_weight="1"
             android:background="@drawable/buttonshape"
             android:onClick="btn_previous_analysis_On_click"
@@ -80,21 +70,18 @@
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:text="Previous analysis"
+            android:text="@string/previous_analysis_button"
             android:textColor="#D3DCE0"
             android:textSize="20sp" />
 
         <Space
-            android:layout_width="20px"
-            android:layout_height="20px" />
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
         <Button
             android:id="@+id/btn_medical_information"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_marginBottom="66dp"
             android:layout_weight="1"
             android:background="@drawable/buttonshape"
@@ -103,10 +90,9 @@
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:text="medical information"
+            android:text="@string/medical_information_button"
             android:textColor="#D3DCE0"
             android:textSize="20sp" />
-
 
     </LinearLayout>
 

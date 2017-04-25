@@ -5,4 +5,8 @@
     <string name="title_activity_new_session">NewSession</string>
     <string name="title_activity_personal_details">PersonalDetails</string>
     <string name="title_activity_previous_analysis">PreviousAnalysis</string>
+    <string name="new_photo_button">NEW PHOTO</string>
+    <string name="previous_analysis_button">Previous analysis</string>
+    <string name="medical_information_button">medical information</string>
+    <string name="personal_detail_button">personal detail</string>
 </resources>
