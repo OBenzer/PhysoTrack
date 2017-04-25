@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5d6ea6"
-    android:backgroundTint="#d5dfe9"
-    android:backgroundTintMode="src_in"
+    android:background="@drawable/background"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -18,9 +16,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerVertical="true"
+        tools:ignore="UselessParent"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="63dp">
 
         <Button
             android:id="@+id/btn_new_photo"
@@ -34,7 +34,7 @@
             android:shadowRadius="0"
             android:text="@string/new_photo_button"
             android:textColor="#D3DCE0"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <Space
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
             android:shadowRadius="0"
             android:text="@string/personal_detail_button"
             android:textColor="#D3DCE0"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <Space
             android:layout_width="match_parent"
@@ -72,7 +72,7 @@
             android:shadowRadius="0"
             android:text="@string/previous_analysis_button"
             android:textColor="#D3DCE0"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <Space
             android:layout_width="match_parent"
@@ -92,11 +92,15 @@
             android:shadowRadius="0"
             android:text="@string/medical_information_button"
             android:textColor="#D3DCE0"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
 
 </RelativeLayout>
 
+
+<!--android:background="#5d6ea6"
+android:backgroundTint="#d5dfe9"
+    android:backgroundTintMode="src_in"-->
 
 

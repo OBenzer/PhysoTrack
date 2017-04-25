@@ -13,8 +13,8 @@
         android:layout_width="368dp"
         android:layout_height="300dp"
         android:layout_weight="1"
-        android:contentDescription="yoni sade lies lies"
         android:drawingCacheQuality="high"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

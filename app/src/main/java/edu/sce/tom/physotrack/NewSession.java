@@ -77,6 +77,11 @@ public class NewSession extends AppCompatActivity {
         }
     }
 
+
+
+    // When clicked move to Camera //
+
+
     public void btn_kiss_photo_On_click(View v) {
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(i,11);

@@ -12,6 +12,7 @@ public class Medical_information extends AppCompatActivity {
         setContentView(R.layout.activity_medical_information);
     }
 
+    // when btn_youtube_exercises clicked move to youtube_information activity
     public void btn_youtube_exercises_On_click(View v){
         Intent i = new Intent(Medical_information.this, youtube_information.class);
         startActivity(i);

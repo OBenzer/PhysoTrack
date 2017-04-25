@@ -19,12 +19,13 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Medical_information" />
-        <activity android:name=".NewPhoto" />
-        <activity android:name=".NewSession" />
-        <activity android:name=".PhotoGuide" />
-        <activity android:name=".PreviousAnalysis" />
-        <activity android:name=".youtube_information" />
+        <activity android:name=".Medical_information" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".NewPhoto" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".NewSession" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PhotoGuide" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PreviousAnalysis" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".youtube_information" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PersonalDetails" android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Splash"
             android:theme="@style/SplashTheme">
@@ -34,7 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PersonalDetails"></activity>
+
     </application>
 
 </manifest>

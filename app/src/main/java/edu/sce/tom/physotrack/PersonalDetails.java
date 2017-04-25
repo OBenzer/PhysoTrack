@@ -11,11 +11,9 @@ import android.widget.Toast;
 
 public class PersonalDetails extends AppCompatActivity {
 
-
-
-
     SharedPreferences userD;
     SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -9,4 +9,13 @@
     <string name="previous_analysis_button">Previous analysis</string>
     <string name="medical_information_button">medical information</string>
     <string name="personal_detail_button">personal detail</string>
+    <string name="new_session_butoon">new session</string>
+    <string name="photo_guide_butoon">photo guide</string>
+    <string name="session_analysis_button">session analysis</string>
+    <string name="insert_therapist_mail">insert_therapist_mail</string>
+    <string name="insert_user_name">insert_user_name</string>
+    <string name="left_side_radio_button">left_side</string>
+    <string name="right_side_radio_button">right_side</string>
+    <string name="submit_Personal_Detailes">submit</string>
+    <string name="PeronalDetaliesExplainText">in_order_for_us_to_provide_you_with_a_service_you_must_enter_the_damaged_side</string>
 </resources>
