@@ -22,10 +22,4 @@ public class NewPhoto extends AppCompatActivity {
         startActivity(i);
     }
 
-    /*
-    public void btn_session_analysis_On_click(View v){
-        Intent i = new Intent(NewPhoto.this, .class);
-        startActivity(i);
-    }
-    */
 }

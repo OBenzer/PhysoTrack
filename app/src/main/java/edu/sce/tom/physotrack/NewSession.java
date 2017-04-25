@@ -109,9 +109,5 @@ public class NewSession extends AppCompatActivity {
         startActivity(i);
     }
 
-  /*public void session(View v){
-        switch (v.getId()){
-            case R.id.btn_kiss_photo:
-        }
-    }*/
+
 }
