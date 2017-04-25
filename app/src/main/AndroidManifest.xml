@@ -22,7 +22,6 @@
         <activity android:name=".Medical_information" />
         <activity android:name=".NewPhoto" />
         <activity android:name=".NewSession" />
-        <activity android:name=".PersonalDetail" />
         <activity android:name=".PhotoGuide" />
         <activity android:name=".PreviousAnalysis" />
         <activity android:name=".youtube_information" />
