@@ -25,4 +25,5 @@
         android:text="send therapist"
         android:textColor="#D3DCE0"
         android:textSize="15sp" />
+
 </RelativeLayout>
