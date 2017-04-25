@@ -8,6 +8,6 @@ public class PersonalDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personal_detail);
+        setContentView(R.layout.activity_personal_details);
     }
 }
