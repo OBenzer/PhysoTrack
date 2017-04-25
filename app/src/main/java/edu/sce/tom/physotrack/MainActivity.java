@@ -7,6 +7,13 @@ import android.view.View;
 import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
+    //name of the shared preferences file and keys
+    public static final String USER_DETAILS_SP_FILE="userDetails";
+    public static final String USER_NAME = "userName";
+    public static final String SIDE = "defSide";
+    public static final String THERAPIST_MAIL = "therapistMail";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

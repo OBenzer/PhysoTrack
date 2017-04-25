@@ -11,11 +11,7 @@ import android.widget.Toast;
 
 public class PersonalDetails extends AppCompatActivity {
 
-    //name of the shared preferences file and keys
-    private static final String USER_DETAILS_SP_FILE="userDetails";
-    public static final String USER_NAME = "userName";
-    public static final String SIDE = "defSide";
-    public static final String THERAPIST_MAIL = "therapistMail";
+
 
 
     SharedPreferences userD;
@@ -24,7 +20,7 @@ public class PersonalDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_details);
-        userD = getSharedPreferences(USER_DETAILS_SP_FILE, Context.MODE_PRIVATE);
+        userD = getSharedPreferences(MainActivity.USER_DETAILS_SP_FILE, Context.MODE_PRIVATE);
         editor=userD.edit();
     }
 
@@ -48,9 +44,9 @@ public class PersonalDetails extends AppCompatActivity {
     }
 
     private void saveData(String userName,String side,String therapistMail) {
-        editor.putString(USER_NAME,userName);
-        editor.putString(SIDE,side);
-        editor.putString(THERAPIST_MAIL,therapistMail);
+        editor.putString(MainActivity.USER_NAME,userName);
+        editor.putString(MainActivity.SIDE,side);
+        editor.putString(MainActivity.THERAPIST_MAIL,therapistMail);
         editor.commit();
         Toast.makeText(this, "Details entered successfully!", Toast.LENGTH_SHORT).show();
         finish();
