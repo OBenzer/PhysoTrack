@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5d6ea6"
-    android:backgroundTint="#d5dfe9"
+    android:background="@drawable/background"
     tools:context="edu.sce.tom.physotrack.youtube_information">
 
     <VideoView

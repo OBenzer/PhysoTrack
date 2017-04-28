@@ -10,6 +10,7 @@ public class Medical_information extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medical_information);
+
     }
 
     // when btn_youtube_exercises clicked move to youtube_information activity
