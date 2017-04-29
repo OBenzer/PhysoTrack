@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +17,8 @@
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp"
         android:weightSum="1"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:layoutDirection="ltr">
 
         <EditText
             android:id="@+id/txt_username"
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:ems="10"
-            android:text="@string/PeronalDetaliesExplainText"
+            android:text="@string/PersonalDetailsExplainText"
             android:layout_weight="0.39" />
 
         <RadioGroup
@@ -75,15 +75,14 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@drawable/buttonshape"
+            android:onClick="SubmitClicked"
             android:shadowColor="#2328A8"
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:text="@string/submit_Personal_Detailes"
+            android:text="@string/submit_Personal_Details"
             android:textColor="#D3DCE0"
-            android:textSize="20sp"
-            android:onClick="SubmitClicked"
-            />
+            android:textSize="15sp" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

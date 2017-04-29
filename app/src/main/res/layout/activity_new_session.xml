@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
     android:id="@+id/relative"
@@ -12,19 +11,21 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.sce.tom.physotrack.NewSession">
+    tools:context="edu.sce.tom.physotrack.NewSession"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:orientation="vertical"
+    android:layoutDirection="ltr"
+    >
 
-    <Space
-        android:layout_width="20px"
-        android:layout_height="20px" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layoutDirection="ltr">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,13 +43,13 @@
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:text="kiss"
+                android:text="@string/New_Session_kiss_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp" />
 
             <Space
-                android:layout_width="20px"
-                android:layout_height="20px"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
                 android:layout_weight="1" />
 
             <Button
@@ -61,8 +62,8 @@
         </LinearLayout>
 
         <Space
-            android:layout_width="20px"
-            android:layout_height="20px" />
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,13 +81,13 @@
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:text="smile"
+                android:text="@string/New_session_smile_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp" />
 
             <Space
-                android:layout_width="20px"
-                android:layout_height="20px"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
                 android:layout_weight="1" />
 
             <Button
@@ -98,8 +99,8 @@
         </LinearLayout>
 
         <Space
-            android:layout_width="20px"
-            android:layout_height="20px" />
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -117,13 +118,13 @@
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:text="eyes close"
+                android:text="@string/New_Session_eyes_close_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp" />
 
             <Space
-                android:layout_width="20px"
-                android:layout_height="20px"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
                 android:layout_weight="1" />
 
             <Button
@@ -135,8 +136,8 @@
         </LinearLayout>
 
         <Space
-            android:layout_width="20px"
-            android:layout_height="20px" />
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -154,13 +155,13 @@
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:text="blankly"
+                android:text="@string/New_Session_blankly_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp" />
 
             <Space
-                android:layout_width="20px"
-                android:layout_height="20px"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
                 android:layout_weight="1" />
 
             <Button
@@ -172,8 +173,8 @@
         </LinearLayout>
 
         <Space
-            android:layout_width="20px"
-            android:layout_height="20px" />
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -191,13 +192,13 @@
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:text="rabbit"
+                android:text="@string/New_Session_rabbit_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp" />
 
             <Space
-                android:layout_width="20px"
-                android:layout_height="20px"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
                 android:layout_weight="1" />
 
             <Button
@@ -209,8 +210,8 @@
         </LinearLayout>
 
         <Space
-            android:layout_width="20px"
-            android:layout_height="20px" />
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -228,13 +229,13 @@
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:text="eyebrow lifts"
+                android:text="@string/New_Session_eyebrow_lifts_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp" />
 
             <Space
-                android:layout_width="20px"
-                android:layout_height="20px"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
                 android:layout_weight="1" />
 
             <Button
