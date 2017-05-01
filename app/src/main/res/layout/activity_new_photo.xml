@@ -26,7 +26,7 @@
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:text="@string/photo_guide_butoon"
+            android:text="@string/photo_guide_button"
             android:textColor="#D3DCE0"
             android:textSize="15sp" />
 
@@ -61,7 +61,7 @@
             android:shadowDx="-0"
             android:shadowDy="0"
             android:shadowRadius="0"
-            android:text="@string/new_session_butoon"
+            android:text="@string/new_session_button"
             android:textColor="#D3DCE0"
             android:textSize="15sp" />
 

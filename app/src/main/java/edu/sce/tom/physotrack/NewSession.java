@@ -114,5 +114,4 @@ public class NewSession extends AppCompatActivity {
         startActivity(i);
     }
 
-
 }

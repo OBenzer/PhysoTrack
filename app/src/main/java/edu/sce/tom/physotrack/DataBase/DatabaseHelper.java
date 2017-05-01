@@ -7,10 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import edu.sce.tom.physotrack.Algorithm.LandmarksAnalyzer;
 
-/**
- * Created by yotamc on 04-Apr-17.
- */
-
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Database Version

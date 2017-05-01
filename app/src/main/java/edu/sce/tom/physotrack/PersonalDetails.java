@@ -24,20 +24,20 @@ public class PersonalDetails extends AppCompatActivity {
 
     public void SubmitClicked(View view) {
 
-        String SideSelcted = "";
+        String SideSelected = "";
         RadioButton left = (RadioButton) findViewById(R.id.radio_left);
         EditText user_name = (EditText) findViewById(R.id.txt_username);
         EditText therapist_mail = (EditText) findViewById(R.id.txt_therapist_mail);
 
         if (left.isChecked()) {
-            SideSelcted = "Left";
+            SideSelected = "Left";
         } else {
-            SideSelcted = "Right";
+            SideSelected = "Right";
         }
 
 
         // Enter All Information to DB
-        saveData(user_name.getText().toString(),SideSelcted,therapist_mail.getText().toString());
+        saveData(user_name.getText().toString(),SideSelected,therapist_mail.getText().toString());
 
     }
 
