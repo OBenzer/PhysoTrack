@@ -96,7 +96,8 @@
                 android:layout_width="35dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/info_logo" />
+                android:background="@drawable/info_logo"
+                android:onClick="SmileInfo_Button_Clicked"/>
         </LinearLayout>
 
         <Space
@@ -133,7 +134,8 @@
                 android:layout_width="35dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/info_logo" />
+                android:background="@drawable/info_logo"
+                android:onClick="EyeCloseInfo_Button_Clicked"/>
         </LinearLayout>
 
         <Space
@@ -170,7 +172,8 @@
                 android:layout_width="35dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/info_logo" />
+                android:background="@drawable/info_logo"
+                android:onClick="BlanklyInfo_Button_Clicked"/>
         </LinearLayout>
 
         <Space
@@ -207,7 +210,8 @@
                 android:layout_width="35dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/info_logo" />
+                android:background="@drawable/info_logo"
+                android:onClick="RabbitInfo_Button_Clicked"/>
         </LinearLayout>
 
         <Space
@@ -244,7 +248,8 @@
                 android:layout_width="35dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/info_logo" />
+                android:background="@drawable/info_logo"
+                android:onClick="BrowLiftInfo_Button_Clicked"/>
 
         </LinearLayout>
 

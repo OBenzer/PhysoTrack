@@ -205,8 +205,96 @@ public class NewSession extends AppCompatActivity {
                         }).
                         setView(image);
         builder.create().show();
+    }
 
+    public void BlanklyInfo_Button_Clicked(View v)
+    {
+        ImageView image = new ImageView(this);
+        image.setImageResource(R.drawable.blankly_info);
 
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this).
+                        setMessage("Message above the image").
+                        setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).
+                        setView(image);
+        builder.create().show();
+    }
+
+    public void BrowLiftInfo_Button_Clicked(View v)
+    {
+        ImageView image = new ImageView(this);
+        image.setImageResource(R.drawable.browlift_info);
+
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this).
+                        setMessage("Message above the image").
+                        setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).
+                        setView(image);
+        builder.create().show();
+    }
+
+    public void EyeCloseInfo_Button_Clicked(View v)
+    {
+        ImageView image = new ImageView(this);
+        image.setImageResource(R.drawable.eyeclose_info);
+
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this).
+                        setMessage("Message above the image").
+                        setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).
+                        setView(image);
+        builder.create().show();
+    }
+
+    public void RabbitInfo_Button_Clicked(View v)
+    {
+        ImageView image = new ImageView(this);
+        image.setImageResource(R.drawable.rabbit_info);
+
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this).
+                        setMessage("Message above the image").
+                        setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).
+                        setView(image);
+        builder.create().show();
+    }
+
+    public void SmileInfo_Button_Clicked(View v)
+    {
+        ImageView image = new ImageView(this);
+        image.setImageResource(R.drawable.smile_info);
+
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this).
+                        setMessage("Message above the image").
+                        setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).
+                        setView(image);
+        builder.create().show();
     }
 
 }
