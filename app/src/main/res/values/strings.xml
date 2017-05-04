@@ -12,8 +12,8 @@
     <string name="new_session_button">new session</string>
     <string name="photo_guide_button">photo guide</string>
     <string name="session_analysis_button">session analysis</string>
-    <string name="insert_therapist_mail">therapist mail</string>
-    <string name="insert_user_name">user name</string>
+    <string name="insert_therapist_mail">please enter your therapists mail</string>
+    <string name="insert_user_name">please enter your name</string>
     <string name="left_side_radio_button">left side</string>
     <string name="right_side_radio_button">right side</string>
     <string name="submit_Personal_Details">submit</string>
@@ -24,6 +24,5 @@
     <string name="New_Session_blankly_btn">blankly</string>
     <string name="New_Session_rabbit_btn">rabbit</string>
     <string name="New_Session_eyebrow_lifts_btn">eyebrow lifts</string>
-    <string name="PreviousAnalysis_send_therapist_btn">send therapist</string>
-    <string name="name_request_personal_details">Please enter your name</string>
+    <string name="PreviousAnalysis_send_therapist_btn">send to therapist</string>
 </resources>
