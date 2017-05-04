@@ -1,6 +1,7 @@
 package edu.sce.tom.physotrack;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -12,9 +13,11 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -132,7 +135,6 @@ public class NewSession extends AppCompatActivity {
         String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
         File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), "PhysoAlbum" + File.separator + timeStamp);
-        Toast.makeText(this, mediaStorageDir.toString(), Toast.LENGTH_SHORT).show();
 
         if (!mediaStorageDir.exists()) {
             if (!mediaStorageDir.mkdirs()) {
@@ -180,6 +182,33 @@ public class NewSession extends AppCompatActivity {
         }
         return Bitmap.createScaledBitmap(image, width, height, true);
     }
+
+
+
+
+    // handling i buttons
+
+
+    public void KissInfo_Button_Clicked(View v)
+    {
+        ImageView image = new ImageView(this);
+        image.setImageResource(R.drawable.kiss_info);
+
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this).
+                        setMessage("Message above the image").
+                        setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).
+                        setView(image);
+        builder.create().show();
+
+
+    }
+
 }
 
 
