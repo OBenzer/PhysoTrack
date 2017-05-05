@@ -196,7 +196,8 @@ public class NewSession extends AppCompatActivity {
 
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
-                        setMessage("Message above the image").
+                        setTitle("Kiss Expression").
+                        setIcon(R.drawable.logo).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -214,7 +215,8 @@ public class NewSession extends AppCompatActivity {
 
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
-                        setMessage("Message above the image").
+                        setTitle("Blankly Expression").
+                        setIcon(R.drawable.logo).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -232,7 +234,8 @@ public class NewSession extends AppCompatActivity {
 
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
-                        setMessage("Message above the image").
+                        setTitle("Brow Lift Expression").
+                        setIcon(R.drawable.logo).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -250,7 +253,8 @@ public class NewSession extends AppCompatActivity {
 
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
-                        setMessage("Message above the image").
+                        setTitle("Eye Closed Expression").
+                        setIcon(R.drawable.logo).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -268,7 +272,8 @@ public class NewSession extends AppCompatActivity {
 
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
-                        setMessage("Message above the image").
+                        setTitle("Rabbit Expression").
+                        setIcon(R.drawable.logo).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -286,7 +291,8 @@ public class NewSession extends AppCompatActivity {
 
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
-                        setMessage("Message above the image").
+                        setTitle("Smile Expression").
+                        setIcon(R.drawable.logo).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -294,6 +300,7 @@ public class NewSession extends AppCompatActivity {
                             }
                         }).
                         setView(image);
+        builder.setInverseBackgroundForced(true); // api 23 and higher
         builder.create().show();
     }
 
