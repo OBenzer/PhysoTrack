@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.MediaController;
 import android.widget.VideoView;
-
 public class youtube_information extends AppCompatActivity {
 
     @Override
@@ -13,14 +12,21 @@ public class youtube_information extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_youtube_information);
 
-        VideoView informationVideoView = (VideoView)findViewById(R.id.informationVideoView);
+        VideoView videoView = (VideoView)findViewById(R.id.videoViewInfo);
         MediaController mediaController = new MediaController(this);
-        mediaController.setAnchorView(informationVideoView);
-        Uri uri = Uri.parse("rtsp://r4---sn-4g5edn7y.googlevideo.com/Cj0LENy73wIaNAndvmELfSg5aBMYDSANFC2TeONYMOCoAUIASARgsvjCyOazvctYigELbElydkV6UG4tX0UM/D4069C3A3CB24747A9145BA5C4C7320CDBE8B90432AD57E3777B8C57B2BD0D8EAEDF0AEFA8F90DFA./yt6/1/video.3gp");
-        informationVideoView.setMediaController(mediaController);
-        informationVideoView.setVideoURI(uri);
-        informationVideoView.requestFocus();
-        informationVideoView.start();
+        mediaController.setAnchorView(videoView);
+        Uri uri = Uri.parse("rtsp://r16---sn-5hne6n7r.googlevideo.com/Cj0LENy73wIaNAndvmELfSg5aBMYDSANFC3DQw9ZMOCoAUIASARg1v-h-peYkodZigELdnJmNUFUSGVLQmsM/39293BD4441D54E1AF8A5CB64FD732B05C990CCC.C5EC6F366348639F868F3AF8BF53E8E982202712/yt6/1/video.3gp");
+        videoView.setMediaController(mediaController);
+        videoView.setVideoURI(uri);
+        videoView.requestFocus();
+        videoView.start();
 
     }
 }
+
+
+
+
+
+
+

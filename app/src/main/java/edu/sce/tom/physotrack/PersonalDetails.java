@@ -1,5 +1,6 @@
 package edu.sce.tom.physotrack;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +20,7 @@ public class PersonalDetails extends AppCompatActivity {
     RadioButton left, right;
     String strUserName, strTherapistMail, strSelectedSide;
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
