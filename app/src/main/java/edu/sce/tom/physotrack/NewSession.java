@@ -1,6 +1,7 @@
 package edu.sce.tom.physotrack;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -42,9 +43,11 @@ public class NewSession extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO_RABBIT = REQUEST_TAKE_PHOTO_INITIAL+RABBIT;
     private static final int REQUEST_TAKE_PHOTO_BLANKLY = REQUEST_TAKE_PHOTO_INITIAL+BLANKLY;
     private static final int REQUEST_TAKE_PHOTO_BROWLIFT = REQUEST_TAKE_PHOTO_INITIAL+BROWLIFT;
+    private static final int MINIMUMIMAGECOUNT = 1;
 
     private Uri file;
     private SessionRunner sessionRunner;
+    private int imageCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +58,9 @@ public class NewSession extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
         }
 
+        imageCount = 0;
         sessionRunner = new SessionRunner(this);
      }
-
 
     // When clicked move to camera //
     public void btn_kiss_photo_On_click(View v) {
@@ -84,6 +87,14 @@ public class NewSession extends AppCompatActivity {
         takePic(BROWLIFT);
     }
 
+    public void btn_submit_On_click(View v){
+        if(imageCount>=MINIMUMIMAGECOUNT) {
+            Toast.makeText(this, "Start to analize your session", Toast.LENGTH_SHORT).show();
+            sessionRunner.run();
+        }
+        else
+            Toast.makeText(this, "More images needed for this session!", Toast.LENGTH_SHORT).show();
+    }
 
     //request permissions android 6+
     @Override
@@ -154,83 +165,16 @@ public class NewSession extends AppCompatActivity {
                 s + ".jpg");
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch(requestCode){
-            case REQUEST_TAKE_PHOTO_SMILE:
-                if(resultCode!=RESULT_OK)
-                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
-                else {
-                    if(!sessionRunner.setSmileP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
-                        ((Button)findViewById(R.id.btn_smile_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
-                        Toast.makeText(this, "You should retake smile photo, please use the guide", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                        ((Button)findViewById(R.id.btn_smile_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
-                }
-                break;
-            case REQUEST_TAKE_PHOTO_KISS:
-                if(resultCode!=RESULT_OK)
-                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
-                else {
-                    if(!sessionRunner.setKissP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
-                        ((Button)findViewById(R.id.btn_kiss_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
-                        Toast.makeText(this, "You should retake kiss photo, please use the guide", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                        ((Button)findViewById(R.id.btn_kiss_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
-                }
-                break;
-            case REQUEST_TAKE_PHOTO_EYECLOSE:
-                if(resultCode!=RESULT_OK)
-                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
-                else {
-                    if(!sessionRunner.setEyesClosedP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
-                        ((Button)findViewById(R.id.btn_eyeClose_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
-                        Toast.makeText(this, "You should retake Eyes Closed photo, please use the guide", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                        ((Button)findViewById(R.id.btn_eyeClose_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
-                }
-                break;
-            case REQUEST_TAKE_PHOTO_RABBIT:
-                if(resultCode!=RESULT_OK)
-                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
-                else {
-                    if(!sessionRunner.setUpperlipRasiedP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
-                        ((Button)findViewById(R.id.btn_rabbit_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
-                        Toast.makeText(this, "You should retake rabbit photo, please use the guide", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                        ((Button)findViewById(R.id.btn_rabbit_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
-                }
-                break;
-            case REQUEST_TAKE_PHOTO_BLANKLY:
-                if(resultCode!=RESULT_OK)
-                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
-                else {
-                    if(!sessionRunner.setNaturalP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
-                        ((Button)findViewById(R.id.btn_blankly_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
-                        Toast.makeText(this, "You should retake blankly photo, please use the guide", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                        ((Button)findViewById(R.id.btn_blankly_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
-                }
-                break;
-            case REQUEST_TAKE_PHOTO_BROWLIFT:
-                if(resultCode!=RESULT_OK)
-                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
-                else {
-                    if(!sessionRunner.setEyebrowRaisedP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
-                        ((Button)findViewById(R.id.btn_browLifts_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
-                        Toast.makeText(this, "You should retake browLift photo, please use the guide", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                        ((Button)findViewById(R.id.btn_browLifts_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
-                }
-                break;
+        //Expression photo has been taken by the user//
+        if(requestCode==REQUEST_TAKE_PHOTO_SMILE||requestCode==REQUEST_TAKE_PHOTO_KISS||requestCode==REQUEST_TAKE_PHOTO_EYECLOSE
+            ||requestCode==REQUEST_TAKE_PHOTO_RABBIT||requestCode==REQUEST_TAKE_PHOTO_BLANKLY||requestCode==REQUEST_TAKE_PHOTO_BROWLIFT){
+            //ProgressDialog dialog = ProgressDialog.show(this, "Loading", "Please wait...", true);
+            handleNewImage(requestCode, resultCode);
+            //dialog.dismiss();
         }
+
         //Yotam's testing - to display image
         //checks if the an image was taken and if so displays it
         if (requestCode == 100) {
@@ -247,10 +191,100 @@ public class NewSession extends AppCompatActivity {
         }
     }
 
-    //******** Need to attach the Submit button to sessionRunner.run() and check the algrithm!!//
-    //For now, the SessionRunner objetc created in onCreate then, after every photo taken, it set to the object//
-    //If the photo is ok the button changes to green one! otherwise the photo becaome null and must retake//
-    //We need to check if the Uri sent as getPath is ok and maybe fix it..//
+    private void handleNewImage(int requestCode, int resultCode){
+        switch(requestCode){
+            case REQUEST_TAKE_PHOTO_SMILE:
+                if(resultCode!=RESULT_OK)
+                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
+                else {
+                    if(!sessionRunner.setSmileP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
+                        imageCount--;
+                        ((Button)findViewById(R.id.btn_smile_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        Toast.makeText(this, "You should retake smile photo, please use the guide", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        imageCount++;
+                        ((Button)findViewById(R.id.btn_smile_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                    }
+                }
+                break;
+            case REQUEST_TAKE_PHOTO_KISS:
+                if(resultCode!=RESULT_OK)
+                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
+                else {
+                    if(!sessionRunner.setKissP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
+                        imageCount--;
+                        ((Button)findViewById(R.id.btn_kiss_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        Toast.makeText(this, "You should retake kiss photo, please use the guide", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        imageCount++;
+                        ((Button) findViewById(R.id.btn_kiss_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                    }
+                }
+                break;
+            case REQUEST_TAKE_PHOTO_EYECLOSE:
+                if(resultCode!=RESULT_OK)
+                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
+                else {
+                    if(!sessionRunner.setEyesClosedP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
+                        imageCount--;
+                        ((Button)findViewById(R.id.btn_eyeClose_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        Toast.makeText(this, "You should retake Eyes Closed photo, please use the guide", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        imageCount++;
+                        ((Button) findViewById(R.id.btn_eyeClose_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                    }
+                }
+                break;
+            case REQUEST_TAKE_PHOTO_RABBIT:
+                if(resultCode!=RESULT_OK)
+                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
+                else {
+                    if(!sessionRunner.setUpperlipRasiedP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
+                        imageCount--;
+                        ((Button)findViewById(R.id.btn_rabbit_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        Toast.makeText(this, "You should retake rabbit photo, please use the guide", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        imageCount++;
+                        ((Button) findViewById(R.id.btn_rabbit_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                    }
+                }
+                break;
+            case REQUEST_TAKE_PHOTO_BLANKLY:
+                if(resultCode!=RESULT_OK)
+                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
+                else {
+                    if(!sessionRunner.setNaturalP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
+                        imageCount--;
+                        ((Button)findViewById(R.id.btn_blankly_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        Toast.makeText(this, "You should retake blankly photo, please use the guide", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        imageCount++;
+                        ((Button) findViewById(R.id.btn_blankly_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                    }
+                }
+                break;
+            case REQUEST_TAKE_PHOTO_BROWLIFT:
+                if(resultCode!=RESULT_OK)
+                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
+                else {
+                    if(!sessionRunner.setEyebrowRaisedP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
+                        imageCount--;
+                        ((Button)findViewById(R.id.btn_browLifts_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        Toast.makeText(this, "You should retake browLift photo, please use the guide", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        imageCount++;
+                        ((Button) findViewById(R.id.btn_browLifts_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                    }
+                }
+                break;
+        }
+    }
 
     // reduces the size of the image for displaying the image
     public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
@@ -383,7 +417,4 @@ public class NewSession extends AppCompatActivity {
         builder.setInverseBackgroundForced(true); // api 23 and higher
         builder.create().show();
     }
-
 }
-
-

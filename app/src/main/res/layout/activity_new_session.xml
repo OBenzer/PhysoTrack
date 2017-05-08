@@ -25,7 +25,8 @@
         android:orientation="vertical"
         android:layoutDirection="ltr"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -262,4 +263,22 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="btn_submit_On_click"
+        android:shadowColor="#2328A8"
+        android:shadowDx="-0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="@string/submit_btn"
+        android:textColor="#D3DCE0"
+        android:textSize="15sp"
+        android:layout_marginBottom="46dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

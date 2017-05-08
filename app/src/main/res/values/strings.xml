@@ -25,4 +25,5 @@
     <string name="New_Session_rabbit_btn">rabbit</string>
     <string name="New_Session_eyebrow_lifts_btn">eyebrow lifts</string>
     <string name="PreviousAnalysis_send_therapist_btn">send to therapist</string>
+    <string name="submit_btn">Submit</string>
 </resources>
