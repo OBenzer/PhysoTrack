@@ -61,7 +61,7 @@ public class PersonalDetails extends AppCompatActivity {
 
         //check if name was entered
         if (TextUtils.isEmpty(strUserName)) {
-            name.setError(getString(R.string.insert_user_name));
+            name.setError(getString(R.string.user_name));
             return;
         }
         if (left.isChecked()) {

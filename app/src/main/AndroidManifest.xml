@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.sce.tom.physotrack">
+    package="edu.sce.tom.physotrack" >
 
     <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
     <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -18,30 +24,41 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Medical_information" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".NewPhoto" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".NewSession" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".PhotoGuide" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".PreviousAnalysis" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".youtube_information" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Medical_information"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NewPhoto"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NewSession"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PhotoGuide"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PreviousAnalysis"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".youtube_information"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PersonalDetails"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Splash"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

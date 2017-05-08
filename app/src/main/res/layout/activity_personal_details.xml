@@ -12,18 +12,21 @@
 
     <EditText
         android:id="@+id/txt_username"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/insert_user_name"
-        android:inputType="textPersonName" />
+        android:hint="@string/user_name"
+        android:inputType="textPersonName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="37dp" />
 
     <EditText
         android:id="@+id/txt_therapist_mail"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/insert_therapist_mail"
+        android:hint="@string/therapist_mail"
         android:inputType="textEmailAddress"
         android:layout_below="@+id/txt_username"
         android:layout_alignParentStart="true" />
@@ -34,9 +37,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:gravity="start"
-        android:layout_below="@+id/txt_therapist_mail"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp">
+        android:layout_marginTop="126dp"
+        android:layout_below="@+id/txt_phisio_mail"
+        android:layout_alignParentStart="true">
 
 
         <RadioButton
@@ -47,21 +50,12 @@
             android:text="@string/left_side_radio_button"
             android:textSize="18sp"/>
 
-        <RadioButton
-            android:id="@+id/radio_right"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/right_side_radio_button"
-            android:textSize="18sp"/>
-
     </RadioGroup>
 
     <Button
         android:id="@+id/btn_PD_submit"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
         android:background="@drawable/buttonshape"
         android:onClick="SubmitClicked"
         android:shadowColor="#2328A8"
@@ -70,6 +64,18 @@
         android:shadowRadius="0"
         android:text="@string/submit_Personal_Details"
         android:textColor="#D3DCE0"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/radioSide"
+        android:layout_marginStart="84dp" />
+
+    <RadioButton
+        android:id="@+id/radio_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/radioSide"
+        android:layout_toEndOf="@+id/radioSide"
+        android:text="@string/right_side_radio_button"
+        android:textSize="18sp" />
 
 </RelativeLayout>
