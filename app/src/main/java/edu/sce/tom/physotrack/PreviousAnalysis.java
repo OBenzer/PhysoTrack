@@ -30,13 +30,13 @@ public class PreviousAnalysis extends AppCompatActivity {
         // Working With the Graph //
         GraphView graph = (GraphView) findViewById(R.id.PreviousAnalysisGraph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3)
+                new DataPoint(1,80),
+                new DataPoint(2,83),
+                new DataPoint(3,90)
         });
         graph.addSeries(series);
-
         // Finish Working With Graph //
+
     }
 
 
@@ -46,8 +46,6 @@ public class PreviousAnalysis extends AppCompatActivity {
         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = pref.edit();
         String email=pref.getString(THERAPIST_MAIL,"");// getting String
         Intent intent = new Intent(Intent.ACTION_SEND);
-
-
         intent.putExtra(Intent.EXTRA_EMAIL,new String[]{email});
         //create a txt file and write blabla and send to pysiotrapist mail
         String filename="analysis.txt";
