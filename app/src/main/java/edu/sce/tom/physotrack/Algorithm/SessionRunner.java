@@ -1,5 +1,6 @@
 package edu.sce.tom.physotrack.Algorithm;
 
+import edu.sce.tom.physotrack.DataBase.DatabaseHelper;
 import edu.sce.tom.physotrack.R;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -62,6 +63,7 @@ public class SessionRunner {
     private ImageResult kissR=null;
 
     private FaceDet mFaceDet=null;
+    private DatabaseHelper db;
 
     //ctor//
     //looks for the 68.dat file in not found recreates it from the application
@@ -76,6 +78,8 @@ public class SessionRunner {
         if (mFaceDet == null) {
             mFaceDet = new FaceDet(Constants.getFaceShapeModelPath());
         }
+
+        db = new DatabaseHelper(c);
     }
 
     //run is after (potentially) all 5 photos were taken successfully (all setters returned true)
@@ -88,6 +92,8 @@ public class SessionRunner {
             naturalAR.analyzeFace();
             naturalR = new ImageResult(naturalAR, NATURAL_EXP);
             naturalR.calcResult();
+            db.insertImageResultToDB(naturalR);
+            db.insertMetricsToDB(naturalAR);
         }
 
         if(eyebrowRaisedP!=null){
@@ -95,6 +101,8 @@ public class SessionRunner {
             eyebrowRaisedAR.analyzeFace();
             eyebrowRaisedR = new ImageResult(eyebrowRaisedAR, EYEBROWRAISED_EXP);
             eyebrowRaisedR.calcResult();
+            db.insertImageResultToDB(eyebrowRaisedR);
+            db.insertMetricsToDB(eyebrowRaisedAR);
         }
 
         if(eyesClosedP!=null){
@@ -102,6 +110,8 @@ public class SessionRunner {
             eyesClosedAR.analyzeFace();
             eyesClosedR = new ImageResult(eyesClosedAR, EYECLOSED_EXP);
             eyesClosedR.calcResult();
+            db.insertImageResultToDB(eyesClosedR);
+            db.insertMetricsToDB(eyesClosedAR);
         }
 
         if(upperlipRasiedP!=null){
@@ -109,6 +119,8 @@ public class SessionRunner {
             upperlipRasiedAR.analyzeFace();
             upperlipRasiedR = new ImageResult(upperlipRasiedAR, UPPERLIPRAISED_EXP);
             upperlipRasiedR.calcResult();
+            db.insertImageResultToDB(upperlipRasiedR);
+            db.insertMetricsToDB(upperlipRasiedAR);
         }
 
         if(smileP!=null){
@@ -116,6 +128,8 @@ public class SessionRunner {
             smileAR.analyzeFace();
             smileR = new ImageResult(smileAR, SMILE_EXP);
             smileR.calcResult();
+            db.insertImageResultToDB(smileR);
+            db.insertMetricsToDB(smileAR);
         }
 
         if(kissP!=null){
@@ -123,11 +137,9 @@ public class SessionRunner {
             kissAR.analyzeFace();
             kissR = new ImageResult(kissAR, KISS_EXP);
             kissR.calcResult();
+            db.insertImageResultToDB(kissR);
+            db.insertMetricsToDB(kissAR);
         }
-
-        //Saving results to DB//
-
-        //Finish session//
     }
 
     //setters//
