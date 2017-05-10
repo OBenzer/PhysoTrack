@@ -38,7 +38,6 @@
         android:layout_gravity="start"
         android:gravity="start"
         android:layout_marginTop="126dp"
-        android:layout_below="@+id/txt_phisio_mail"
         android:layout_alignParentStart="true">
 
 
@@ -49,6 +48,13 @@
             android:checked="true"
             android:text="@string/left_side_radio_button"
             android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/radio_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/right_side_radio_button"
+            android:textSize="18sp" />
 
     </RadioGroup>
 
@@ -69,13 +75,6 @@
         android:layout_alignStart="@+id/radioSide"
         android:layout_marginStart="84dp" />
 
-    <RadioButton
-        android:id="@+id/radio_right"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/radioSide"
-        android:layout_toEndOf="@+id/radioSide"
-        android:text="@string/right_side_radio_button"
-        android:textSize="18sp" />
+
 
 </RelativeLayout>

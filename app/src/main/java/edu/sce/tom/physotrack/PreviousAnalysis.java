@@ -32,7 +32,9 @@ public class PreviousAnalysis extends AppCompatActivity {
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(1,80),
                 new DataPoint(2,83),
-                new DataPoint(3,90)
+                new DataPoint(3,90),
+                new DataPoint(4,70),
+                new DataPoint(5,95)
         });
         graph.addSeries(series);
         // Finish Working With Graph //
