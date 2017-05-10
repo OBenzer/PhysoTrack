@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -22,7 +23,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -31,6 +37,7 @@ import edu.sce.tom.physotrack.Algorithm.SessionRunner;
 
 public class NewSession extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO_INITIAL = 1000;
+    private static final int REQUEST_PICK_IMAGE_INITIAL = 2000;
     private static final int SMILE = 1;
     private static final int KISS = 2;
     private static final int EYECLOSE = 3;
@@ -43,6 +50,12 @@ public class NewSession extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO_RABBIT = REQUEST_TAKE_PHOTO_INITIAL+RABBIT;
     private static final int REQUEST_TAKE_PHOTO_BLANKLY = REQUEST_TAKE_PHOTO_INITIAL+BLANKLY;
     private static final int REQUEST_TAKE_PHOTO_BROWLIFT = REQUEST_TAKE_PHOTO_INITIAL+BROWLIFT;
+    private static final int REQUEST_PICK_IMAGE_SMILE = REQUEST_PICK_IMAGE_INITIAL+SMILE;
+    private static final int REQUEST_PICK_IMAGE_KISS = REQUEST_PICK_IMAGE_INITIAL+KISS;
+    private static final int REQUEST_PICK_IMAGE_EYECLOSE = REQUEST_PICK_IMAGE_INITIAL+EYECLOSE;
+    private static final int REQUEST_PICK_IMAGE_RABBIT = REQUEST_PICK_IMAGE_INITIAL+RABBIT;
+    private static final int REQUEST_PICK_IMAGE_BLANKLY = REQUEST_PICK_IMAGE_INITIAL+BLANKLY;
+    private static final int REQUEST_PICK_IMAGE_BROWLIFT = REQUEST_PICK_IMAGE_INITIAL+BROWLIFT;
     private static final int MINIMUMIMAGECOUNT = 1;
 
     private Uri file;
@@ -62,30 +75,33 @@ public class NewSession extends AppCompatActivity {
         sessionRunner = SesRunSingletone.getInstance();
      }
 
-    // When clicked move to camera //
+    // Capture image buttons //
     public void btn_kiss_photo_On_click(View v) {
         takePic(KISS);
     }
-
     public void btn_smile_photo_On_click(View v) {
         takePic(SMILE);
     }
-
     public void btn_eyeClose_photo_On_click(View v) {
         takePic(EYECLOSE);
     }
-
     public void btn_blankly_photo_On_click(View v) {
         takePic(BLANKLY);
     }
-
     public void btn_rabbit_photo_On_click(View v) {
         takePic(RABBIT);
     }
-
     public void btn_browLifts_photo_On_click(View v) {
         takePic(BROWLIFT);
     }
+
+    // Pick image from gallery buttons //
+    public void btn_kiss_gallery_On_click(View v) { pickImage(REQUEST_PICK_IMAGE_KISS); }
+    public void btn_smile_gallery_On_click(View v) { pickImage(REQUEST_PICK_IMAGE_SMILE); }
+    public void btn_eyeClose_gallery_On_click(View v) { pickImage(REQUEST_PICK_IMAGE_EYECLOSE); }
+    public void btn_blankly_gallery_On_click(View v) { pickImage(REQUEST_PICK_IMAGE_BLANKLY); }
+    public void btn_rabbit_gallery_On_click(View v) { pickImage(REQUEST_PICK_IMAGE_RABBIT); }
+    public void btn_browLifts_gallery_On_click(View v) { pickImage(REQUEST_PICK_IMAGE_BROWLIFT); }
 
     public void btn_submit_On_click(View v){
         if(imageCount>=MINIMUMIMAGECOUNT) {
@@ -107,6 +123,7 @@ public class NewSession extends AppCompatActivity {
         }
     }
 
+    // Method to handle the event when the user want to capture new image for the session //
     public void takePic(int position) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         switch (position) {
@@ -146,6 +163,13 @@ public class NewSession extends AppCompatActivity {
 
     }
 
+    // Method to handle the event when the user want to pic image from gallery to the session //
+    public void pickImage(int requestCode) {
+        Toast.makeText(this, "Pick an image", Toast.LENGTH_SHORT).show();
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, requestCode);
+    }
+
     //saves in storage/emulated/0/pictures/PhysoAblum
     //here we can devide into folders by date
     private File getOutputMediaFile(String s) {
@@ -170,14 +194,22 @@ public class NewSession extends AppCompatActivity {
         //Expression photo has been taken by the user//
         if(requestCode==REQUEST_TAKE_PHOTO_SMILE||requestCode==REQUEST_TAKE_PHOTO_KISS||requestCode==REQUEST_TAKE_PHOTO_EYECLOSE
             ||requestCode==REQUEST_TAKE_PHOTO_RABBIT||requestCode==REQUEST_TAKE_PHOTO_BLANKLY||requestCode==REQUEST_TAKE_PHOTO_BROWLIFT){
-            //ProgressDialog dialog = ProgressDialog.show(this, "Loading", "Please wait...", true);
-            handleNewImage(requestCode, resultCode);
-            //dialog.dismiss();
+            handleNewImage(requestCode-REQUEST_TAKE_PHOTO_INITIAL, resultCode);
+        }
+
+        else if(requestCode==REQUEST_PICK_IMAGE_SMILE||requestCode==REQUEST_PICK_IMAGE_KISS||requestCode==REQUEST_PICK_IMAGE_EYECLOSE
+                ||requestCode==REQUEST_PICK_IMAGE_RABBIT||requestCode==REQUEST_PICK_IMAGE_BLANKLY||requestCode==REQUEST_PICK_IMAGE_BROWLIFT) {
+            if(resultCode!=RESULT_OK)
+                Toast.makeText(this, "Error picking image", Toast.LENGTH_SHORT).show();
+            else {
+                resultCode = copyPickedImage(requestCode - REQUEST_PICK_IMAGE_INITIAL, data.getData());
+                handleNewImage(requestCode - REQUEST_PICK_IMAGE_INITIAL, resultCode);
+            }
         }
 
         //Yotam's testing - to display image
         //checks if the an image was taken and if so displays it
-        if (requestCode == 100) {
+        else if (requestCode == 100) {
             if (resultCode == RESULT_OK) {
                 Bitmap bitmap = null;
                 try {
@@ -193,7 +225,7 @@ public class NewSession extends AppCompatActivity {
 
     private void handleNewImage(int requestCode, int resultCode){
         switch(requestCode){
-            case REQUEST_TAKE_PHOTO_SMILE:
+            case SMILE:
                 if(resultCode!=RESULT_OK)
                     Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
                 else {
@@ -208,7 +240,7 @@ public class NewSession extends AppCompatActivity {
                     }
                 }
                 break;
-            case REQUEST_TAKE_PHOTO_KISS:
+            case KISS:
                 if(resultCode!=RESULT_OK)
                     Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
                 else {
@@ -223,7 +255,7 @@ public class NewSession extends AppCompatActivity {
                     }
                 }
                 break;
-            case REQUEST_TAKE_PHOTO_EYECLOSE:
+            case EYECLOSE:
                 if(resultCode!=RESULT_OK)
                     Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
                 else {
@@ -238,7 +270,7 @@ public class NewSession extends AppCompatActivity {
                     }
                 }
                 break;
-            case REQUEST_TAKE_PHOTO_RABBIT:
+            case RABBIT:
                 if(resultCode!=RESULT_OK)
                     Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
                 else {
@@ -253,7 +285,7 @@ public class NewSession extends AppCompatActivity {
                     }
                 }
                 break;
-            case REQUEST_TAKE_PHOTO_BLANKLY:
+            case BLANKLY:
                 if(resultCode!=RESULT_OK)
                     Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
                 else {
@@ -268,7 +300,7 @@ public class NewSession extends AppCompatActivity {
                     }
                 }
                 break;
-            case REQUEST_TAKE_PHOTO_BROWLIFT:
+            case BROWLIFT:
                 if(resultCode!=RESULT_OK)
                     Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
                 else {
@@ -283,6 +315,60 @@ public class NewSession extends AppCompatActivity {
                     }
                 }
                 break;
+        }
+    }
+
+    private int copyPickedImage(int position, Uri source) {
+        String posString;
+        switch(position){
+            case SMILE:
+                posString = "Smile";
+                break;
+            case KISS:
+                posString = "Kiss";
+                break;
+            case EYECLOSE:
+                posString = "EyesClosed";
+                break;
+            case RABBIT:
+                posString = "Rabbit";
+                break;
+            case BLANKLY:
+                posString = "Blankly";
+                break;
+            case BROWLIFT:
+                posString = "BrowLift";
+                break;
+            default:
+                posString = "Unknown";
+        }
+
+        file = Uri.fromFile(getOutputMediaFile(posString));
+        try {
+            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+            Cursor cursor = getContentResolver().query(source, filePathColumn, null, null, null);
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String sourcePath = cursor.getString(columnIndex);
+            cursor.close();
+
+            InputStream in = new FileInputStream(sourcePath);
+            OutputStream out = new FileOutputStream(file.getPath());
+
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = in.read(buf)) > 0) {
+                out.write(buf, 0, len);
+            }
+            in.close();
+            out.close();
+            return RESULT_OK;
+        } catch (IOException e) {
+            Toast.makeText(this, "Failed copy image to application directory", Toast.LENGTH_SHORT).show();
+            return RESULT_CANCELED;
+        } catch (NullPointerException e) {
+            Toast.makeText(this, "Failed copy image to application directory", Toast.LENGTH_SHORT).show();
+            return RESULT_CANCELED;
         }
     }
 

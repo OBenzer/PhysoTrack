@@ -2,6 +2,8 @@ package edu.sce.tom.physotrack.Algorithm;
 
 //This class contains a single image results (difference between the healthy and damaged side)//
 public class ImageResult {
+    private static final int WANTED_ANGLE = 90;
+
     private LandmarksAnalyzer metrics;
 
     private float eyeToBrowDisstance;
@@ -11,7 +13,10 @@ public class ImageResult {
     private float innerMouthAreat;
     private float outerMouthArea;
 
-    public ImageResult(LandmarksAnalyzer analyzer){
+    private String expression;
+
+    public ImageResult(LandmarksAnalyzer analyzer, String exp){
+        expression = exp;
         this.metrics = analyzer;
     }
 
@@ -19,12 +24,15 @@ public class ImageResult {
     public void calcResult(){
         eyeToBrowDisstance = metrics.getLeftEyeToBrowDistance()-metrics.getRightEyeToBrowDistance();
         eyeArea = metrics.getLeftEyeArea()-metrics.getRightEyeArea();
-        mouthAngle = metrics.getRightMouthEdgeAngle();
+        mouthAngle = WANTED_ANGLE-metrics.getRightMouthEdgeAngle();
         mouthDisstance = metrics.getLeftMouthDistance()-metrics.getRightMouthDistance();
         innerMouthAreat = metrics.getLeftInnerMouthArea()-metrics.getRightInnerMouthArea();
         outerMouthArea = metrics.getLeftOuterMouthArea()-metrics.getRightOuterMouthArea();
     }
 
+    public String getExpression() {
+        return expression;
+    }
     public float getEyeToBrowDisstance() {
         return eyeToBrowDisstance;
     }

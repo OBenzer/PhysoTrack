@@ -19,6 +19,13 @@ import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
 
 public class SessionRunner {
+    private static final String SMILE_EXP = "Smile";
+    private static final String KISS_EXP = "Kiss";
+    private static final String NATURAL_EXP = "Blankly";
+    private static final String EYEBROWRAISED_EXP = "EyebrowRaised";
+    private static final String EYECLOSED_EXP = "EyesClosed";
+    private static final String UPPERLIPRAISED_EXP = "Rabbit";
+
     //attributes//
     //___P - position image path
     //___L - position FaceLandmarks object
@@ -77,44 +84,44 @@ public class SessionRunner {
         //Face Analysis//
         //Calculate the positions metrics only if the path attribute is not null
         if(naturalP!=null){
-            naturalAR = new LandmarksAnalyzer(naturalL);
+            naturalAR = new LandmarksAnalyzer(naturalL, NATURAL_EXP);
             naturalAR.analyzeFace();
-            naturalR = new ImageResult(naturalAR);
+            naturalR = new ImageResult(naturalAR, NATURAL_EXP);
             naturalR.calcResult();
         }
 
         if(eyebrowRaisedP!=null){
-            eyebrowRaisedAR = new LandmarksAnalyzer(eyebrowRaisedL);
+            eyebrowRaisedAR = new LandmarksAnalyzer(eyebrowRaisedL, EYEBROWRAISED_EXP);
             eyebrowRaisedAR.analyzeFace();
-            eyebrowRaisedR = new ImageResult(eyebrowRaisedAR);
+            eyebrowRaisedR = new ImageResult(eyebrowRaisedAR, EYEBROWRAISED_EXP);
             eyebrowRaisedR.calcResult();
         }
 
         if(eyesClosedP!=null){
-            eyesClosedAR = new LandmarksAnalyzer(eyesClosedL);
+            eyesClosedAR = new LandmarksAnalyzer(eyesClosedL, EYECLOSED_EXP);
             eyesClosedAR.analyzeFace();
-            eyesClosedR = new ImageResult(eyesClosedAR);
+            eyesClosedR = new ImageResult(eyesClosedAR, EYECLOSED_EXP);
             eyesClosedR.calcResult();
         }
 
         if(upperlipRasiedP!=null){
-            upperlipRasiedAR = new LandmarksAnalyzer(upperlipRasiedL);
+            upperlipRasiedAR = new LandmarksAnalyzer(upperlipRasiedL, UPPERLIPRAISED_EXP);
             upperlipRasiedAR.analyzeFace();
-            upperlipRasiedR = new ImageResult(upperlipRasiedAR);
+            upperlipRasiedR = new ImageResult(upperlipRasiedAR, UPPERLIPRAISED_EXP);
             upperlipRasiedR.calcResult();
         }
 
         if(smileP!=null){
-            smileAR = new LandmarksAnalyzer(smileL);
+            smileAR = new LandmarksAnalyzer(smileL, SMILE_EXP);
             smileAR.analyzeFace();
-            smileR = new ImageResult(smileAR);
+            smileR = new ImageResult(smileAR, SMILE_EXP);
             smileR.calcResult();
         }
 
         if(kissP!=null){
-            kissAR = new LandmarksAnalyzer(kissL);
+            kissAR = new LandmarksAnalyzer(kissL, KISS_EXP);
             kissAR.analyzeFace();
-            kissR = new ImageResult(kissAR);
+            kissR = new ImageResult(kissAR, KISS_EXP);
             kissR.calcResult();
         }
 

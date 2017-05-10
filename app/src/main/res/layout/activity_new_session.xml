@@ -44,6 +44,9 @@
                 android:text="@string/New_Session_kiss_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
+                android:padding="15dp"
+                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawablePadding="-40dp"
                 android:onClick="KissInfo_Button_Clicked" />
 
             <Space
@@ -69,6 +72,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/gallery_btn"
                 android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_kiss_gallery_On_click"
                 android:contentDescription="@string/gallerybutton_descr" />
 
         </LinearLayout>
@@ -95,6 +99,9 @@
                 android:text="@string/New_session_smile_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
+                android:padding="15dp"
+                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawablePadding="-40dp"
                 android:onClick="SmileInfo_Button_Clicked" />
 
             <Space
@@ -120,6 +127,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/gallery_btn"
                 android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_smile_gallery_On_click"
                 android:contentDescription="@string/gallerybutton_descr" />
 
         </LinearLayout>
@@ -146,6 +154,9 @@
                 android:text="@string/New_Session_eyes_close_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
+                android:padding="15dp"
+                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawablePadding="-20dp"
                 android:onClick="EyeCloseInfo_Button_Clicked" />
 
             <Space
@@ -171,6 +182,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/gallery_btn"
                 android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_eyeClose_gallery_On_click"
                 android:contentDescription="@string/gallerybutton_descr" />
 
         </LinearLayout>
@@ -197,6 +209,9 @@
                 android:text="@string/New_Session_blankly_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
+                android:padding="15dp"
+                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawablePadding="-40dp"
                 android:onClick="BlanklyInfo_Button_Clicked" />
 
             <Space
@@ -222,6 +237,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/gallery_btn"
                 android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_blankly_gallery_On_click"
                 android:contentDescription="@string/gallerybutton_descr" />
 
         </LinearLayout>
@@ -248,6 +264,9 @@
                 android:text="@string/New_Session_rabbit_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
+                android:padding="15dp"
+                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawablePadding="-40dp"
                 android:onClick="RabbitInfo_Button_Clicked" />
 
             <Space
@@ -273,6 +292,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/gallery_btn"
                 android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_rabbit_gallery_On_click"
                 android:contentDescription="@string/gallerybutton_descr" />
 
         </LinearLayout>
@@ -300,6 +320,9 @@
                 android:text="@string/New_Session_eyebrow_lifts_btn"
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
+                android:padding="15dp"
+                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawablePadding="-15dp"
                 android:onClick="BrowLiftInfo_Button_Clicked" />
 
             <Space
@@ -325,6 +348,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/gallery_btn"
                 android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_browLifts_gallery_On_click"
                 android:contentDescription="@string/gallerybutton_descr"/>
 
         </LinearLayout>

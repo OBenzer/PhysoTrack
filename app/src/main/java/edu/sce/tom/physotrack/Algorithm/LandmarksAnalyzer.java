@@ -31,13 +31,14 @@ public class LandmarksAnalyzer {
     private float leftMouthEdgeAngle;
     private float leftMouthDistance;
     private float rightMouthDistance;
+    private String expression;
 
-    public LandmarksAnalyzer(FaceLandmarks f) {
+    public LandmarksAnalyzer(FaceLandmarks f, String exp) {
+        expression = exp;
         this.face = f;
     }
 
-    public void analyzeFace()
-    {
+    public void analyzeFace() {
         //calc right eye//
         calcEye(face.getRightEye(),face.getRightEyeBrow(),RIGHT_SIDE);
 
@@ -180,6 +181,9 @@ public class LandmarksAnalyzer {
     }
 
     //******************** Getters ********************//
+    public String getExpression() {
+        return expression;
+    }
     public Point getLeftEyeCenter() {
         return new Point(leftEyeCenter);
     }
