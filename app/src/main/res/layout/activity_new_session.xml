@@ -15,9 +15,7 @@
     android:layout_alignParentStart="true"
     android:layout_alignParentTop="true"
     android:orientation="vertical"
-    android:layoutDirection="ltr"
-    >
-
+    android:layoutDirection="ltr" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,224 +31,301 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_kiss_photo"
-                android:layout_width="290dp"
-                android:layout_height="52dp"
-                android:layout_weight="1"
+            <TextView
+                android:id="@+id/kiss_tv"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
                 android:background="@drawable/buttonshape"
-                android:onClick="btn_kiss_photo_On_click"
+                android:gravity="center_vertical|center_horizontal"
                 android:shadowColor="#2328A8"
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
                 android:text="@string/New_Session_kiss_btn"
                 android:textColor="#D3DCE0"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="KissInfo_Button_Clicked" />
 
             <Space
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_weight="1" />
+                android:layout_width="30dp"
+                android:layout_height="50dp" />
 
-            <Button
-                android:id="@+id/btn_ikiss"
-                android:layout_width="35dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:background="@drawable/info_logo"
-                android:onClick="KissInfo_Button_Clicked"/>
+            <ImageButton
+                android:id="@+id/btn_kiss_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/camera_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_kiss_photo_On_click"
+                android:contentDescription="@string/camerabutton_descr" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="50dp" />
+
+            <ImageButton
+                android:id="@+id/btn_kiss_gallery"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/gallery_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:contentDescription="@string/gallerybutton_descr" />
 
         </LinearLayout>
 
         <Space
             android:layout_width="10dp"
-            android:layout_height="10dp" />
+            android:layout_height="15dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_smile_photo"
-                android:layout_width="290dp"
-                android:layout_height="52dp"
-                android:layout_weight="1"
+            <TextView
+                android:id="@+id/smile_tv"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
                 android:background="@drawable/buttonshape"
-                android:onClick="btn_smile_photo_On_click"
+                android:gravity="center_vertical|center_horizontal"
                 android:shadowColor="#2328A8"
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
                 android:text="@string/New_session_smile_btn"
                 android:textColor="#D3DCE0"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="SmileInfo_Button_Clicked" />
 
             <Space
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_weight="1" />
+                android:layout_width="30dp"
+                android:layout_height="50dp" />
 
-            <Button
-                android:id="@+id/btn_ismile"
-                android:layout_width="35dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:background="@drawable/info_logo"
-                android:onClick="SmileInfo_Button_Clicked"/>
+            <ImageButton
+                android:id="@+id/btn_smile_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/camera_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_smile_photo_On_click"
+                android:contentDescription="@string/camerabutton_descr" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="50dp" />
+
+            <ImageButton
+                android:id="@+id/btn_smile_gallery"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/gallery_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:contentDescription="@string/gallerybutton_descr" />
+
         </LinearLayout>
 
         <Space
             android:layout_width="10dp"
-            android:layout_height="10dp" />
+            android:layout_height="15dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_eyeClose_photo"
-                android:layout_width="290dp"
-                android:layout_height="52dp"
-                android:layout_weight="1"
+            <TextView
+                android:id="@+id/eyeClose_tv"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
                 android:background="@drawable/buttonshape"
-                android:onClick="btn_eyeClose_photo_On_click"
+                android:gravity="center_vertical|center_horizontal"
                 android:shadowColor="#2328A8"
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
                 android:text="@string/New_Session_eyes_close_btn"
                 android:textColor="#D3DCE0"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="EyeCloseInfo_Button_Clicked" />
 
             <Space
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_weight="1" />
+                android:layout_width="30dp"
+                android:layout_height="50dp" />
 
-            <Button
-                android:id="@+id/btn_ieyeclose"
-                android:layout_width="35dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:background="@drawable/info_logo"
-                android:onClick="EyeCloseInfo_Button_Clicked"/>
+            <ImageButton
+                android:id="@+id/btn_eyeClose_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/camera_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_eyeClose_photo_On_click"
+                android:contentDescription="@string/camerabutton_descr" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="50dp" />
+
+            <ImageButton
+                android:id="@+id/btn_eyeClose_gallery"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/gallery_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:contentDescription="@string/gallerybutton_descr" />
+
         </LinearLayout>
 
         <Space
             android:layout_width="10dp"
-            android:layout_height="10dp" />
+            android:layout_height="15dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_blankly_photo"
-                android:layout_width="290dp"
-                android:layout_height="52dp"
-                android:layout_weight="1"
+            <TextView
+                android:id="@+id/blankly_tv"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
                 android:background="@drawable/buttonshape"
-                android:onClick="btn_blankly_photo_On_click"
+                android:gravity="center_vertical|center_horizontal"
                 android:shadowColor="#2328A8"
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
                 android:text="@string/New_Session_blankly_btn"
                 android:textColor="#D3DCE0"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="BlanklyInfo_Button_Clicked" />
 
             <Space
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_weight="1" />
+                android:layout_width="30dp"
+                android:layout_height="50dp" />
 
-            <Button
-                android:id="@+id/btn_iblankly"
-                android:layout_width="35dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:background="@drawable/info_logo"
-                android:onClick="BlanklyInfo_Button_Clicked"/>
+            <ImageButton
+                android:id="@+id/btn_blankly_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/camera_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_blankly_photo_On_click"
+                android:contentDescription="@string/camerabutton_descr" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="50dp" />
+
+            <ImageButton
+                android:id="@+id/btn_blankly_gallery"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/gallery_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:contentDescription="@string/gallerybutton_descr" />
+
         </LinearLayout>
 
         <Space
             android:layout_width="10dp"
-            android:layout_height="10dp" />
+            android:layout_height="15dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_rabbit_photo"
-                android:layout_width="290dp"
-                android:layout_height="52dp"
-                android:layout_weight="1"
+            <TextView
+                android:id="@+id/rabbit_tv"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
                 android:background="@drawable/buttonshape"
-                android:onClick="btn_rabbit_photo_On_click"
+                android:gravity="center_vertical|center_horizontal"
                 android:shadowColor="#2328A8"
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
                 android:text="@string/New_Session_rabbit_btn"
                 android:textColor="#D3DCE0"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="RabbitInfo_Button_Clicked" />
 
             <Space
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_weight="1" />
+                android:layout_width="30dp"
+                android:layout_height="50dp" />
 
-            <Button
-                android:id="@+id/btn_irabbit"
-                android:layout_width="35dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:background="@drawable/info_logo"
-                android:onClick="RabbitInfo_Button_Clicked"/>
+            <ImageButton
+                android:id="@+id/btn_rabbit_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/camera_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_rabbit_photo_On_click"
+                android:contentDescription="@string/camerabutton_descr" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="50dp" />
+
+            <ImageButton
+                android:id="@+id/btn_rabbit_gallery"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/gallery_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:contentDescription="@string/gallerybutton_descr" />
+
         </LinearLayout>
+
 
         <Space
             android:layout_width="10dp"
-            android:layout_height="10dp" />
+            android:layout_height="15dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_browLifts_photo"
-                android:layout_width="290dp"
-                android:layout_height="52dp"
-                android:layout_weight="1"
+            <TextView
+                android:id="@+id/browLift_tv"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
                 android:background="@drawable/buttonshape"
-                android:onClick="btn_browLifts_photo_On_click"
+                android:gravity="center_vertical|center_horizontal"
                 android:shadowColor="#2328A8"
                 android:shadowDx="-0"
                 android:shadowDy="0"
                 android:shadowRadius="0"
                 android:text="@string/New_Session_eyebrow_lifts_btn"
                 android:textColor="#D3DCE0"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="BrowLiftInfo_Button_Clicked" />
 
             <Space
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_weight="1" />
+                android:layout_width="30dp"
+                android:layout_height="50dp" />
 
-            <Button
-                android:id="@+id/btn_ibrowlift"
-                android:layout_width="35dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:background="@drawable/info_logo"
-                android:onClick="BrowLiftInfo_Button_Clicked"/>
+            <ImageButton
+                android:id="@+id/btn_browLifts_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/camera_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:onClick="btn_browLifts_photo_On_click"
+                android:contentDescription="@string/camerabutton_descr" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="50dp" />
+
+            <ImageButton
+                android:id="@+id/btn_browLifts_gallery"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/gallery_btn"
+                android:gravity="center_vertical|center_horizontal"
+                android:contentDescription="@string/gallerybutton_descr"/>
 
         </LinearLayout>
 

@@ -40,4 +40,6 @@
         completions."
     </string>
     <string name="submit_btn">Submit</string>
+    <string name="camerabutton_descr">CameraButton</string>
+    <string name="gallerybutton_descr">GalleryButton</string>
 </resources>

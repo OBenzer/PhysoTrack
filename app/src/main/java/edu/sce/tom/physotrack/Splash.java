@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import edu.sce.tom.physotrack.Algorithm.SesRunSingletone;
+
 import static java.lang.Thread.sleep;
 
 public class Splash extends AppCompatActivity {
@@ -15,6 +17,7 @@ public class Splash extends AppCompatActivity {
         SharedPreferences.Editor editor = settings.edit();
         boolean firstUse = settings.getBoolean("firstUse", true);
         Intent intent;
+
         if (firstUse) {
             intent = new Intent(this, PersonalDetails.class);
             editor.putBoolean("firstUse", false);
@@ -23,11 +26,11 @@ public class Splash extends AppCompatActivity {
             intent = new Intent(this, MainActivity.class);
         }
 
-
         startActivity(intent);
         super.onCreate(savedInstanceState);
         try {
-
+            //Creates the instance on the singletone//
+            SesRunSingletone.getInstance(getApplicationContext());
             sleep(4000);
 
         } catch (InterruptedException e) {

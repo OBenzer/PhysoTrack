@@ -48,13 +48,11 @@ public class SessionRunner {
     private LandmarksAnalyzer kissAR=null;
 
     private FaceDet mFaceDet=null;
-    private Context context=null;
 
     //ctor//
     //looks for the 68.dat file in not found recreates it from the application
     //and initialize the facedet object for detection
     public SessionRunner(Context c) {
-        this.context=c;
         final String targetPath = Constants.getFaceShapeModelPath();
         if (!new File(targetPath).exists()) {
 

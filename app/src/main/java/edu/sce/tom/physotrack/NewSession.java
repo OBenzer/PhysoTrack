@@ -1,7 +1,6 @@
 package edu.sce.tom.physotrack;
 
 import android.Manifest;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,8 +17,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -27,6 +26,7 @@ import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import edu.sce.tom.physotrack.Algorithm.SesRunSingletone;
 import edu.sce.tom.physotrack.Algorithm.SessionRunner;
 
 public class NewSession extends AppCompatActivity {
@@ -59,7 +59,7 @@ public class NewSession extends AppCompatActivity {
         }
 
         imageCount = 0;
-        sessionRunner = new SessionRunner(this);
+        sessionRunner = SesRunSingletone.getInstance();
      }
 
     // When clicked move to camera //
@@ -199,12 +199,12 @@ public class NewSession extends AppCompatActivity {
                 else {
                     if(!sessionRunner.setSmileP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
                         imageCount--;
-                        ((Button)findViewById(R.id.btn_smile_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        ((TextView)findViewById(R.id.smile_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
                         Toast.makeText(this, "You should retake smile photo, please use the guide", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         imageCount++;
-                        ((Button)findViewById(R.id.btn_smile_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                        ((TextView)findViewById(R.id.smile_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
                     }
                 }
                 break;
@@ -214,12 +214,12 @@ public class NewSession extends AppCompatActivity {
                 else {
                     if(!sessionRunner.setKissP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
                         imageCount--;
-                        ((Button)findViewById(R.id.btn_kiss_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        ((TextView)findViewById(R.id.kiss_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
                         Toast.makeText(this, "You should retake kiss photo, please use the guide", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         imageCount++;
-                        ((Button) findViewById(R.id.btn_kiss_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                        ((TextView) findViewById(R.id.kiss_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
                     }
                 }
                 break;
@@ -229,12 +229,12 @@ public class NewSession extends AppCompatActivity {
                 else {
                     if(!sessionRunner.setEyesClosedP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
                         imageCount--;
-                        ((Button)findViewById(R.id.btn_eyeClose_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        ((TextView)findViewById(R.id.eyeClose_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
                         Toast.makeText(this, "You should retake Eyes Closed photo, please use the guide", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         imageCount++;
-                        ((Button) findViewById(R.id.btn_eyeClose_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                        ((TextView) findViewById(R.id.eyeClose_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
                     }
                 }
                 break;
@@ -244,12 +244,12 @@ public class NewSession extends AppCompatActivity {
                 else {
                     if(!sessionRunner.setUpperlipRasiedP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
                         imageCount--;
-                        ((Button)findViewById(R.id.btn_rabbit_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        ((TextView)findViewById(R.id.rabbit_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
                         Toast.makeText(this, "You should retake rabbit photo, please use the guide", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         imageCount++;
-                        ((Button) findViewById(R.id.btn_rabbit_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                        ((TextView) findViewById(R.id.rabbit_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
                     }
                 }
                 break;
@@ -259,12 +259,12 @@ public class NewSession extends AppCompatActivity {
                 else {
                     if(!sessionRunner.setNaturalP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
                         imageCount--;
-                        ((Button)findViewById(R.id.btn_blankly_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        ((TextView)findViewById(R.id.blankly_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
                         Toast.makeText(this, "You should retake blankly photo, please use the guide", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         imageCount++;
-                        ((Button) findViewById(R.id.btn_blankly_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                        ((TextView) findViewById(R.id.blankly_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
                     }
                 }
                 break;
@@ -274,12 +274,12 @@ public class NewSession extends AppCompatActivity {
                 else {
                     if(!sessionRunner.setEyebrowRaisedP(file.getPath())){   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
                         imageCount--;
-                        ((Button)findViewById(R.id.btn_browLifts_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
+                        ((TextView)findViewById(R.id.browLift_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape)); //Reset the button to the original Button look.
                         Toast.makeText(this, "You should retake browLift photo, please use the guide", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         imageCount++;
-                        ((Button) findViewById(R.id.btn_browLifts_photo)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
+                        ((TextView) findViewById(R.id.browLift_tv)).setBackground(getResources().getDrawable(R.drawable.buttonshape_ok)); //Reset the button to the original Button look.
                     }
                 }
                 break;
