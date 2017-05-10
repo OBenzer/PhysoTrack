@@ -15,11 +15,11 @@ public class ImageResult {
         this.metrics = analyzer;
     }
 
-    //Calculates left-right (for every metrics), and *(-1) if the damaged side is right//
+
     public void calcResult(){
         eyeToBrowDisstance = metrics.getLeftEyeToBrowDistance()-metrics.getRightEyeToBrowDistance();
         eyeArea = metrics.getLeftEyeArea()-metrics.getRightEyeArea();
-        mouthAngle = metrics.getLeftMouthEdgeAngle();
+        mouthAngle = metrics.getRightMouthEdgeAngle();
         mouthDisstance = metrics.getLeftMouthDistance()-metrics.getRightMouthDistance();
         innerMouthAreat = metrics.getLeftInnerMouthArea()-metrics.getRightInnerMouthArea();
         outerMouthArea = metrics.getLeftOuterMouthArea()-metrics.getRightOuterMouthArea();
