@@ -23,29 +23,36 @@ public class SessionRunner {
     //___P - position image path
     //___L - position FaceLandmarks object
     //___AR - position analysis results
+    //___R - single image results sumed up
     private String naturalP=null;
     private FaceLandmarks naturalL=null;
     private LandmarksAnalyzer naturalAR=null;
+    private ImageResult naturalR=null;
 
     private String eyebrowRaisedP=null;
     private FaceLandmarks eyebrowRaisedL=null;
     private LandmarksAnalyzer eyebrowRaisedAR=null;
+    private ImageResult eyebrowRaisedR=null;
 
     private String eyesClosedP=null;
     private FaceLandmarks eyesClosedL=null;
     private LandmarksAnalyzer eyesClosedAR=null;
+    private ImageResult eyesClosedR=null;
 
     private String upperlipRasiedP=null;
     private FaceLandmarks upperlipRasiedL=null;
     private LandmarksAnalyzer upperlipRasiedAR=null;
+    private ImageResult upperlipRasiedR=null;
 
     private String smileP=null;
     private FaceLandmarks smileL=null;
     private LandmarksAnalyzer smileAR=null;
+    private ImageResult smileR=null;
 
     private String kissP=null;
     private FaceLandmarks kissL=null;
     private LandmarksAnalyzer kissAR=null;
+    private ImageResult kissR=null;
 
     private FaceDet mFaceDet=null;
 
@@ -72,40 +79,46 @@ public class SessionRunner {
         if(naturalP!=null){
             naturalAR = new LandmarksAnalyzer(naturalL);
             naturalAR.analyzeFace();
+            naturalR = new ImageResult(naturalAR);
+            naturalR.calcResult();
         }
 
         if(eyebrowRaisedP!=null){
             eyebrowRaisedAR = new LandmarksAnalyzer(eyebrowRaisedL);
             eyebrowRaisedAR.analyzeFace();
+            eyebrowRaisedR = new ImageResult(eyebrowRaisedAR);
+            eyebrowRaisedR.calcResult();
         }
 
         if(eyesClosedP!=null){
             eyesClosedAR = new LandmarksAnalyzer(eyesClosedL);
             eyesClosedAR.analyzeFace();
+            eyesClosedR = new ImageResult(eyesClosedAR);
+            eyesClosedR.calcResult();
         }
 
         if(upperlipRasiedP!=null){
             upperlipRasiedAR = new LandmarksAnalyzer(upperlipRasiedL);
             upperlipRasiedAR.analyzeFace();
+            upperlipRasiedR = new ImageResult(upperlipRasiedAR);
+            upperlipRasiedR.calcResult();
         }
 
         if(smileP!=null){
             smileAR = new LandmarksAnalyzer(smileL);
             smileAR.analyzeFace();
+            smileR = new ImageResult(smileAR);
+            smileR.calcResult();
         }
 
         if(kissP!=null){
             kissAR = new LandmarksAnalyzer(kissL);
             kissAR.analyzeFace();
+            kissR = new ImageResult(kissAR);
+            kissR.calcResult();
         }
 
         //Saving results to DB//
-
-        //Sums-Up results //
-
-        //Saving results to DB//
-
-        //Draw the points and save the image//
 
         //Finish session//
     }
@@ -185,39 +198,4 @@ public class SessionRunner {
         this.kissL = null;
         return false;
     }
-
-    private void drawLandmarks(String path, ArrayList<Point> points) {
-        final float radius = (float)0.1;    //The radius of the points will draw on the image
-        Bitmap bmp = BitmapFactory.decodeFile(path);    //Decode image file to bmp object
-        Canvas can = new Canvas(bmp);   //Creates canvas based on the image
-        Paint paint = new Paint();  //Initial paint pobject that indicates what how to draw
-
-        //Setting paint attributes//
-        paint.setColor(Color.BLUE);
-        paint.setStyle(Paint.Style.STROKE);
-
-        for(Point p:points)
-            can.drawCircle(p.x, p.y, radius, paint);    //Draw all points
-
-        //Saving//
-        FileOutputStream out = null;
-        File oFile = new File(path);
-        String directory = oFile.getParent();
-        String name = oFile.getName().replaceFirst("[.][^.]+$", "")+"LandmarksDrawed.png"; //Remove file extantion
-        try {
-            out = new FileOutputStream(directory+"/"+name);
-            bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (out != null) {
-                    out.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
 }
