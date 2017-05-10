@@ -5,23 +5,25 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import edu.sce.tom.physotrack.Algorithm.ImageResult;
 import edu.sce.tom.physotrack.Algorithm.LandmarksAnalyzer;
+import edu.sce.tom.physotrack.Utils;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 7;
 
     // Database Name
-    private static final String DATABASE_NAME = "BellsData";
+    private static final String DATABASE_NAME = "BellsData.db";
 
     // Table Names
-    private static final String TABLE_METRICS = "metrics";
-    //private static final String TABLE_TAG = "tags";
+    public static final String TABLE_METRICS = "metrics";
+    public static final String TABLE_IMAGE_RESULT = "image_result";
 
     // Common column names
     private static final String SESSION_DATE = "session_date";
-
+    private static final String EXPRESSION = "expression";
 
     // metrics Table - column names
      private static final String LEFT_EYE_CENTER_X="leftEyeCenterX";
@@ -43,22 +45,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      private static final String RIGHT_MOUTH_EDGE_ANGLE="rightMouthEdgeAngle";
      private static final String LEFT_MOUTH_EDGE_ANGLE="leftMouthEdgeAngle";
 
-    // other Table - column names
-   // private static final String KEY_TAG_NAME = "tag_name";
+    // image result - column names
+    private static final String EYE_TO_BROW_DISTANCE="eyeToBrowDistance";
+    private static final String EYE_AREA="eyeArea";
+    private static final String MOUTH_ANGLE="mouthAngle";
+    private static final String MOUTH_DISTANCE="mouthDistance";
+    private static final String INNER_MOUTH_AREA="innerMouthArea";
+    private static final String OUTER_MOUTH_AREA="outerMouthArea";
+
 
     // Table Create Statements
     // Metrics table create statement
     private static final String CREATE_TABLE_METRICS = "CREATE TABLE "
-            + TABLE_METRICS + "(" + SESSION_DATE + " INTEGER PRIMARY KEY," + LEFT_EYE_CENTER_X
-            + " REAL," + LEFT_EYE_CENTER_Y + " REAL," + RIGHT_EYE_CENTER_X
-            + " REAL" + RIGHT_EYE_CENTER_Y + " REAL," + LEFT_EYE_AREA + " REAL,"
+            + TABLE_METRICS + " (" + SESSION_DATE + " TEXT," + EXPRESSION + " TEXT,"
+            + LEFT_EYE_CENTER_X + " REAL," + LEFT_EYE_CENTER_Y + " REAL," + RIGHT_EYE_CENTER_X
+            + " REAL," + RIGHT_EYE_CENTER_Y + " REAL," + LEFT_EYE_AREA + " REAL,"
             + RIGHT_EYE_AREA + " REAL," + RIGHT_BROW_CENTER_X + " REAL,"
             + RIGHT_BROW_CENTER_Y + " REAL," + LEFT_BROW_CENTER_X + " REAL,"
             + LEFT_BROW_CENTER_Y + " REAL," + LEFT_EYE_TO_BROW_DISTANCE + " REAL," +
             RIGHT_EYE_TO_BROW_DISTANCE + " REAL," + LEFT_INNER_MOUTH_AREA + " REAL," +
             RIGHT_INNER_MOUTH_AREA + " REAL," + LEFT_OUTER_MOUTH_AREA + " REAL," +
             RIGHT_OUTER_MOUTH_AREA + " REAL," + RIGHT_MOUTH_EDGE_ANGLE + " REAL," +
-            LEFT_MOUTH_EDGE_ANGLE + " REAL," +")";
+            LEFT_MOUTH_EDGE_ANGLE + " REAL)";
+
+    // image result table create statement
+    private static final String CREATE_TABLE_IMAGE_RESULT = "CREATE TABLE "
+            + TABLE_IMAGE_RESULT + " (" + SESSION_DATE + " TEXT," + EXPRESSION + " TEXT,"
+            + EYE_TO_BROW_DISTANCE + " REAL," + EYE_AREA + " REAL," + MOUTH_ANGLE
+            + " REAL," + MOUTH_DISTANCE + " REAL," + INNER_MOUTH_AREA + " REAL,"
+            + OUTER_MOUTH_AREA + " REAL)";
 
 
 
@@ -70,6 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // creating required tables
         sqLiteDatabase.execSQL(CREATE_TABLE_METRICS);
+        sqLiteDatabase.execSQL(CREATE_TABLE_IMAGE_RESULT);
         //create other tables the same way
     }
 
@@ -78,7 +94,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         // on upgrade drop older tables
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_METRICS);
-        //update other tables the same way
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_IMAGE_RESULT);
+        onCreate(sqLiteDatabase);
+        //or update other tables the same way
     }
 
 
@@ -89,7 +107,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
-       // values.put(SESSION_DATE, getDateToTime);
+        values.put(SESSION_DATE, Utils.todaysDateToString());
+        values.put(EXPRESSION, metric.getExpression());
         values.put(LEFT_EYE_CENTER_X, metric.getLeftEyeCenter().x);
         values.put(LEFT_EYE_CENTER_Y, metric.getLeftEyeCenter().y);
         values.put(RIGHT_EYE_CENTER_X, metric.getRightEyeCenter().x);
@@ -110,7 +129,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(LEFT_MOUTH_EDGE_ANGLE, metric.getLeftMouthEdgeAngle());
 
         // insert row
-        return db.insert(TABLE_METRICS, null, values);
+        long result= db.insert(TABLE_METRICS, null, values);
+        db.close();
+        return result;
+    }
+
+
+    //inserting a image result row to the database
+    //return -1 if error happens otherwise return the row id (this is how db.insert function works)
+    public long insertImageResultToDB(ImageResult imageResult) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(SESSION_DATE, Utils.todaysDateToString());
+        values.put(EXPRESSION, imageResult.getExpression());
+        values.put(EYE_TO_BROW_DISTANCE, imageResult.getEyeToBrowDisstance());
+        values.put(EYE_AREA, imageResult.getEyeArea());
+        values.put(MOUTH_ANGLE, imageResult.getMouthAngle());
+        values.put(MOUTH_DISTANCE, imageResult.getMouthDisstance());
+        values.put(INNER_MOUTH_AREA, imageResult.getInnerMouthAreat());
+        values.put(OUTER_MOUTH_AREA, imageResult.getOuterMouthArea());
+
+
+        // insert row
+        long result= db.insert(TABLE_IMAGE_RESULT, null, values);
+        db.close();
+        return result;
     }
 
 }

@@ -1,10 +1,9 @@
 package edu.sce.tom.physotrack;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     //name of the shared preferences file and keys
@@ -19,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
 
 
     // when btn_personal_details clicked move to PersonalDetails activity
