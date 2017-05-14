@@ -65,6 +65,7 @@ public class NewSession extends AppCompatActivity {
     private SessionRunner sessionRunner;
     private int imageCount;
     private SharedPreferences sharedPref;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,7 @@ public class NewSession extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
         }
-        sharedPref = getSharedPreferences(MainActivity.NEW_SESSION_SP_FILE,Context.MODE_PRIVATE);
+        sharedPref = getSharedPreferences(MainActivity.NEW_SESSION_SP_FILE, Context.MODE_PRIVATE);
 
         imageCount = 0;
         sessionRunner = SesRunSingletone.getInstance();
@@ -131,20 +132,40 @@ public class NewSession extends AppCompatActivity {
     }
 
     public void btn_submit_On_click(View v) {
-        if (imageCount >= MINIMUMIMAGECOUNT) {
-            //maybe add a dialog to ensure the user wants to finish
-            SharedPreferences.Editor editor = sharedPref.edit();
-            //ensure that user does not takes pictures twice a day
-            editor.putString(MainActivity.TODAYS_DATE, Utils.todaysDateToString());
-            editor.apply();
-            sessionRunner.run();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Are you sure you are finished?");
+        builder.setMessage("sure sure sure?");
+        builder.setPositiveButton("sure!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (imageCount >= MINIMUMIMAGECOUNT) {
+                    //maybe add a dialog to ensure the user wants to finish
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    //ensure that user does not takes pictures twice a day
+                    editor.putString(MainActivity.TODAYS_DATE, Utils.todaysDateToString());
+                    editor.apply();
+                    sessionRunner.run();
+                    Intent intent=new Intent(NewSession.this,SessionResult.class);
+                    startActivity(intent);
+                    finish();
 
-            Intent intent = new Intent(this, SessionResult.class);
-            startActivity(intent);
-            finish();
-        } else
-            Toast.makeText(this, "More images needed for this session!", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(NewSession.this, "More images needed for this session!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        builder.setNegativeButton("no!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+
+
+        dialog = builder.create();
+        dialog.show();
+
     }
+
 
     //request permissions android 6+
     @Override
@@ -529,5 +550,6 @@ public class NewSession extends AppCompatActivity {
         Intent intent = new Intent(this, ShowLandmarks.class);
         startActivity(intent);
     }
+
 
 }
