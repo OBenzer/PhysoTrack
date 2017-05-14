@@ -12,8 +12,8 @@
     <string name="new_session_button">new session</string>
     <string name="photo_guide_button">photo guide</string>
     <string name="session_analysis_button">session analysis</string>
-    <string name="therapist_mail">your therapists mail</string>
-    <string name="user_name">your name</string>
+    <string name="therapist_mail">Therapist Email</string>
+    <string name="user_name">Name</string>
     <string name="left_side_radio_button">left side</string>
     <string name="right_side_radio_button">right side</string>
     <string name="submit_Personal_Details">submit</string>
@@ -47,4 +47,6 @@
     <string name="back_btn">Back</string>
     <string name="btn_finish_session">Finish Session</string>
     <string name="tv_session_results">Session Results</string>
+    <string name="treated_side">Treated Side</string>
+    <string name="personal_details_tv">Personal Details</string>
 </resources>
