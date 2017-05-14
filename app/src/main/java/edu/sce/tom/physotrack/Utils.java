@@ -7,19 +7,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Created by yotamc on 10-May-17.
- */
-
 public final class Utils {
 
     //returns todays date as a string
     public static String todaysDateToString() {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date today = Calendar.getInstance().getTime();
-        String reportDate = df.format(today);
-        return reportDate;
+        return df.format(today);
     }
+
     //takes a string date and returns a date object
     public static Date stringToDate(String string) {
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
@@ -30,5 +26,15 @@ public final class Utils {
             e.printStackTrace();
         }
         return date;
+    }
+
+    //Convert a date to string
+    public static String dateToString(Date date) {
+        if(date!=null){
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            return df.format(date);
+        }
+        else
+            return todaysDateToString();
     }
 }
