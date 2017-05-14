@@ -15,8 +15,8 @@ public class SessionResult extends AppCompatActivity {
     }
 
     public void btn_finish_onclick(View v){
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }
