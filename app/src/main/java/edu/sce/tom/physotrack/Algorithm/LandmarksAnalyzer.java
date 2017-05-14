@@ -1,12 +1,10 @@
 package edu.sce.tom.physotrack.Algorithm;
 
 import android.graphics.Point;
-import android.util.Log;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class LandmarksAnalyzer {
+public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
     //face subject//
     private final FaceLandmarks face;
 
@@ -14,29 +12,13 @@ public class LandmarksAnalyzer {
     private static final char LEFT_SIDE='L';
     private static final char RIGHT_SIDE='R';
 
-    //metrics//
-    private Point leftEyeCenter;
-    private Point rightEyeCenter;
-    private float leftEyeArea;
-    private float rightEyeArea;
-    private Point rightBrowCenter;
-    private Point leftBrowCenter;
-    private float leftEyeToBrowDistance;
-    private float rightEyeToBrowDistance;
-    private float leftInnerMouthArea;
-    private float rightInnerMouthArea;
-    private float leftOuterMouthArea;
-    private float rightOuterMouthArea;
-    private float rightMouthEdgeAngle;
-    private float leftMouthEdgeAngle;
-    private float leftMouthDistance;
-    private float rightMouthDistance;
-    private String expression;
+
 
     public LandmarksAnalyzer(FaceLandmarks f, String exp) {
         expression = exp;
         this.face = f;
     }
+
 
     public void analyzeFace() {
         //calc right eye//

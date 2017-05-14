@@ -68,7 +68,8 @@ public class NewSession extends AppCompatActivity {
         setContentView(R.layout.activity_new_session);
         //request permission from the user android 6+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
         }
 
         imageCount = 0;
@@ -105,7 +106,8 @@ public class NewSession extends AppCompatActivity {
 
     public void btn_submit_On_click(View v){
         if(imageCount>=MINIMUMIMAGECOUNT) {
-            Toast.makeText(this, "Start to analize your session", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Starting to analyze your session", Toast.LENGTH_SHORT).show();
+
             sessionRunner.run();
         }
         else

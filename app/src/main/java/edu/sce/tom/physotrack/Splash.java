@@ -31,7 +31,7 @@ public class Splash extends AppCompatActivity {
         try {
             //Creates the instance on the singletone//
             SesRunSingletone.getInstance(getApplicationContext());
-            sleep(4000);
+            sleep(1);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
