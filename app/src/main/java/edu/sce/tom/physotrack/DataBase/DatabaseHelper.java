@@ -195,6 +195,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 null                                      // The sort order
         );
 
+        //frgl
         ArrayList<LandmarksAnalyzerViewer> lav = new ArrayList<LandmarksAnalyzerViewer>();
         while (cursor.moveToNext()) {
             int x;
