@@ -1,8 +1,10 @@
 package edu.sce.tom.physotrack;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -21,6 +23,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,13 +32,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import edu.sce.tom.physotrack.Algorithm.SesRunSingletone;
 import edu.sce.tom.physotrack.Algorithm.SessionRunner;
-import edu.sce.tom.physotrack.DataBase.DatabaseHelper;
 
 public class NewSession extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO_INITIAL = 1000;
@@ -64,6 +64,7 @@ public class NewSession extends AppCompatActivity {
     private Uri file;
     private SessionRunner sessionRunner;
     private int imageCount;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,7 @@ public class NewSession extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
         }
+        sharedPref = getSharedPreferences(MainActivity.NEW_SESSION_SP_FILE,Context.MODE_PRIVATE);
 
         imageCount = 0;
         sessionRunner = SesRunSingletone.getInstance();
@@ -130,8 +132,16 @@ public class NewSession extends AppCompatActivity {
 
     public void btn_submit_On_click(View v) {
         if (imageCount >= MINIMUMIMAGECOUNT) {
-            Toast.makeText(this, "Start to analize your session", Toast.LENGTH_SHORT).show();
+            //maybe add a dialog to ensure the user wants to finish
+            SharedPreferences.Editor editor = sharedPref.edit();
+            //ensure that user does not takes pictures twice a day
+            editor.putString(MainActivity.TODAYS_DATE, Utils.todaysDateToString());
+            editor.apply();
             sessionRunner.run();
+
+            Intent intent = new Intent(this, SessionResult.class);
+            startActivity(intent);
+            finish();
         } else
             Toast.makeText(this, "More images needed for this session!", Toast.LENGTH_SHORT).show();
     }
