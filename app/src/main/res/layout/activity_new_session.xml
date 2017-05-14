@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:id="@+id/relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -45,7 +44,7 @@
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
                 android:padding="15dp"
-                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawableStart="@android:drawable/ic_menu_info_details"
                 android:drawablePadding="-40dp"
                 android:onClick="KissInfo_Button_Clicked" />
 
@@ -100,7 +99,7 @@
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
                 android:padding="15dp"
-                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawableStart="@android:drawable/ic_menu_info_details"
                 android:drawablePadding="-40dp"
                 android:onClick="SmileInfo_Button_Clicked" />
 
@@ -155,7 +154,7 @@
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
                 android:padding="15dp"
-                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawableStart="@android:drawable/ic_menu_info_details"
                 android:drawablePadding="-20dp"
                 android:onClick="EyeCloseInfo_Button_Clicked" />
 
@@ -210,7 +209,7 @@
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
                 android:padding="15dp"
-                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawableStart="@android:drawable/ic_menu_info_details"
                 android:drawablePadding="-40dp"
                 android:onClick="BlanklyInfo_Button_Clicked" />
 
@@ -265,7 +264,7 @@
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
                 android:padding="15dp"
-                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawableStart="@android:drawable/ic_menu_info_details"
                 android:drawablePadding="-40dp"
                 android:onClick="RabbitInfo_Button_Clicked" />
 
@@ -321,7 +320,7 @@
                 android:textColor="#D3DCE0"
                 android:textSize="15sp"
                 android:padding="15dp"
-                android:drawableLeft="@android:drawable/ic_menu_info_details"
+                android:drawableStart="@android:drawable/ic_menu_info_details"
                 android:drawablePadding="-15dp"
                 android:onClick="BrowLiftInfo_Button_Clicked" />
 
@@ -376,8 +375,24 @@
         android:text="@string/submit_btn"
         android:textColor="#D3DCE0"
         android:textSize="15sp"
-        android:layout_marginBottom="46dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_showlandmarks"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="btn_showLandmarks_On_click"
+        android:shadowColor="#2328A8"
+        android:shadowDx="-0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="@string/btn_showlandm"
+        android:textColor="#D3DCE0"
+        android:textSize="15sp"
+        android:layout_marginBottom="12dp"
+        android:layout_above="@+id/btn_submit"
+        android:layout_alignStart="@+id/btn_submit" />
 
 </RelativeLayout>

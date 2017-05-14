@@ -43,4 +43,6 @@
     <string name="camerabutton_descr">CameraButton</string>
     <string name="gallerybutton_descr">GalleryButton</string>
     <string name="photo_guide_text">The app shows better results when you\'ve shot all six of the expressions, This is a guide to how each expression looks, After the picture is taken - the button with the name of the expression Paint green.\n</string>
+    <string name="btn_showlandm">Show Landmarks</string>
+    <string name="back_btn">Back</string>
 </resources>

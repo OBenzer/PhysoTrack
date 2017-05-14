@@ -1,19 +1,8 @@
 package edu.sce.tom.physotrack.Algorithm;
-
 import edu.sce.tom.physotrack.DataBase.DatabaseHelper;
 import edu.sce.tom.physotrack.R;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Point;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.FaceDet;
@@ -217,4 +206,42 @@ public class SessionRunner {
         this.kissL = null;
         return false;
     }
+
+    public String getNaturalP() {
+        return naturalP;
+    }
+    public FaceLandmarks getNaturalL() {
+        return naturalL;
+    }
+    public String getEyebrowRaisedP() {
+        return eyebrowRaisedP;
+    }
+    public FaceLandmarks getEyebrowRaisedL() {
+        return eyebrowRaisedL;
+    }
+    public String getEyesClosedP() {
+        return eyesClosedP;
+    }
+    public FaceLandmarks getEyesClosedL() {
+        return eyesClosedL;
+    }
+    public String getUpperlipRasiedP() {
+        return upperlipRasiedP;
+    }
+    public FaceLandmarks getUpperlipRasiedL() {
+        return upperlipRasiedL;
+    }
+    public String getSmileP() {
+        return smileP;
+    }
+    public FaceLandmarks getSmileL() {
+        return smileL;
+    }
+    public String getKissP() {
+        return kissP;
+    }
+    public FaceLandmarks getKissL() {
+        return kissL;
+    }
+
 }
