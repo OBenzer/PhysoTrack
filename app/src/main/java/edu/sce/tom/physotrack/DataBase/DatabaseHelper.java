@@ -120,7 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(LEFT_EYE_CENTER_X, metric.getLeftEyeCenter().x);
         values.put(LEFT_EYE_CENTER_Y, metric.getLeftEyeCenter().y);
         values.put(RIGHT_EYE_CENTER_X, metric.getRightEyeCenter().x);
-        values.put(RIGHT_EYE_CENTER_Y, metric.getLeftEyeCenter().y);
+        values.put(RIGHT_EYE_CENTER_Y, metric.getRightEyeCenter().y);
         values.put(LEFT_EYE_AREA, metric.getLeftEyeArea());
         values.put(RIGHT_EYE_AREA, metric.getRightEyeArea());
         values.put(RIGHT_BROW_CENTER_X, metric.getRightBrowCenter().x);

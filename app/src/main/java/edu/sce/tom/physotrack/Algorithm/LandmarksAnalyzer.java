@@ -138,7 +138,7 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
     }
 
     private float calcDistance(Point left, Point right){
-        return (float) Math.sqrt((Math.pow((right.x-left.x),2)-(Math.pow((right.y-left.y),2))));
+        return (float) Math.sqrt((Math.pow((right.x-left.x),2)+(Math.pow((right.y-left.y),2))));
     }
 
     private float calcSlope(Point p1, Point p2){

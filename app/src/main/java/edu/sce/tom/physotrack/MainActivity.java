@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
-
     // when btn_personal_details clicked move to PersonalDetails activity
     public void btn_personal_details_On_click(View v){
         Intent i = new Intent(MainActivity.this, PersonalDetails.class);
@@ -32,11 +30,13 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, Medical_information.class);
         startActivity(i);
     }
+
     // when btn_previous_analysis clicked move to PreviousAnalysis activity
     public void btn_previous_analysis_On_click(View v) {
         Intent i = new Intent(MainActivity.this, PreviousAnalysis.class);
         startActivity(i);
     }
+
     // when btn_new_photo clicked move to NewPhoto activity
     public void btn_new_photo_On_click(View v){
         Intent i = new Intent(MainActivity.this, NewPhoto.class);

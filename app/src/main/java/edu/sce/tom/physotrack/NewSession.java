@@ -29,10 +29,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import edu.sce.tom.physotrack.Algorithm.SesRunSingletone;
 import edu.sce.tom.physotrack.Algorithm.SessionRunner;
+import edu.sce.tom.physotrack.DataBase.DatabaseHelper;
 
 public class NewSession extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO_INITIAL = 1000;
@@ -129,7 +132,6 @@ public class NewSession extends AppCompatActivity {
         if (imageCount >= MINIMUMIMAGECOUNT) {
             Toast.makeText(this, "Start to analize your session", Toast.LENGTH_SHORT).show();
             sessionRunner.run();
-            sessionRunner.printAllData();
         } else
             Toast.makeText(this, "More images needed for this session!", Toast.LENGTH_SHORT).show();
     }
