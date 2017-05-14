@@ -72,4 +72,54 @@ public class LandmarksAnalyzerViewer {
                 ", expression='" + expression + '\'' +
                 '}';
     }
+
+    //******************** Getters ********************//
+    public String getExpression() {
+        return expression;
+    }
+    public Point getLeftEyeCenter() {
+        return new Point(leftEyeCenter);
+    }
+    public Point getRightEyeCenter() {
+        return new Point(rightEyeCenter);
+    }
+    public float getLeftEyeArea() {
+        return leftEyeArea;
+    }
+    public float getRightEyeArea() {
+        return rightEyeArea;
+    }
+    public Point getRightBrowCenter() {
+        return new Point(rightBrowCenter);
+    }
+    public Point getLeftBrowCenter() {
+        return new Point(leftBrowCenter);
+    }
+    public float getLeftEyeToBrowDistance() {
+        return leftEyeToBrowDistance;
+    }
+    public float getRightEyeToBrowDistance() {
+        return rightEyeToBrowDistance;
+    }
+    public float getLeftInnerMouthArea() {
+        return leftInnerMouthArea;
+    }
+    public float getRightInnerMouthArea() {
+        return rightInnerMouthArea;
+    }
+    public float getLeftOuterMouthArea() {
+        return leftOuterMouthArea;
+    }
+    public float getRightOuterMouthArea() {
+        return rightOuterMouthArea;
+    }
+    public float getRightMouthEdgeAngle() {
+        return rightMouthEdgeAngle;
+    }
+    public float getLeftMouthEdgeAngle() {
+        return leftMouthEdgeAngle;
+    }
+    public float getLeftMouthDistance() { return leftMouthDistance; }
+    public float getRightMouthDistance() { return rightMouthDistance; }
+
 }
