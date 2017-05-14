@@ -3,6 +3,7 @@
     package="edu.sce.tom.physotrack">
 
     <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -59,9 +60,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShowLandmarks"
+        <activity
+            android:name=".ShowLandmarks"
             android:theme="@style/AppTheme.NoActionBar" />
-
     </application>
 
 </manifest>

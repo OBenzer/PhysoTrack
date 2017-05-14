@@ -90,4 +90,18 @@ public class FaceLandmarks {
 
     public ArrayList<Point> getFaceBorder() { return new ArrayList<>(FaceBorder); }
 
+    @Override
+    public String toString() {
+        return "FaceLandmarks{" +
+                "leftEye=" + leftEye +
+                ", leftEyeBrow=" + leftEyeBrow +
+                ", rightEye=" + rightEye +
+                ", rightEyeBrow=" + rightEyeBrow +
+                ", outerMouth=" + outerMouth +
+                ", innerMouth=" + innerMouth +
+                ", centerNose=" + centerNose +
+                ", noseBottomLine=" + noseBottomLine +
+                ", FaceBorder=" + FaceBorder +
+                '}';
+    }
 }

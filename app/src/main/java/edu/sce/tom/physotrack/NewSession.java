@@ -129,6 +129,7 @@ public class NewSession extends AppCompatActivity {
         if (imageCount >= MINIMUMIMAGECOUNT) {
             Toast.makeText(this, "Start to analize your session", Toast.LENGTH_SHORT).show();
             sessionRunner.run();
+            sessionRunner.printAllData();
         } else
             Toast.makeText(this, "More images needed for this session!", Toast.LENGTH_SHORT).show();
     }

@@ -131,6 +131,21 @@ public class SessionRunner {
         }
     }
 
+    public void printAllData(){
+        System.out.println(kissAR.toString());
+        System.out.println(smileAR.toString());
+        System.out.println(upperlipRasiedAR.toString());
+        System.out.println(eyesClosedAR.toString());
+        System.out.println(eyebrowRaisedAR.toString());
+        System.out.println(naturalAR.toString());
+        System.out.println(kissR.toString());
+        System.out.println(smileR.toString());
+        System.out.println(upperlipRasiedR.toString());
+        System.out.println(eyesClosedR.toString());
+        System.out.println(eyebrowRaisedR.toString());
+        System.out.println(naturalR.toString());
+    }
+
     //setters//
     //returns true if one face was detected and updates all facial landmarks for specific position, updates path for position
     //return false in any case of error (if no face was found or no facial landmark detected or more than one face was detected...etc)

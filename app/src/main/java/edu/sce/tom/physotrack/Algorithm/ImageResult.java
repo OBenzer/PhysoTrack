@@ -51,4 +51,17 @@ public class ImageResult {
     public float getOuterMouthArea() {
         return outerMouthArea;
     }
+
+    @Override
+    public String toString() {
+        return "ImageResult{" +
+                "eyeToBrowDisstance=" + eyeToBrowDisstance +
+                ", eyeArea=" + eyeArea +
+                ", mouthAngle=" + mouthAngle +
+                ", mouthDisstance=" + mouthDisstance +
+                ", innerMouthAreat=" + innerMouthAreat +
+                ", outerMouthArea=" + outerMouthArea +
+                ", expression='" + expression + '\'' +
+                '}';
+    }
 }
