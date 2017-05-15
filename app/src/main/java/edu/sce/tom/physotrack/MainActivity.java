@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    // when btn_previous_analysis clicked move to PreviousAnalysis activity
+  /* // when btn_previous_analysis clicked move to PreviousAnalysis activity
     public void btn_previous_analysis_On_click(View v) {
         Intent i = new Intent(MainActivity.this, PreviousAnalysis.class);
         startActivity(i);
-    }
+    }*/
 
     // when btn_new_photo clicked move to NewPhoto activity
     public void btn_new_photo_On_click(View v) {

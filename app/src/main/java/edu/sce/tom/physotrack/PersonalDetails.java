@@ -27,7 +27,7 @@ public class PersonalDetails extends AppCompatActivity {
         setContentView(R.layout.activity_personal_details);
         userD = getSharedPreferences(MainActivity.USER_DETAILS_SP_FILE, Context.MODE_PRIVATE);
         editor = userD.edit();
-        name = (EditText) findViewById(R.id.txt_username);
+        name = (EditText) findViewById(R.id.txt_user_name);
         therapistMail = (EditText) findViewById(R.id.txt_therapist_mail);
         left = (RadioButton) findViewById(R.id.radio_left);
         right = (RadioButton) findViewById(R.id.radio_right);
@@ -55,7 +55,7 @@ public class PersonalDetails extends AppCompatActivity {
 
         String SideSelected;
 
-        EditText user_name = (EditText) findViewById(R.id.txt_username);
+        EditText user_name = (EditText) findViewById(R.id.txt_user_name);
         EditText therapist_mail = (EditText) findViewById(R.id.txt_therapist_mail);
         String strUserName = name.getText().toString();
 
