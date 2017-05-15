@@ -29,12 +29,12 @@ public class PreviousAnalysis extends AppCompatActivity {
 
         // Working With the Graph //
         GraphView graph = (GraphView) findViewById(R.id.PreviousAnalysisGraph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(1,80),
-                new DataPoint(2,83),
-                new DataPoint(3,90),
-                new DataPoint(4,70),
-                new DataPoint(5,95)
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[]{
+                new DataPoint(1, 80),
+                new DataPoint(2, 83),
+                new DataPoint(3, 90),
+                new DataPoint(4, 70),
+                new DataPoint(5, 95)
         });
         graph.addSeries(series);
         // Finish Working With Graph //
@@ -42,20 +42,19 @@ public class PreviousAnalysis extends AppCompatActivity {
     }
 
 
-
     public void btn_send_therapist_on_click(View v) throws IOException, InterruptedException {
         SharedPreferences pref = getApplicationContext().getSharedPreferences(MainActivity.USER_DETAILS_SP_FILE, MODE_PRIVATE);
         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = pref.edit();
-        String email=pref.getString(THERAPIST_MAIL,"");// getting String
+        String email = pref.getString(THERAPIST_MAIL, "");// getting String
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL,new String[]{email});
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
         //create a txt file and write blabla and send to pysiotrapist mail
-        String filename="analysis.txt";
+        String filename = "analysis.txt";
         File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
         Uri path = Uri.fromFile(filelocation);
 
-       intent.setType("plain/text");
-        FileWriter writer=new FileWriter(filelocation);
+        intent.setType("plain/text");
+        FileWriter writer = new FileWriter(filelocation);
         writer.append("blabla");
         writer.close();
         intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis");
