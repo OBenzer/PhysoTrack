@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Point;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import edu.sce.tom.physotrack.Algorithm.ImageResult;
 import edu.sce.tom.physotrack.Algorithm.ImageResultViewer;
@@ -19,14 +18,14 @@ import edu.sce.tom.physotrack.Utils;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Database Version
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 10;
 
     // Database Name
     private static final String DATABASE_NAME = "BellsData.db";
 
     // Table Names
-    public static final String TABLE_METRICS = "metrics";
-    public static final String TABLE_IMAGE_RESULT = "image_result";
+    private static final String TABLE_METRICS = "metrics";
+    private static final String TABLE_IMAGE_RESULT = "image_result";
 
     // Common column names
     private static final String SESSION_DATE = "session_date";
@@ -137,8 +136,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(RIGHT_OUTER_MOUTH_AREA, metric.getRightOuterMouthArea());
         values.put(RIGHT_MOUTH_EDGE_ANGLE, metric.getRightMouthEdgeAngle());
         values.put(LEFT_MOUTH_EDGE_ANGLE, metric.getLeftMouthEdgeAngle());
-        values.put(LEFT_MOUTH_DISTANCE,metric.getLeftMouthDistance());
-        values.put(RIGHT_MOUTH_DISTANCE,metric.getRightMouthDistance());
+        values.put(LEFT_MOUTH_DISTANCE, metric.getLeftMouthDistance());
+        values.put(RIGHT_MOUTH_DISTANCE, metric.getRightMouthDistance());
 
         // insert row
         long result = db.insert(TABLE_METRICS, null, values);
@@ -171,22 +170,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public ArrayList<LandmarksAnalyzerViewer> getAllMetricsFromDB() {
         SQLiteDatabase db = this.getReadableDatabase();
-
-        // Define a projection that specifies which columns from the database
-        // you will actually use after this query.
-        //String[] projection = {
-        //FeedEntry.COLUMN_NAME_TITLE,
-        // FeedEntry.COLUMN_NAME_SUBTITLE
-        //};
-
-        // Filter results WHERE "title" = 'My Title'
-        //String selection =//COLUMN_NAME_TITLE + " = ?";
-        //String[] selectionArgs = { "My Title" };
-
-        // How you want the results sorted in the resulting Cursor
-        // String sortOrder =
-        //        FeedEntry.COLUMN_NAME_SUBTITLE + " DESC";
-
         Cursor cursor = db.query(
                 TABLE_METRICS,                            // The table to query
                 null,                                     // The columns to return
@@ -201,35 +184,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             int x;
             int y;
-            String expression=cursor.getString(cursor.getColumnIndexOrThrow(EXPRESSION));
+            String expression = cursor.getString(cursor.getColumnIndexOrThrow(EXPRESSION));
             x = cursor.getInt(cursor.getColumnIndexOrThrow(LEFT_EYE_CENTER_X));
             y = cursor.getInt(cursor.getColumnIndexOrThrow(LEFT_EYE_CENTER_Y));
-            Point leftEyeCenter =new Point(x,y);
+            Point leftEyeCenter = new Point(x, y);
             x = cursor.getInt(cursor.getColumnIndexOrThrow(RIGHT_EYE_CENTER_X));
             y = cursor.getInt(cursor.getColumnIndexOrThrow(RIGHT_EYE_CENTER_Y));
-            Point rightEyeCenter=new Point(x,y);
-            float leftEyeArea=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_EYE_AREA));
-            float rightEyeArea=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_EYE_AREA));;
+            Point rightEyeCenter = new Point(x, y);
+            float leftEyeArea = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_EYE_AREA));
+            float rightEyeArea = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_EYE_AREA));
             x = cursor.getInt(cursor.getColumnIndexOrThrow(RIGHT_BROW_CENTER_X));
             y = cursor.getInt(cursor.getColumnIndexOrThrow(RIGHT_BROW_CENTER_Y));
-            Point rightBrowCenter=new Point(x,y);
+            Point rightBrowCenter = new Point(x, y);
             x = cursor.getInt(cursor.getColumnIndexOrThrow(LEFT_BROW_CENTER_X));
             y = cursor.getInt(cursor.getColumnIndexOrThrow(LEFT_BROW_CENTER_Y));
-            Point leftBrowCenter=new Point(x,y);
-            float leftEyeToBrowDistance=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_EYE_TO_BROW_DISTANCE));
-            float rightEyeToBrowDistance=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_EYE_TO_BROW_DISTANCE));
-            float leftInnerMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_INNER_MOUTH_AREA));
-            float rightInnerMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_INNER_MOUTH_AREA));
-            float leftOuterMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_OUTER_MOUTH_AREA));
-            float rightOuterMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_OUTER_MOUTH_AREA));
-            float rightMouthEdgeAngle=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_MOUTH_EDGE_ANGLE));
-            float leftMouthEdgeAngle=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_MOUTH_EDGE_ANGLE));
-            float leftMouthDistance=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_MOUTH_DISTANCE));
-            float rightMouthDistance=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_MOUTH_DISTANCE));
-            lav.add(new LandmarksAnalyzerViewer(leftEyeCenter,rightEyeCenter,leftEyeArea,rightEyeArea,
-                    rightBrowCenter,leftBrowCenter,leftEyeToBrowDistance,rightEyeToBrowDistance,
-                    leftInnerMouthArea,rightInnerMouthArea,leftOuterMouthArea,rightOuterMouthArea,
-                    rightMouthEdgeAngle,leftMouthEdgeAngle,leftMouthDistance,rightMouthDistance,
+            Point leftBrowCenter = new Point(x, y);
+            float leftEyeToBrowDistance = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_EYE_TO_BROW_DISTANCE));
+            float rightEyeToBrowDistance = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_EYE_TO_BROW_DISTANCE));
+            float leftInnerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_INNER_MOUTH_AREA));
+            float rightInnerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_INNER_MOUTH_AREA));
+            float leftOuterMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_OUTER_MOUTH_AREA));
+            float rightOuterMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_OUTER_MOUTH_AREA));
+            float rightMouthEdgeAngle = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_MOUTH_EDGE_ANGLE));
+            float leftMouthEdgeAngle = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_MOUTH_EDGE_ANGLE));
+            float leftMouthDistance = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_MOUTH_DISTANCE));
+            float rightMouthDistance = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_MOUTH_DISTANCE));
+            lav.add(new LandmarksAnalyzerViewer(leftEyeCenter, rightEyeCenter, leftEyeArea, rightEyeArea,
+                    rightBrowCenter, leftBrowCenter, leftEyeToBrowDistance, rightEyeToBrowDistance,
+                    leftInnerMouthArea, rightInnerMouthArea, leftOuterMouthArea, rightOuterMouthArea,
+                    rightMouthEdgeAngle, leftMouthEdgeAngle, leftMouthDistance, rightMouthDistance,
                     expression));
         }
         cursor.close();
@@ -237,14 +220,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<LandmarksAnalyzerViewer> getMetricsFromDBByDate(Date date) {
+    public ArrayList<LandmarksAnalyzerViewer> getMetricsFromDBByDate(String date) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(
                 TABLE_METRICS,
                 null,
-                SESSION_DATE+"="+Utils.dateToString(date),
-                null,
+                SESSION_DATE + "=?",
+                new String[]{date},
                 null,
                 null,
                 null
@@ -254,35 +237,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             int x;
             int y;
-            String expression=cursor.getString(cursor.getColumnIndexOrThrow(EXPRESSION));
+            String expression = cursor.getString(cursor.getColumnIndexOrThrow(EXPRESSION));
             x = cursor.getInt(cursor.getColumnIndexOrThrow(LEFT_EYE_CENTER_X));
             y = cursor.getInt(cursor.getColumnIndexOrThrow(LEFT_EYE_CENTER_Y));
-            Point leftEyeCenter =new Point(x,y);
+            Point leftEyeCenter = new Point(x, y);
             x = cursor.getInt(cursor.getColumnIndexOrThrow(RIGHT_EYE_CENTER_X));
             y = cursor.getInt(cursor.getColumnIndexOrThrow(RIGHT_EYE_CENTER_Y));
-            Point rightEyeCenter=new Point(x,y);
-            float leftEyeArea=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_EYE_AREA));
-            float rightEyeArea=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_EYE_AREA));;
+            Point rightEyeCenter = new Point(x, y);
+            float leftEyeArea = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_EYE_AREA));
+            float rightEyeArea = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_EYE_AREA));
             x = cursor.getInt(cursor.getColumnIndexOrThrow(RIGHT_BROW_CENTER_X));
             y = cursor.getInt(cursor.getColumnIndexOrThrow(RIGHT_BROW_CENTER_Y));
-            Point rightBrowCenter=new Point(x,y);
+            Point rightBrowCenter = new Point(x, y);
             x = cursor.getInt(cursor.getColumnIndexOrThrow(LEFT_BROW_CENTER_X));
             y = cursor.getInt(cursor.getColumnIndexOrThrow(LEFT_BROW_CENTER_Y));
-            Point leftBrowCenter=new Point(x,y);
-            float leftEyeToBrowDistance=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_EYE_TO_BROW_DISTANCE));
-            float rightEyeToBrowDistance=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_EYE_TO_BROW_DISTANCE));
-            float leftInnerMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_INNER_MOUTH_AREA));
-            float rightInnerMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_INNER_MOUTH_AREA));
-            float leftOuterMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_OUTER_MOUTH_AREA));
-            float rightOuterMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_OUTER_MOUTH_AREA));
-            float rightMouthEdgeAngle=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_MOUTH_EDGE_ANGLE));
-            float leftMouthEdgeAngle=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_MOUTH_EDGE_ANGLE));
-            float leftMouthDistance=cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_MOUTH_DISTANCE));
-            float rightMouthDistance=cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_MOUTH_DISTANCE));
-            lav.add(new LandmarksAnalyzerViewer(leftEyeCenter,rightEyeCenter,leftEyeArea,rightEyeArea,
-                    rightBrowCenter,leftBrowCenter,leftEyeToBrowDistance,rightEyeToBrowDistance,
-                    leftInnerMouthArea,rightInnerMouthArea,leftOuterMouthArea,rightOuterMouthArea,
-                    rightMouthEdgeAngle,leftMouthEdgeAngle,leftMouthDistance,rightMouthDistance,
+            Point leftBrowCenter = new Point(x, y);
+            float leftEyeToBrowDistance = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_EYE_TO_BROW_DISTANCE));
+            float rightEyeToBrowDistance = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_EYE_TO_BROW_DISTANCE));
+            float leftInnerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_INNER_MOUTH_AREA));
+            float rightInnerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_INNER_MOUTH_AREA));
+            float leftOuterMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_OUTER_MOUTH_AREA));
+            float rightOuterMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_OUTER_MOUTH_AREA));
+            float rightMouthEdgeAngle = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_MOUTH_EDGE_ANGLE));
+            float leftMouthEdgeAngle = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_MOUTH_EDGE_ANGLE));
+            float leftMouthDistance = cursor.getFloat(cursor.getColumnIndexOrThrow(LEFT_MOUTH_DISTANCE));
+            float rightMouthDistance = cursor.getFloat(cursor.getColumnIndexOrThrow(RIGHT_MOUTH_DISTANCE));
+            lav.add(new LandmarksAnalyzerViewer(leftEyeCenter, rightEyeCenter, leftEyeArea, rightEyeArea,
+                    rightBrowCenter, leftBrowCenter, leftEyeToBrowDistance, rightEyeToBrowDistance,
+                    leftInnerMouthArea, rightInnerMouthArea, leftOuterMouthArea, rightOuterMouthArea,
+                    rightMouthEdgeAngle, leftMouthEdgeAngle, leftMouthDistance, rightMouthDistance,
                     expression));
         }
         cursor.close();
@@ -304,27 +287,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<ImageResultViewer> objList = new ArrayList<>();
 
         while (cursor.moveToNext()) {
-            String expression=cursor.getString(cursor.getColumnIndexOrThrow(EXPRESSION));
-            float eyeToBrowDisstance=cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_TO_BROW_DISTANCE));
-            float eyeArea=cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_AREA));
-            float mouthAngle=cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_ANGLE));
-            float mouthDisstance=cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_DISTANCE));
-            float innerMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(INNER_MOUTH_AREA));
-            float outerMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(OUTER_MOUTH_AREA));
+            String expression = cursor.getString(cursor.getColumnIndexOrThrow(EXPRESSION));
+            float eyeToBrowDisstance = cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_TO_BROW_DISTANCE));
+            float eyeArea = cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_AREA));
+            float mouthAngle = cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_ANGLE));
+            float mouthDisstance = cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_DISTANCE));
+            float innerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(INNER_MOUTH_AREA));
+            float outerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(OUTER_MOUTH_AREA));
 
-            objList.add(new ImageResultViewer(eyeToBrowDisstance,eyeArea,mouthAngle,mouthDisstance,innerMouthArea,outerMouthArea,expression));
+            objList.add(new ImageResultViewer(eyeToBrowDisstance, eyeArea, mouthAngle, mouthDisstance, innerMouthArea, outerMouthArea, expression));
         }
         cursor.close();
         return objList;
     }
 
-    public ArrayList<ImageResultViewer> getImageResultFromDBByDate(Date date){
+    public ArrayList<ImageResultViewer> getImageResultFromDBByDate(String date) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(
                 TABLE_IMAGE_RESULT,
                 null,
-                SESSION_DATE+"="+Utils.dateToString(date),
-                null,
+                SESSION_DATE + "=?",
+                new String[]{date},
                 null,
                 null,
                 null
@@ -333,15 +316,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<ImageResultViewer> objList = new ArrayList<>();
 
         while (cursor.moveToNext()) {
-            String expression=cursor.getString(cursor.getColumnIndexOrThrow(EXPRESSION));
-            float eyeToBrowDisstance=cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_TO_BROW_DISTANCE));
-            float eyeArea=cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_AREA));
-            float mouthAngle=cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_ANGLE));
-            float mouthDisstance=cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_DISTANCE));
-            float innerMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(INNER_MOUTH_AREA));
-            float outerMouthArea=cursor.getFloat(cursor.getColumnIndexOrThrow(OUTER_MOUTH_AREA));
+            String expression = cursor.getString(cursor.getColumnIndexOrThrow(EXPRESSION));
+            float eyeToBrowDisstance = cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_TO_BROW_DISTANCE));
+            float eyeArea = cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_AREA));
+            float mouthAngle = cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_ANGLE));
+            float mouthDisstance = cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_DISTANCE));
+            float innerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(INNER_MOUTH_AREA));
+            float outerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(OUTER_MOUTH_AREA));
 
-            objList.add(new ImageResultViewer(eyeToBrowDisstance,eyeArea,mouthAngle,mouthDisstance,innerMouthArea,outerMouthArea,expression));
+            objList.add(new ImageResultViewer(eyeToBrowDisstance, eyeArea, mouthAngle, mouthDisstance, innerMouthArea, outerMouthArea, expression));
         }
         cursor.close();
         return objList;
