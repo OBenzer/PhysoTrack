@@ -41,6 +41,24 @@
             android:layout_height="10dp" />
 
         <Button
+            android:id="@+id/btn_previous_analysis"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/buttonshape"
+            android:onClick="btn_previous_analysis_On_click"
+            android:shadowColor="#2328A8"
+            android:shadowDx="-0"
+            android:shadowDy="0"
+            android:shadowRadius="0"
+            android:text="@string/previous_analysis_button"
+            android:textColor="#D3DCE0"
+            android:textSize="15sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <Button
             android:id="@+id/btn_personal_detail"
             android:layout_width="match_parent"
             android:layout_height="52dp"

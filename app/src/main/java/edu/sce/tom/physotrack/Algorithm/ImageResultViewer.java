@@ -1,12 +1,8 @@
 package edu.sce.tom.physotrack.Algorithm;
 
-import java.util.Date;
-
-import edu.sce.tom.physotrack.Utils;
-
 public class ImageResultViewer {
 
-    protected Date date;
+    protected String date;
     protected float eyeToBrowDisstance;
     protected float eyeArea;
     protected float mouthAngle;
@@ -21,7 +17,7 @@ public class ImageResultViewer {
 
     public ImageResultViewer(String date, float eyeToBrowDisstance, float eyeArea, float mouthAngle, float mouthDisstance,
                              float innerMouthAreat, float outerMouthArea, String expression) {
-        this.date = Utils.stringToDate(date);
+        this.date = date;
         this.eyeToBrowDisstance = eyeToBrowDisstance;
         this.eyeArea = eyeArea;
         this.mouthAngle = mouthAngle;
@@ -59,21 +55,21 @@ public class ImageResultViewer {
         return outerMouthArea;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
     @Override
     public String toString() {
-        return "ImageResultViewer{" +
-                "date=" + date +
-                ", eyeToBrowDisstance=" + eyeToBrowDisstance +
-                ", eyeArea=" + eyeArea +
-                ", mouthAngle=" + mouthAngle +
-                ", mouthDisstance=" + mouthDisstance +
-                ", innerMouthAreat=" + innerMouthAreat +
-                ", outerMouthArea=" + outerMouthArea +
-                ", expression='" + expression + '\'' +
-                '}';
+        return
+                "date of image = " + date +
+                ", expression = " + expression +
+                ", eye To eyebrow Distance = " + eyeToBrowDisstance +
+                ", eye Area = " + eyeArea +
+                ", mouth Angle = " + mouthAngle +
+                ", mouth Distance = " + mouthDisstance +
+                ", inner Mouth Area = " + innerMouthAreat +
+                ", outer Mouth Area = " + outerMouthArea +
+                "\n\n";
     }
 }

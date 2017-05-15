@@ -16,8 +16,13 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import edu.sce.tom.physotrack.Algorithm.ImageResultViewer;
+import edu.sce.tom.physotrack.DataBase.DatabaseHelper;
 
 import static edu.sce.tom.physotrack.MainActivity.THERAPIST_MAIL;
+import static edu.sce.tom.physotrack.MainActivity.USER_NAME;
 
 public class PreviousAnalysis extends AppCompatActivity {
 
@@ -44,23 +49,40 @@ public class PreviousAnalysis extends AppCompatActivity {
 
     public void btn_send_therapist_on_click(View v) throws IOException, InterruptedException {
         SharedPreferences pref = getApplicationContext().getSharedPreferences(MainActivity.USER_DETAILS_SP_FILE, MODE_PRIVATE);
-        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = pref.edit();
-        String email = pref.getString(THERAPIST_MAIL, "");// getting String
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
-        //create a txt file and write blabla and send to pysiotrapist mail
-        String filename = "analysis.txt";
-        File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
-        Uri path = Uri.fromFile(filelocation);
 
-        intent.setType("plain/text");
+        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = pref.edit();
+        String filename = "analysis.txt";
+
+        File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),filename);
+        Uri path = Uri.fromFile(filelocation);
         FileWriter writer = new FileWriter(filelocation);
-        writer.append("blabla");
-        writer.close();
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis");
-        intent.putExtra(Intent.EXTRA_TEXT, "mail body");
-        intent.putExtra(Intent.EXTRA_STREAM, path);
-        startActivity(Intent.createChooser(intent, ""));
+
+        DatabaseHelper db=new DatabaseHelper(this);
+
+
+        ArrayList<ImageResultViewer> arr= new ArrayList<>();
+        arr = db.getAllImageResultFromDB();
+        
+
+            String email = pref.getString(THERAPIST_MAIL, "");// getting thrapist email
+            String name = pref.getString(USER_NAME, "");//getting name of user
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+            //create a txt file and write blabla and send to pysiotrapist mail
+
+            intent.setType("plain/text");
+
+            intent.setType("plain/text");
+            //  writer.append("fnu");
+            for (ImageResultViewer ls : arr) {
+                writer.append(ls.toString());
+
+            }
+            writer.close();
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis of " + name + " by PhysoTrack");
+            intent.putExtra(Intent.EXTRA_TEXT, "hi ,\nhere is my analysis by image attached below");
+            intent.putExtra(Intent.EXTRA_STREAM, path);
+            startActivity(Intent.createChooser(intent, ""));
 
     }
 }

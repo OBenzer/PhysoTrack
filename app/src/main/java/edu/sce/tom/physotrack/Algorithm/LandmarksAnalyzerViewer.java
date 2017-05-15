@@ -2,15 +2,11 @@ package edu.sce.tom.physotrack.Algorithm;
 
 import android.graphics.Point;
 
-import java.util.Date;
-
-import edu.sce.tom.physotrack.Utils;
-
 
 public class LandmarksAnalyzerViewer {
 
     //metrics//
-    protected Date date;
+    protected String date;
     protected Point leftEyeCenter;
     protected Point rightEyeCenter;
     protected float leftEyeArea;
@@ -38,7 +34,7 @@ public class LandmarksAnalyzerViewer {
                                    float rightInnerMouthArea, float leftOuterMouthArea, float rightOuterMouthArea,
                                    float rightMouthEdgeAngle, float leftMouthEdgeAngle, float leftMouthDistance,
                                    float rightMouthDistance, String expression) {
-        this.date = Utils.stringToDate(date);
+        this.date = date;
         this.leftEyeCenter = leftEyeCenter;
         this.rightEyeCenter = rightEyeCenter;
         this.leftEyeArea = leftEyeArea;
@@ -61,7 +57,7 @@ public class LandmarksAnalyzerViewer {
 
     //******************** Getters ********************//
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
