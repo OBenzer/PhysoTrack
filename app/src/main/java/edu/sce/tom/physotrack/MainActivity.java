@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //name of the shared preferences file and keys
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     // when btn_personal_details clicked move to PersonalDetails activity
     public void btn_personal_details_On_click(View v) {
+        Toast.makeText(this, Utils.stringToDate("12/05/2017").toString(), Toast.LENGTH_SHORT).show();
         Intent i = new Intent(MainActivity.this, PersonalDetails.class);
         startActivity(i);
     }

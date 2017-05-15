@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 public final class Utils {
 
@@ -18,7 +17,7 @@ public final class Utils {
 
     //takes a string date and returns a date object
     public static Date stringToDate(String string) {
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date date = null;
         try {
             date = format.parse(string);
