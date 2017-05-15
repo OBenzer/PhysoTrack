@@ -17,27 +17,25 @@
             android:id="@+id/txt_medical_information"
             style="@android:style/DeviceDefault.Light.ButtonBar"
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_height="450dp"
             android:layout_gravity="start"
             android:layout_weight="0.25"
             android:gravity="start"
             android:text="@string/medical_info_text"
             android:textAlignment="textStart"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btn_youtube_information"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:layout_gravity="start"
-            android:layout_marginBottom="96dp"
-            android:layout_weight="1"
-            android:background="@drawable/youtube"
-            android:foregroundGravity="left"
-            android:gravity="start"
-            android:onClick="btn_youtube_exercises_On_click" />
+    <Button
+        android:id="@+id/btn_youtube_information"
+        android:layout_width="120dp"
+        android:layout_height="98dp"
+        android:layout_gravity="start"
+        android:background="@drawable/youtube"
+        android:foregroundGravity="left"
+        android:gravity="start"
+        android:onClick="btn_youtube_exercises_On_click" />
 
-    </LinearLayout>
+</LinearLayout>
 
 
