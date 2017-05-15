@@ -2,10 +2,15 @@ package edu.sce.tom.physotrack.Algorithm;
 
 import android.graphics.Point;
 
+import java.util.Date;
+
+import edu.sce.tom.physotrack.Utils;
+
 
 public class LandmarksAnalyzerViewer {
 
     //metrics//
+    protected Date date;
     protected Point leftEyeCenter;
     protected Point rightEyeCenter;
     protected float leftEyeArea;
@@ -27,12 +32,13 @@ public class LandmarksAnalyzerViewer {
     public LandmarksAnalyzerViewer() {
     }
 
-    public LandmarksAnalyzerViewer(Point leftEyeCenter, Point rightEyeCenter, float leftEyeArea,
+    public LandmarksAnalyzerViewer(String date, Point leftEyeCenter, Point rightEyeCenter, float leftEyeArea,
                                    float rightEyeArea, Point rightBrowCenter, Point leftBrowCenter,
                                    float leftEyeToBrowDistance, float rightEyeToBrowDistance, float leftInnerMouthArea,
                                    float rightInnerMouthArea, float leftOuterMouthArea, float rightOuterMouthArea,
-                                   float rightMouthEdgeAngle, float leftMouthEdgeAngle,float leftMouthDistance,
-                                   float rightMouthDistance,String expression) {
+                                   float rightMouthEdgeAngle, float leftMouthEdgeAngle, float leftMouthDistance,
+                                   float rightMouthDistance, String expression) {
+        this.date = Utils.stringToDate(date);
         this.leftEyeCenter = leftEyeCenter;
         this.rightEyeCenter = rightEyeCenter;
         this.leftEyeArea = leftEyeArea;
@@ -52,10 +58,86 @@ public class LandmarksAnalyzerViewer {
         this.expression = expression;
     }
 
+
+    //******************** Getters ********************//
+
+    public Date getDate() {
+        return date;
+    }
+
+    public String getExpression() {
+        return expression;
+    }
+
+    public Point getLeftEyeCenter() {
+        return new Point(leftEyeCenter);
+    }
+
+    public Point getRightEyeCenter() {
+        return new Point(rightEyeCenter);
+    }
+
+    public float getLeftEyeArea() {
+        return leftEyeArea;
+    }
+
+    public float getRightEyeArea() {
+        return rightEyeArea;
+    }
+
+    public Point getRightBrowCenter() {
+        return new Point(rightBrowCenter);
+    }
+
+    public Point getLeftBrowCenter() {
+        return new Point(leftBrowCenter);
+    }
+
+    public float getLeftEyeToBrowDistance() {
+        return leftEyeToBrowDistance;
+    }
+
+    public float getRightEyeToBrowDistance() {
+        return rightEyeToBrowDistance;
+    }
+
+    public float getLeftInnerMouthArea() {
+        return leftInnerMouthArea;
+    }
+
+    public float getRightInnerMouthArea() {
+        return rightInnerMouthArea;
+    }
+
+    public float getLeftOuterMouthArea() {
+        return leftOuterMouthArea;
+    }
+
+    public float getRightOuterMouthArea() {
+        return rightOuterMouthArea;
+    }
+
+    public float getRightMouthEdgeAngle() {
+        return rightMouthEdgeAngle;
+    }
+
+    public float getLeftMouthEdgeAngle() {
+        return leftMouthEdgeAngle;
+    }
+
+    public float getLeftMouthDistance() {
+        return leftMouthDistance;
+    }
+
+    public float getRightMouthDistance() {
+        return rightMouthDistance;
+    }
+
     @Override
     public String toString() {
         return "LandmarksAnalyzerViewer{" +
-                "leftEyeCenter=" + leftEyeCenter +
+                "date=" + date +
+                ", leftEyeCenter=" + leftEyeCenter +
                 ", rightEyeCenter=" + rightEyeCenter +
                 ", leftEyeArea=" + leftEyeArea +
                 ", rightEyeArea=" + rightEyeArea +
@@ -69,57 +151,9 @@ public class LandmarksAnalyzerViewer {
                 ", rightOuterMouthArea=" + rightOuterMouthArea +
                 ", rightMouthEdgeAngle=" + rightMouthEdgeAngle +
                 ", leftMouthEdgeAngle=" + leftMouthEdgeAngle +
+                ", leftMouthDistance=" + leftMouthDistance +
+                ", rightMouthDistance=" + rightMouthDistance +
                 ", expression='" + expression + '\'' +
                 '}';
     }
-
-    //******************** Getters ********************//
-    public String getExpression() {
-        return expression;
-    }
-    public Point getLeftEyeCenter() {
-        return new Point(leftEyeCenter);
-    }
-    public Point getRightEyeCenter() {
-        return new Point(rightEyeCenter);
-    }
-    public float getLeftEyeArea() {
-        return leftEyeArea;
-    }
-    public float getRightEyeArea() {
-        return rightEyeArea;
-    }
-    public Point getRightBrowCenter() {
-        return new Point(rightBrowCenter);
-    }
-    public Point getLeftBrowCenter() {
-        return new Point(leftBrowCenter);
-    }
-    public float getLeftEyeToBrowDistance() {
-        return leftEyeToBrowDistance;
-    }
-    public float getRightEyeToBrowDistance() {
-        return rightEyeToBrowDistance;
-    }
-    public float getLeftInnerMouthArea() {
-        return leftInnerMouthArea;
-    }
-    public float getRightInnerMouthArea() {
-        return rightInnerMouthArea;
-    }
-    public float getLeftOuterMouthArea() {
-        return leftOuterMouthArea;
-    }
-    public float getRightOuterMouthArea() {
-        return rightOuterMouthArea;
-    }
-    public float getRightMouthEdgeAngle() {
-        return rightMouthEdgeAngle;
-    }
-    public float getLeftMouthEdgeAngle() {
-        return leftMouthEdgeAngle;
-    }
-    public float getLeftMouthDistance() { return leftMouthDistance; }
-    public float getRightMouthDistance() { return rightMouthDistance; }
-
 }
