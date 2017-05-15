@@ -23,7 +23,7 @@ public class NewPhoto extends AppCompatActivity {
 
     // when btn_new_session clicked move to NewSession activity
     public void btn_new_session_On_click(View v) {
-        if (true)/*!checkSessionValidation()*/ {
+        if (true)/*!checkSessionValidation()*/ { //allow only one session a day
             Intent i = new Intent(NewPhoto.this, NewSession.class);
             startActivity(i);
         } else {

@@ -145,7 +145,7 @@ public class NewSession extends AppCompatActivity {
                     editor.putString(MainActivity.TODAYS_DATE, Utils.todaysDateToString());
                     editor.apply();
                     sessionRunner.run();
-                    Intent intent=new Intent(NewSession.this,SessionResult.class);
+                    Intent intent = new Intent(NewSession.this, SessionResult.class);
                     startActivity(intent);
                     finish();
 
@@ -221,9 +221,19 @@ public class NewSession extends AppCompatActivity {
     // Method to handle the event when the user want to pic image from gallery to the session //
     public void pickImage(int requestCode) {
         Toast.makeText(this, "Pick an image", Toast.LENGTH_SHORT).show();
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(galleryIntent, requestCode);
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        /*galleryIntent.setType("image/*");
+        //galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        try {
+            galleryIntent.putExtra("return-data", true);*/
+                startActivityForResult(galleryIntent, requestCode);
+
+       /* } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "something went wrong catch", Toast.LENGTH_SHORT).show();
+        }*/
     }
+
+
 
     //saves in storage/emulated/0/pictures/PhysoAblum
     //here we can devide into folders by date
