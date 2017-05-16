@@ -80,7 +80,7 @@ public class PreviousAnalysis extends AppCompatActivity {
             }
             writer.close();
             intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis of " + name + " by PhysoTrack");
-            intent.putExtra(Intent.EXTRA_TEXT, "hi ,\nhere is my analysis by image attached below");
+            intent.putExtra(Intent.EXTRA_TEXT, "hi ,\nhere is my analysis by image attached");
             intent.putExtra(Intent.EXTRA_STREAM, path);
             startActivity(Intent.createChooser(intent, ""));
 
