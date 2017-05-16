@@ -28,13 +28,20 @@
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
         android:text="@string/back_btn"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="465dp"
         android:onClick="btn_back_onclick"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#2328A8"
+        android:shadowDx="-0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:textColor="#D3DCE0"
+        android:textSize="15sp" />
 
 </RelativeLayout>

@@ -8,7 +8,7 @@
     <string name="new_photo_button">NEW PHOTO</string>
     <string name="previous_analysis_button">Previous analysis</string>
     <string name="medical_information_button">medical information</string>
-    <string name="personal_detail_button">personal details</string>
+    <string name="personal_detail_button">Personal Details</string>
     <string name="new_session_button">new session</string>
     <string name="photo_guide_button">photo guide</string>
     <string name="session_analysis_button">session analysis</string>
@@ -49,4 +49,5 @@
     <string name="tv_session_results">Session Results</string>
     <string name="treated_side">Treated Side</string>
     <string name="personal_details_tv">Personal Details</string>
+    <string name="txt_personal_details_username">Treated Side</string>
 </resources>
