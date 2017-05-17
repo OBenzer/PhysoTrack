@@ -8,6 +8,18 @@ import java.util.Date;
 
 public final class Utils {
 
+    //constants
+    public static final String SMILE_EXP = "Smile";
+    public static final String KISS_EXP = "Kiss";
+    public static final String NATURAL_EXP = "Blankly";
+    public static final String EYEBROWRAISED_EXP = "EyebrowRaised";
+    public static final String EYECLOSED_EXP = "EyesClosed";
+    public static final String UPPERLIPRAISED_EXP = "Rabbit";
+
+
+
+
+
     //returns todays date as a string
     public static String todaysDateToString() {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -36,4 +48,7 @@ public final class Utils {
         else
             return todaysDateToString();
     }
+
+
+
 }

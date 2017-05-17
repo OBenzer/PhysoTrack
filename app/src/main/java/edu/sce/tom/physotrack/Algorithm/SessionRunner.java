@@ -1,20 +1,25 @@
 package edu.sce.tom.physotrack.Algorithm;
-import edu.sce.tom.physotrack.DataBase.DatabaseHelper;
-import edu.sce.tom.physotrack.R;
 import android.content.Context;
-import java.io.File;
-import java.util.List;
+
 import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
 
+import java.io.File;
+import java.util.List;
+
+import edu.sce.tom.physotrack.DataBase.DatabaseHelper;
+import edu.sce.tom.physotrack.R;
+
+import static edu.sce.tom.physotrack.Utils.EYEBROWRAISED_EXP;
+import static edu.sce.tom.physotrack.Utils.EYECLOSED_EXP;
+import static edu.sce.tom.physotrack.Utils.KISS_EXP;
+import static edu.sce.tom.physotrack.Utils.NATURAL_EXP;
+import static edu.sce.tom.physotrack.Utils.SMILE_EXP;
+import static edu.sce.tom.physotrack.Utils.UPPERLIPRAISED_EXP;
+
 public class SessionRunner {
-    private static final String SMILE_EXP = "Smile";
-    private static final String KISS_EXP = "Kiss";
-    private static final String NATURAL_EXP = "Blankly";
-    private static final String EYEBROWRAISED_EXP = "EyebrowRaised";
-    private static final String EYECLOSED_EXP = "EyesClosed";
-    private static final String UPPERLIPRAISED_EXP = "Rabbit";
+
 
     //attributes//
     //___P - position image path
