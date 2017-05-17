@@ -37,6 +37,9 @@ import java.util.Date;
 import edu.sce.tom.physotrack.Algorithm.SesRunSingletone;
 import edu.sce.tom.physotrack.Algorithm.SessionRunner;
 
+import static edu.sce.tom.physotrack.Utils.NEW_SESSION_SP_FILE;
+import static edu.sce.tom.physotrack.Utils.TODAYS_DATE;
+
 public class NewSession extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO_INITIAL = 1000;
     private static final int REQUEST_PICK_IMAGE_INITIAL = 2000;
@@ -75,7 +78,7 @@ public class NewSession extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
         }
-        sharedPref = getSharedPreferences(MainActivity.NEW_SESSION_SP_FILE, Context.MODE_PRIVATE);
+        sharedPref = getSharedPreferences(NEW_SESSION_SP_FILE, Context.MODE_PRIVATE);
 
         imageCount = 0;
         sessionRunner = SesRunSingletone.getInstance();
@@ -142,7 +145,7 @@ public class NewSession extends AppCompatActivity {
                     //maybe add a dialog to ensure the user wants to finish
                     SharedPreferences.Editor editor = sharedPref.edit();
                     //ensure that user does not takes pictures twice a day
-                    editor.putString(MainActivity.TODAYS_DATE, Utils.todaysDateToString());
+                    editor.putString(TODAYS_DATE, Utils.todaysDateToString());
                     editor.apply();
                     sessionRunner.run();
                     Intent intent = new Intent(NewSession.this, SessionResult.class);

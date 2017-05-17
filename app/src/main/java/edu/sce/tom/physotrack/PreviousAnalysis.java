@@ -22,8 +22,10 @@ import edu.sce.tom.physotrack.Algorithm.ImageResultViewer;
 import edu.sce.tom.physotrack.Algorithm.LandmarksAnalyzerViewer;
 import edu.sce.tom.physotrack.DataBase.DatabaseHelper;
 
-import static edu.sce.tom.physotrack.MainActivity.THERAPIST_MAIL;
-import static edu.sce.tom.physotrack.MainActivity.USER_NAME;
+import static edu.sce.tom.physotrack.Utils.THERAPIST_MAIL;
+import static edu.sce.tom.physotrack.Utils.USER_DETAILS_SP_FILE;
+import static edu.sce.tom.physotrack.Utils.USER_NAME;
+
 
 public class PreviousAnalysis extends AppCompatActivity {
 
@@ -49,7 +51,7 @@ public class PreviousAnalysis extends AppCompatActivity {
 
 
     public void btn_send_therapist_on_click(View v) throws IOException, InterruptedException {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences(MainActivity.USER_DETAILS_SP_FILE, MODE_PRIVATE);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(USER_DETAILS_SP_FILE, MODE_PRIVATE);
 
         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = pref.edit();
         String filename = "analysis.txt";

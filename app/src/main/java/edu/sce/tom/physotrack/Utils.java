@@ -9,12 +9,21 @@ import java.util.Date;
 public final class Utils {
 
     //constants
+    //expressions
     public static final String SMILE_EXP = "Smile";
     public static final String KISS_EXP = "Kiss";
     public static final String NATURAL_EXP = "Blankly";
     public static final String EYEBROWRAISED_EXP = "EyebrowRaised";
     public static final String EYECLOSED_EXP = "EyesClosed";
     public static final String UPPERLIPRAISED_EXP = "Rabbit";
+
+    //name of the shared preferences file and keys
+    public static final String USER_DETAILS_SP_FILE = "userDetails";
+    public static final String TODAYS_DATE = "todaysDate";
+    public static final String USER_NAME = "userName";
+    public static final String SIDE = "defSide";
+    public static final String THERAPIST_MAIL = "therapistMail";
+    public static final String NEW_SESSION_SP_FILE = "newSession";
 
 
 

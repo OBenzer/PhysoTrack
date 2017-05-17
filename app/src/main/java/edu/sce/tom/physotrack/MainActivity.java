@@ -6,13 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-    //name of the shared preferences file and keys
-    public static final String USER_DETAILS_SP_FILE = "userDetails";
-    public static final String TODAYS_DATE = "todaysDate";
-    public static final String USER_NAME = "userName";
-    public static final String SIDE = "defSide";
-    public static final String THERAPIST_MAIL = "therapistMail";
-    public static final String NEW_SESSION_SP_FILE = "newSession";
+
 
 
     @Override

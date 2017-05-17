@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import static edu.sce.tom.physotrack.Utils.NEW_SESSION_SP_FILE;
+import static edu.sce.tom.physotrack.Utils.TODAYS_DATE;
+
 public class NewPhoto extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +36,8 @@ public class NewPhoto extends AppCompatActivity {
 
     //checks if the user already took pictures today
     private boolean checkSessionValidation() {
-        SharedPreferences sharedPref = getSharedPreferences(MainActivity.NEW_SESSION_SP_FILE, Context.MODE_PRIVATE);
-        String todaysDate = sharedPref.getString(MainActivity.TODAYS_DATE, "");
+        SharedPreferences sharedPref = getSharedPreferences(NEW_SESSION_SP_FILE, Context.MODE_PRIVATE);
+        String todaysDate = sharedPref.getString(TODAYS_DATE, "");
         String todaysRealDate = Utils.todaysDateToString();
         return todaysDate.equalsIgnoreCase(todaysRealDate);
     }

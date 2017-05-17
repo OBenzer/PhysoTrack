@@ -7,13 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 
 import edu.sce.tom.physotrack.Algorithm.SesRunSingletone;
 
+import static edu.sce.tom.physotrack.Utils.USER_DETAILS_SP_FILE;
 import static java.lang.Thread.sleep;
 
 public class Splash extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences settings = getSharedPreferences(MainActivity.USER_DETAILS_SP_FILE, 0);
+        SharedPreferences settings = getSharedPreferences(USER_DETAILS_SP_FILE, 0);
         SharedPreferences.Editor editor = settings.edit();
         boolean firstUse = settings.getBoolean("firstUse", true);
         Intent intent;
