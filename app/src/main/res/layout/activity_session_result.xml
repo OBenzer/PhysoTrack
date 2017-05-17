@@ -31,11 +31,13 @@
         android:layout_height="400dp"
         android:layout_below="@id/textView8" />
 
+
     <RadioGroup
-        android:id="@+id/rgroupExpression"
+        android:id="@+id/rg_ex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/chart">
+        android:layout_below="@+id/chart"
+        android:orientation="horizontal" >
 
         <RadioButton
             android:id="@+id/radio_smile"
