@@ -131,8 +131,7 @@ public class LandmarksAnalyzerViewer {
 
     @Override
     public String toString() {
-        return "LandmarksAnalyzerViewer{" +
-                "date=" + date +
+        return "Landmarks  :\n" +
                 ", leftEyeCenter=" + leftEyeCenter +
                 ", rightEyeCenter=" + rightEyeCenter +
                 ", leftEyeArea=" + leftEyeArea +
@@ -149,7 +148,7 @@ public class LandmarksAnalyzerViewer {
                 ", leftMouthEdgeAngle=" + leftMouthEdgeAngle +
                 ", leftMouthDistance=" + leftMouthDistance +
                 ", rightMouthDistance=" + rightMouthDistance +
-                ", expression='" + expression + '\'' +
-                '}';
+                ", expression='" + expression + "\n\n"
+                ;
     }
 }

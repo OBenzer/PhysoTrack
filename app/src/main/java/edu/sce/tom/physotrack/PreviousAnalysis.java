@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import edu.sce.tom.physotrack.Algorithm.ImageResultViewer;
+import edu.sce.tom.physotrack.Algorithm.LandmarksAnalyzerViewer;
 import edu.sce.tom.physotrack.DataBase.DatabaseHelper;
 
 import static edu.sce.tom.physotrack.MainActivity.THERAPIST_MAIL;
@@ -62,7 +63,8 @@ public class PreviousAnalysis extends AppCompatActivity {
 
         ArrayList<ImageResultViewer> arr= new ArrayList<>();
         arr = db.getAllImageResultFromDB();
-        
+        ArrayList<LandmarksAnalyzerViewer> arrLandmarks=new ArrayList<>();
+        arrLandmarks=db.getAllMetricsFromDB();
 
             String email = pref.getString(THERAPIST_MAIL, "");// getting therapist email
             String name = pref.getString(USER_NAME, "");//getting name of user
@@ -72,10 +74,14 @@ public class PreviousAnalysis extends AppCompatActivity {
 
             intent.setType("plain/text");
             //  writer.append("fnu");
-            for (ImageResultViewer ls : arr) {
-                writer.append(ls.toString());
 
-            }
+                for(int i=0; i<arr.size();i++)
+                {
+                    writer.append(arr.get(i).toString());
+                    writer.append(arrLandmarks.get(i).toString());
+                }
+
+
             writer.close();
             intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis of " + name + " by PhysioTrack");
             intent.putExtra(Intent.EXTRA_TEXT, "hi ,\nhere is my analysis by image attached");
