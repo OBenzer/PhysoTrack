@@ -104,7 +104,8 @@
         android:layout_height="50dp"
         app:srcCompat="@drawable/physiotrack_logo"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/logo" />
 
 </RelativeLayout>
 
