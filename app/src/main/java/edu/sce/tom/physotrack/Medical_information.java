@@ -46,6 +46,7 @@ public class Medical_information extends AppCompatActivity {
         startActivity(i);
     }
 
+    // Text To Speech method , reading the medical text to the user
     public void TTS(View view){
 
         switch (view.getId()){
@@ -64,6 +65,8 @@ public class Medical_information extends AppCompatActivity {
         }
     }
 
+
+    // responsible to end the reading when finish or when changing activity
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -73,6 +76,7 @@ public class Medical_information extends AppCompatActivity {
             toSpeech.shutdown();
         }
     }
+
 
 
 
