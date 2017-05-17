@@ -68,9 +68,7 @@ public class PreviousAnalysis extends AppCompatActivity {
             String name = pref.getString(USER_NAME, "");//getting name of user
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
-            //create a txt file and write blabla and send to pysiotrapist mail
-
-            intent.setType("plain/text");
+            //create a txt file and write stuff and send to pysiotrapist mail
 
             intent.setType("plain/text");
             //  writer.append("fnu");
