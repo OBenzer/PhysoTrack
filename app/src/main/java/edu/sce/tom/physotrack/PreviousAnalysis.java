@@ -64,11 +64,11 @@ public class PreviousAnalysis extends AppCompatActivity {
         arr = db.getAllImageResultFromDB();
         
 
-            String email = pref.getString(THERAPIST_MAIL, "");// getting thrapist email
+            String email = pref.getString(THERAPIST_MAIL, "");// getting therapist email
             String name = pref.getString(USER_NAME, "");//getting name of user
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
-            //create a txt file and write stuff and send to pysiotrapist mail
+            //create a txt file and write stuff and send to physiotherapist mail
 
             intent.setType("plain/text");
             //  writer.append("fnu");
@@ -77,7 +77,7 @@ public class PreviousAnalysis extends AppCompatActivity {
 
             }
             writer.close();
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis of " + name + " by PhysoTrack");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis of " + name + " by PhysioTrack");
             intent.putExtra(Intent.EXTRA_TEXT, "hi ,\nhere is my analysis by image attached");
             intent.putExtra(Intent.EXTRA_STREAM, path);
             startActivity(Intent.createChooser(intent, ""));

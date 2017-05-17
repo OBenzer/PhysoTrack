@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PhysoTrack</string>
+    <string name="app_name">PhysioTrack</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_photo_guide">PhotoGuide</string>
     <string name="title_activity_new_session">NewSession</string>
