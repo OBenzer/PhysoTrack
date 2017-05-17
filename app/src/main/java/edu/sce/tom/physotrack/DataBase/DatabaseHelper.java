@@ -158,7 +158,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(EYE_AREA, imageResult.getEyeArea());
         values.put(MOUTH_ANGLE, imageResult.getMouthAngle());
         values.put(MOUTH_DISTANCE, imageResult.getMouthDisstance());
-        values.put(INNER_MOUTH_AREA, imageResult.getInnerMouthAreat());
+        values.put(INNER_MOUTH_AREA, imageResult.getinnerMouthArea());
         values.put(OUTER_MOUTH_AREA, imageResult.getOuterMouthArea());
 
 
@@ -334,6 +334,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return objList;
     }
 
+    public ArrayList<ImageResultViewer> getImageResultFromDBByExpression(String Exp){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(
+                TABLE_IMAGE_RESULT,
+                null,
+                EXPRESSION + "=?",
+                new String[]{Exp},
+                null,
+                null,
+                null
+        );
+
+
+        ArrayList<ImageResultViewer> objList = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            String date = cursor.getString(cursor.getColumnIndexOrThrow(SESSION_DATE));
+            String expression = cursor.getString(cursor.getColumnIndexOrThrow(EXPRESSION));
+            float eyeToBrowDisstance = cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_TO_BROW_DISTANCE));
+            float eyeArea = cursor.getFloat(cursor.getColumnIndexOrThrow(EYE_AREA));
+            float mouthAngle = cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_ANGLE));
+            float mouthDisstance = cursor.getFloat(cursor.getColumnIndexOrThrow(MOUTH_DISTANCE));
+            float innerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(INNER_MOUTH_AREA));
+            float outerMouthArea = cursor.getFloat(cursor.getColumnIndexOrThrow(OUTER_MOUTH_AREA));
+
+            objList.add(new ImageResultViewer(date, eyeToBrowDisstance, eyeArea, mouthAngle, mouthDisstance, innerMouthArea, outerMouthArea, expression));
+        }
+        cursor.close();
+        return objList;
+    }
+
     public ArrayList<ImageResultViewer> getImageResultFromDBByExpressionAndDate(String date,String expr) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(
@@ -364,7 +395,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return objList;
     }
-
 
     public ArrayList<LandmarksAnalyzerViewer> getMetricsFromDBByExpressionAndDate(String date,String expr) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -419,10 +449,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return lav;
     }
 
-
-
 }
-
-
-
-

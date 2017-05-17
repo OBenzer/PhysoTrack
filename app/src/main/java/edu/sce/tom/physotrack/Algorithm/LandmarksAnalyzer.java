@@ -12,12 +12,12 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
     private static final char LEFT_SIDE='L';
     private static final char RIGHT_SIDE='R';
 
-    public LandmarksAnalyzer(FaceLandmarks f, String exp) {
+    LandmarksAnalyzer(FaceLandmarks f, String exp) {
         expression = exp;
         this.face = f;
     }
 
-    public void analyzeFace() {
+    void analyzeFace() {
         //calc right eye//
         calcEye(face.getRightEye(),face.getRightEyeBrow(),RIGHT_SIDE);
 
@@ -148,6 +148,12 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
     private float calcAngleBySlopes(final float m1, final float m2){
         return (float)(Math.atan(m1)-Math.atan(m2));
 
+    }
+
+    //Angle Calculation By Udi's Suggestion//
+    private float calcAngleOf2Points(Point p1, Point p2) {
+        int deltaX = p1.x-p2.x, deltaY = p1.y-p2.y;
+        return (float)Math.atan2(deltaY,deltaX);
     }
 
     private Boolean contains(int[] arr, int var){

@@ -7,22 +7,20 @@ public class ImageResultViewer {
     protected float eyeArea;
     protected float mouthAngle;
     protected float mouthDisstance;
-    protected float innerMouthAreat;
+    protected float innerMouthArea;
     protected float outerMouthArea;
     protected String expression;
 
-    public ImageResultViewer() {
-
-    }
+    ImageResultViewer() { }
 
     public ImageResultViewer(String date, float eyeToBrowDisstance, float eyeArea, float mouthAngle, float mouthDisstance,
-                             float innerMouthAreat, float outerMouthArea, String expression) {
+                             float innerMouthArea, float outerMouthArea, String expression) {
         this.date = date;
         this.eyeToBrowDisstance = eyeToBrowDisstance;
         this.eyeArea = eyeArea;
         this.mouthAngle = mouthAngle;
         this.mouthDisstance = mouthDisstance;
-        this.innerMouthAreat = innerMouthAreat;
+        this.innerMouthArea = innerMouthArea;
         this.outerMouthArea = outerMouthArea;
         this.expression = expression;
     }
@@ -47,8 +45,8 @@ public class ImageResultViewer {
         return mouthDisstance;
     }
 
-    public float getInnerMouthAreat() {
-        return innerMouthAreat;
+    public float getinnerMouthArea() {
+        return innerMouthArea;
     }
 
     public float getOuterMouthArea() {
@@ -68,7 +66,7 @@ public class ImageResultViewer {
                 ", eye Area = " + eyeArea +
                 ", mouth Angle = " + mouthAngle +
                 ", mouth Distance = " + mouthDisstance +
-                ", inner Mouth Area = " + innerMouthAreat +
+                ", inner Mouth Area = " + innerMouthArea +
                 ", outer Mouth Area = " + outerMouthArea +
                 "\n\n";
     }

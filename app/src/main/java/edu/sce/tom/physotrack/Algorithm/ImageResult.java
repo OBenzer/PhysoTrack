@@ -6,17 +6,44 @@ public class ImageResult extends ImageResultViewer{
 
     private LandmarksAnalyzer metrics;
 
-    public ImageResult(LandmarksAnalyzer analyzer, String exp){
+    ImageResult(LandmarksAnalyzer analyzer, String exp){
         expression = exp;
         this.metrics = analyzer;
     }
 
-    public void calcResult(){
-        eyeToBrowDisstance = metrics.getLeftEyeToBrowDistance()-metrics.getRightEyeToBrowDistance();
-        eyeArea = metrics.getLeftEyeArea()-metrics.getRightEyeArea();
+    void calcResult(){
+        float left,right;
+
+        //Eye To Brow Distance//
+        left = metrics.getLeftEyeToBrowDistance();
+        right = metrics.getRightEyeToBrowDistance();
+        eyeToBrowDisstance = sumUpMetric(left,right);
+
+        //Eye Erea//
+        left = metrics.getLeftEyeArea();
+        right = metrics.getRightEyeArea();
+        eyeArea = sumUpMetric(left,right);
+
+        //Mouth Angle//
         mouthAngle = WANTED_ANGLE-metrics.getRightMouthEdgeAngle();
-        mouthDisstance = metrics.getLeftMouthDistance()-metrics.getRightMouthDistance();
-        innerMouthAreat = metrics.getLeftInnerMouthArea()-metrics.getRightInnerMouthArea();
-        outerMouthArea = metrics.getLeftOuterMouthArea()-metrics.getRightOuterMouthArea();
+
+        //Mouth Edges Disstance//
+        left = metrics.getLeftMouthDistance();
+        right = metrics.getRightMouthDistance();
+        mouthDisstance = sumUpMetric(left,right);
+
+        //Inner Mouth Area//
+        left = metrics.getLeftInnerMouthArea();
+        right = metrics.getRightInnerMouthArea();
+        innerMouthArea = sumUpMetric(left,right);
+
+        //Outher Mouth Area//
+        left = metrics.getLeftOuterMouthArea();
+        right = metrics.getRightOuterMouthArea();
+        outerMouthArea = sumUpMetric(left,right);
+    }
+
+    private float sumUpMetric(float left, float right) {
+        return (left-right)/((left+right)/2);    //Calc the calc the difference and substitute the average
     }
 }

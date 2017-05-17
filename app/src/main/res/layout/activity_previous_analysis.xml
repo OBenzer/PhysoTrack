@@ -10,20 +10,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.sce.tom.physotrack.PreviousAnalysis"
+    tools:context="edu.sce.tom.physotrack.PreviousAnalysis" >
 
-   >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_privAnalysis"
+        android:id="@+id/TextView8"/>
 
-    <com.jjoe64.graphview.GraphView
-        android:id="@+id/PreviousAnalysisGraph"
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/TextView8" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="400dp" />
+        android:layout_height="400dp"
+        android:layout_below="@id/spinner"/>
+
 
 
     <Button
         android:id="@+id/btn_send_therapist"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
         android:background="@drawable/buttonshape"
         android:onClick="btn_send_therapist_on_click"
         android:shadowColor="#2328A8"
@@ -33,9 +47,12 @@
         android:text="@string/PreviousAnalysis_send_therapist_btn"
         android:textColor="#D3DCE0"
         android:textSize="15sp"
+        android:paddingStart="40dp"
+        android:paddingEnd="0dp"
+        android:drawableStart="@android:drawable/ic_dialog_email"
+        android:drawablePadding="-25dp"
         android:layout_alignParentBottom="true"
-
-        />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 

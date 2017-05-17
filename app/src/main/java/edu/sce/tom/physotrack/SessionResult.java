@@ -1,9 +1,8 @@
 package edu.sce.tom.physotrack;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,15 +10,16 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+
 import java.util.ArrayList;
 
 import edu.sce.tom.physotrack.Algorithm.ImageResult;
 import edu.sce.tom.physotrack.Algorithm.SesRunSingletone;
 import edu.sce.tom.physotrack.Algorithm.SessionRunner;
+import static edu.sce.tom.physotrack.Utils.Colors;
 
 public class SessionResult extends AppCompatActivity implements View.OnClickListener {
 
-    private static final int Colors[]={Color.rgb(40,220,117),Color.rgb(255,211,5),Color.rgb(251,75,56),Color.rgb(47,161,237),Color.rgb(231,54,218),Color.rgb(250,111,35)};
     private SessionRunner sessionRunner;
     private BarChart chart;
 
@@ -118,7 +118,7 @@ public class SessionResult extends AppCompatActivity implements View.OnClickList
         if(ar!=null) {
             entries.add(new BarEntry(0f, ar.getEyeArea()));
             entries.add(new BarEntry(1f, ar.getEyeToBrowDisstance()));
-            entries.add(new BarEntry(2f, ar.getInnerMouthAreat()));
+            entries.add(new BarEntry(2f, ar.getinnerMouthArea()));
             entries.add(new BarEntry(3f, ar.getMouthAngle()));
             entries.add(new BarEntry(4f, ar.getOuterMouthArea()));
             entries.add(new BarEntry(5f, ar.getMouthDisstance()));
@@ -134,7 +134,7 @@ public class SessionResult extends AppCompatActivity implements View.OnClickList
         if(ar!=null) {
             entries.add(new BarEntry(0f,ar.getEyeArea()));
             entries.add(new BarEntry(1f, ar.getEyeToBrowDisstance()));
-            entries.add(new BarEntry(2f, ar.getInnerMouthAreat()));
+            entries.add(new BarEntry(2f, ar.getinnerMouthArea()));
             entries.add(new BarEntry(3f, ar.getMouthAngle()));
             entries.add(new BarEntry(4f, ar.getOuterMouthArea()));
             entries.add(new BarEntry(5f, ar.getMouthDisstance()));
@@ -150,7 +150,7 @@ public class SessionResult extends AppCompatActivity implements View.OnClickList
         if(ar!=null) {
             entries.add(new BarEntry(0f, ar.getEyeArea()));
             entries.add(new BarEntry(1f, ar.getEyeToBrowDisstance()));
-            entries.add(new BarEntry(2f, ar.getInnerMouthAreat()));
+            entries.add(new BarEntry(2f, ar.getinnerMouthArea()));
             entries.add(new BarEntry(3f, ar.getMouthAngle()));
             entries.add(new BarEntry(4f, ar.getOuterMouthArea()));
             entries.add(new BarEntry(5f, ar.getMouthDisstance()));
@@ -166,7 +166,7 @@ public class SessionResult extends AppCompatActivity implements View.OnClickList
         if(ar!=null) {
             entries.add(new BarEntry(0f, ar.getEyeArea()));
             entries.add(new BarEntry(1f, ar.getEyeToBrowDisstance()));
-            entries.add(new BarEntry(2f, ar.getInnerMouthAreat()));
+            entries.add(new BarEntry(2f, ar.getinnerMouthArea()));
             entries.add(new BarEntry(3f, ar.getMouthAngle()));
             entries.add(new BarEntry(4f, ar.getOuterMouthArea()));
             entries.add(new BarEntry(5f, ar.getMouthDisstance()));
@@ -182,7 +182,7 @@ public class SessionResult extends AppCompatActivity implements View.OnClickList
         if(ar!=null) {
             entries.add(new BarEntry(0f, ar.getEyeArea()));
             entries.add(new BarEntry(1f, ar.getEyeToBrowDisstance()));
-            entries.add(new BarEntry(2f, ar.getInnerMouthAreat()));
+            entries.add(new BarEntry(2f, ar.getinnerMouthArea()));
             entries.add(new BarEntry(3f, ar.getMouthAngle()));
             entries.add(new BarEntry(4f, ar.getOuterMouthArea()));
             entries.add(new BarEntry(5f, ar.getMouthDisstance()));
@@ -198,7 +198,7 @@ public class SessionResult extends AppCompatActivity implements View.OnClickList
         if(ar!=null) {
             entries.add(new BarEntry(0f, ar.getEyeArea()));
             entries.add(new BarEntry(1f, ar.getEyeToBrowDisstance()));
-            entries.add(new BarEntry(2f, ar.getInnerMouthAreat()));
+            entries.add(new BarEntry(2f, ar.getinnerMouthArea()));
             entries.add(new BarEntry(3f, ar.getMouthAngle()));
             entries.add(new BarEntry(4f, ar.getOuterMouthArea()));
             entries.add(new BarEntry(5f, ar.getMouthDisstance()));
