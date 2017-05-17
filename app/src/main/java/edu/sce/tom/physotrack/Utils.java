@@ -7,7 +7,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 public final class Utils {
-
     //constants
     //expressions
     public static final String SMILE_EXP = "Smile";
@@ -24,10 +23,6 @@ public final class Utils {
     public static final String SIDE = "defSide";
     public static final String THERAPIST_MAIL = "therapistMail";
     public static final String NEW_SESSION_SP_FILE = "newSession";
-
-
-
-
 
     //returns todays date as a string
     public static String todaysDateToString() {
@@ -57,7 +52,4 @@ public final class Utils {
         else
             return todaysDateToString();
     }
-
-
-
 }

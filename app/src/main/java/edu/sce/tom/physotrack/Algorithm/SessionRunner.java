@@ -19,8 +19,6 @@ import static edu.sce.tom.physotrack.Utils.SMILE_EXP;
 import static edu.sce.tom.physotrack.Utils.UPPERLIPRAISED_EXP;
 
 public class SessionRunner {
-
-
     //attributes//
     //___P - position image path
     //___L - position FaceLandmarks object
@@ -249,6 +247,12 @@ public class SessionRunner {
         return kissL;
     }
 
+    public ImageResult getNaturalR() { return naturalR; }
+    public ImageResult getEyebrowRaisedR() { return eyebrowRaisedR; }
+    public ImageResult getEyesClosedR() { return eyesClosedR; }
+    public ImageResult getUpperlipRasiedR() { return upperlipRasiedR; }
+    public ImageResult getSmileR() { return smileR; }
+    public ImageResult getKissR() { return kissR; }
 
     private void printAllData(){
         if(kissAR!=null)
