@@ -70,8 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/left_side_radio_button"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/radio_right"

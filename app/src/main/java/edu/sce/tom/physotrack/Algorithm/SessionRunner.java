@@ -272,4 +272,30 @@ public class SessionRunner {
             System.out.println(naturalR.toString());
     }
 
+    public void initialRunner(){
+        naturalP=null;
+        naturalL=null;
+        naturalAR=null;
+        naturalR=null;
+        eyebrowRaisedP=null;
+        eyebrowRaisedL=null;
+        eyebrowRaisedAR=null;
+        eyebrowRaisedR=null;
+        eyesClosedP=null;
+        eyesClosedL=null;
+        eyesClosedAR=null;
+        eyesClosedR=null;
+        upperlipRasiedP=null;
+        upperlipRasiedL=null;
+        upperlipRasiedAR=null;
+        upperlipRasiedR=null;
+        smileP=null;
+        smileL=null;
+        smileAR=null;
+        smileR=null;
+        kissP=null;
+        kissL=null;
+        kissAR=null;
+        kissR=null;
+    }
 }
