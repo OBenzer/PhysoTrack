@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import static edu.sce.tom.physotrack.Utils.Colors;
 
 public class ChartDataExp {
-
     private String Expression;
 
     private LineDataSet eyeToBrowDisstanceSet;

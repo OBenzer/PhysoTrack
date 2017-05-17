@@ -32,8 +32,6 @@
         android:layout_height="400dp"
         android:layout_below="@id/spinner"/>
 
-
-
     <Button
         android:id="@+id/btn_send_therapist"
         android:layout_width="260dp"
