@@ -25,7 +25,7 @@ public class ImageResult extends ImageResultViewer{
         eyeArea = sumUpMetric(left,right);
 
         //Mouth Angle//
-        mouthAngle = WANTED_ANGLE-metrics.getRightMouthEdgeAngle();
+        mouthAngle = metrics.getLeftMouthEdgeAngle();
 
         //Mouth Edges Disstance//
         left = metrics.getLeftMouthDistance();
@@ -44,6 +44,13 @@ public class ImageResult extends ImageResultViewer{
     }
 
     private float sumUpMetric(float left, float right) {
-        return (left-right)/((left+right)/2);    //Calc the calc the difference and substitute the average
+        float res;
+        if(left>=right)
+            res = left/right;
+        else {
+            res = right / left;
+            res *= (-1);
+        }
+        return res;
     }
 }
