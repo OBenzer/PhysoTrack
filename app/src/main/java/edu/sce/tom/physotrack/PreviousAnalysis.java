@@ -1,21 +1,19 @@
 package edu.sce.tom.physotrack;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.io.File;
@@ -58,7 +56,7 @@ public class PreviousAnalysis extends AppCompatActivity {
 
         //Adding Dropdown Values//
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, android.R.id.text1);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, android.R.id.text1);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
         spinnerAdapter.add(KISS_EXP);
@@ -71,12 +69,36 @@ public class PreviousAnalysis extends AppCompatActivity {
 
         //Retrives all the data from the database and insert it to the chart data objects//
         DatabaseHelper db = new DatabaseHelper(this);
-        smileData = new ChartDataExp(db.getImageResultFromDBByExpression(SMILE_EXP));
-        kissData = new ChartDataExp(db.getImageResultFromDBByExpression(KISS_EXP));
-        blanklyData = new ChartDataExp(db.getImageResultFromDBByExpression(NATURAL_EXP));
-        eyeBrowRaisedData = new ChartDataExp(db.getImageResultFromDBByExpression(EYEBROWRAISED_EXP));
-        eyesClosedData = new ChartDataExp(db.getImageResultFromDBByExpression(EYECLOSED_EXP));
-        rabbitData = new ChartDataExp(db.getImageResultFromDBByExpression(UPPERLIPRAISED_EXP));
+        try {
+            smileData = new ChartDataExp(db.getImageResultFromDBByExpression(SMILE_EXP));
+        } catch (Exception e) {
+            smileData = null;
+        }
+        try {
+            kissData = new ChartDataExp(db.getImageResultFromDBByExpression(KISS_EXP));
+        } catch (Exception e) {
+            kissData = null;
+        }
+        try {
+            blanklyData = new ChartDataExp(db.getImageResultFromDBByExpression(NATURAL_EXP));
+        } catch (Exception e) {
+            blanklyData = null;
+        }
+        try {
+            eyeBrowRaisedData = new ChartDataExp(db.getImageResultFromDBByExpression(EYEBROWRAISED_EXP));
+        } catch (Exception e){
+            eyeBrowRaisedData = null;
+        }
+        try {
+            eyesClosedData = new ChartDataExp(db.getImageResultFromDBByExpression(EYECLOSED_EXP));
+        } catch (Exception e) {
+            eyesClosedData = null;
+        }
+        try {
+            rabbitData = new ChartDataExp(db.getImageResultFromDBByExpression(UPPERLIPRAISED_EXP));
+        } catch (Exception e) {
+            rabbitData = null;
+        }
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -122,7 +144,7 @@ public class PreviousAnalysis extends AppCompatActivity {
 
     private void updateChart(ArrayList<ILineDataSet> sets){
         if(sets!=null) {
-            ArrayList<ILineDataSet> allDataSets = new ArrayList<ILineDataSet>();
+            ArrayList<ILineDataSet> allDataSets = new ArrayList<>();
 
             for(int i=0; i<sets.size(); i++){
                 allDataSets.add(sets.get(i));
@@ -133,22 +155,25 @@ public class PreviousAnalysis extends AppCompatActivity {
         }
     }
 
-    public void btn_send_therapist_on_click(View v) throws IOException, InterruptedException {
+    public void btn_send_therapist_on_click(View v) {
         SharedPreferences pref = getApplicationContext().getSharedPreferences(USER_DETAILS_SP_FILE, MODE_PRIVATE);
 
-        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = pref.edit();
         String filename = "analysis.txt";
 
         File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),filename);
         Uri path = Uri.fromFile(filelocation);
-        FileWriter writer = new FileWriter(filelocation);
+        FileWriter writer;
+        try {
+            writer = new FileWriter(filelocation);
+        } catch (IOException e) {
+            Toast.makeText(this, "Error Creating File", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         DatabaseHelper db=new DatabaseHelper(this);
 
-        ArrayList<ImageResultViewer> arr= new ArrayList<>();
-        arr = db.getAllImageResultFromDB();
-        ArrayList<LandmarksAnalyzerViewer> arrLandmarks=new ArrayList<>();
-        arrLandmarks=db.getAllMetricsFromDB();
+        ArrayList<ImageResultViewer> arr = db.getAllImageResultFromDB();
+        ArrayList<LandmarksAnalyzerViewer> arrLandmarks = db.getAllMetricsFromDB();
 
             String email = pref.getString(THERAPIST_MAIL, "");// getting therapist email
             String name = pref.getString(USER_NAME, "");//getting name of user
@@ -157,19 +182,19 @@ public class PreviousAnalysis extends AppCompatActivity {
             //create a txt file and write stuff and send to physiotherapist mail
 
             intent.setType("plain/text");
-            //  writer.append("fnu");
-
-                for(int i=0; i<arr.size();i++)
-                {
+            try {
+                for (int i = 0; i < arr.size(); i++) {
                     writer.append(arr.get(i).toString());
                     writer.append(arrLandmarks.get(i).toString());
                 }
 
-            writer.close();
+                writer.close();
+            } catch (IOException e) {
+                Toast.makeText(this, "Error Writing File", Toast.LENGTH_SHORT).show();
+            }
             intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis of " + name + " by PhysioTrack");
             intent.putExtra(Intent.EXTRA_TEXT, "hi ,\nhere is my analysis by image attached");
             intent.putExtra(Intent.EXTRA_STREAM, path);
             startActivity(Intent.createChooser(intent, ""));
     }
-
 }

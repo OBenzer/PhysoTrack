@@ -5,12 +5,12 @@
     <string name="title_activity_new_session">NewSession</string>
     <string name="title_activity_personal_details">PersonalDetails</string>
     <string name="title_activity_previous_analysis">PreviousAnalysis</string>
-    <string name="new_photo_button">NEW PHOTO</string>
+    <string name="new_photo_button">Session</string>
     <string name="previous_analysis_button">Previous analysis</string>
     <string name="medical_information_button">medical information</string>
     <string name="personal_detail_button">Personal Details</string>
     <string name="new_session_button">new session</string>
-    <string name="photo_guide_button">photo guide</string>
+    <string name="photo_guide_button">Guide</string>
     <string name="session_analysis_button">session analysis</string>
     <string name="therapist_mail">Therapist Email</string>
     <string name="user_name">Your name</string>
