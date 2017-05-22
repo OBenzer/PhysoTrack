@@ -148,7 +148,6 @@ public class NewSession extends AppCompatActivity {
                     editor.putString(TODAYS_DATE, Utils.todaysDateToString());
                     editor.apply();
                     sessionRunner.run();
-                    sessionRunner.printAllData();
                     Intent intent = new Intent(NewSession.this, SessionResult.class);
                     startActivity(intent);
                     finish();

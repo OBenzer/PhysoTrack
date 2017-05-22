@@ -103,7 +103,7 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
         Point intersection = noseLine.intersect(mouthLine);
 
         //Calculating needed angles//
-        leftMouthEdgeAngle = calcAngleBySlopes(noseLine.getSlope(), mouthLine.getSlope());
+        leftMouthEdgeAngle = (float)Math.toDegrees(calcAngleBySlopes(noseLine.getSlope(), mouthLine.getSlope()));
         rightMouthEdgeAngle = 180 - leftMouthEdgeAngle;
 
         //Calculating the mouth edges distance with the nose line//
@@ -157,28 +157,4 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
         return false;
     }
 }
-
-//    //Calculating needed angles//
-//    ArrayList<Point> noseLine = face.getCenterNose();
-//    float noseSlope = calcSlope(noseLine.get(0), noseLine.get(noseLine.size()-1));
-//    float mouthSlope = calcSlope(outerM.get(0),outerM.get(6));
-//
-//    rightMouthEdgeAngle = calcAngleBySlopes(noseSlope, mouthSlope);  //works?
-//    leftMouthEdgeAngle=180-rightMouthEdgeAngle;
-//
-//    //Calculating the mouth edges distance with the nose line//
-//    Point averageNose = calcAvg(noseLine);
-//    Point leftMouthEdge = outerM.get(6);
-//    Point rightMouthEdge = outerM.get(0);
-//
-//    rightMouthDistance = rightMouthEdge.x-averageNose.x;
-//    leftMouthDistance = averageNose.x-leftMouthEdge.x;
-//
-//    private float calcSlope(Point p1, Point p2){
-//      return (p1.y-p2.y)/(p1.x-p2.x);
-//}
-//    private float calcAngleOf2Points(Point p1, Point p2) {
-//        int deltaX = p2.x-p1.x, deltaY = p2.y-p1.y;
-//        return (float)Math.atan2(deltaY,deltaX);
-//    }
 

@@ -43,6 +43,7 @@ public class ImageResult extends ImageResultViewer{
         outerMouthArea = sumUpMetric(left,right);
     }
 
+    //Check Sumup Metrics with udi and yael//
     private float sumUpMetric(float left, float right) {
         float res;
         if(left>=right)
@@ -54,7 +55,11 @@ public class ImageResult extends ImageResultViewer{
         return res;
     }
 
+    //Check with udi&yael for values//
     private float sumUpAngle(float angle) {
-        return angle;
+        if(WANTED_ANGLE>=angle)
+            return angle/WANTED_ANGLE;
+        else
+            return (-1)*(WANTED_ANGLE/angle);
     }
 }

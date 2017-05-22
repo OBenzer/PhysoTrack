@@ -7,7 +7,7 @@ class Line {
     private float b;
 
     Line(Point p1, Point p2){
-        m = (p2.y-p1.y)/(p2.x-p1.x);
+        m = ((float)p2.y-p1.y)/((float)p2.x-p1.x);
         b = p1.y-m*p1.x;
     }
 
