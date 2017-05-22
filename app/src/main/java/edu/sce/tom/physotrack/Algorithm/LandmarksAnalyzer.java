@@ -1,6 +1,7 @@
 package edu.sce.tom.physotrack.Algorithm;
 
 import android.graphics.Point;
+
 import java.util.ArrayList;
 
 public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
@@ -103,7 +104,7 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
         Point intersection = noseLine.intersect(mouthLine);
 
         //Calculating needed angles//
-        leftMouthEdgeAngle = (float)Math.toDegrees(calcAngleBySlopes(noseLine.getSlope(), mouthLine.getSlope()));
+        leftMouthEdgeAngle = (float) Math.toDegrees(calcAngleBySlopes(noseLine.getSlope(), mouthLine.getSlope()));
         rightMouthEdgeAngle = 180 - leftMouthEdgeAngle;
 
         //Calculating the mouth edges distance with the nose line//
@@ -115,16 +116,12 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
     private Point calcAvg(ArrayList<Point> land) {
         int sumx = 0;
         int sumy = 0;
-        if(land!=null && land.size()>0) {
-            for (Point point : land) {
-                sumx += point.x;
-                sumy += point.y;
-            }
-            int size = land.size();
-            return new Point(sumx / size, sumy / size);
+        for (Point point : land) {
+            sumx += point.x;
+            sumy += point.y;
         }
-        System.out.println("**********SomeThing went wrong with the eay Landmarks!!**********");
-        return null;
+        int size = land.size();
+        return new Point(sumx / size, sumy / size);
     }
 
     private float calcPolygonArea(ArrayList<Point> points) {
@@ -145,7 +142,7 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
     }
 
     private float calcAngleBySlopes(final float m1, final float m2) {
-        return (float) Math.atan((m1-m2)/(1+m1*m2));
+        return (float) Math.atan((m1 - m2) / (1 + m1 * m2));
     }
 
     private Boolean contains(int[] arr, int var) {

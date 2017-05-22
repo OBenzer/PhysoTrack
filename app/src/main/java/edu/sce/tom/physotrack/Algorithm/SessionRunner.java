@@ -60,7 +60,7 @@ public class SessionRunner {
     //ctor//
     //looks for the 68.dat file in not found recreates it from the application
     //and initialize the facedet object for detection
-    public SessionRunner(Context c) {
+    SessionRunner(Context c) {
         final String targetPath = Constants.getFaceShapeModelPath();
         if (!new File(targetPath).exists()) {
 
@@ -254,7 +254,7 @@ public class SessionRunner {
     public ImageResult getSmileR() { return smileR; }
     public ImageResult getKissR() { return kissR; }
 
-    public void printAllData(){
+    private void printAllData(){
         if(kissAR!=null)
             System.out.println(kissAR.toString());
         if(smileAR!=null)

@@ -1,12 +1,12 @@
 package edu.sce.tom.physotrack;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -25,7 +25,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -220,16 +219,18 @@ public class NewSession extends AppCompatActivity {
     // Method to handle the event when the user want to pic image from gallery to the session //
     public void pickImage(int requestCode) {
         Toast.makeText(this, "Pick an image", Toast.LENGTH_SHORT).show();
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        /*galleryIntent.setType("image/*");
-        //galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        //Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        Intent galleryIntent = new Intent();
+        galleryIntent.setType("image/*");
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
         try {
-            galleryIntent.putExtra("return-data", true);*/
+            //galleryIntent.putExtra("return-data", true);
+            //galleryIntent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, requestCode);
 
-       /* } catch (ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException e) {
             Toast.makeText(this, "something went wrong catch", Toast.LENGTH_SHORT).show();
-        }*/
+        }
     }
 
 
@@ -289,7 +290,7 @@ public class NewSession extends AppCompatActivity {
         switch (requestCode) {
             case SMILE:
                 if (resultCode != RESULT_OK)
-                    Toast.makeText(this, "Failed to take picture", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Failed to receive picture", Toast.LENGTH_SHORT).show();
                 else {
                     if (!sessionRunner.setSmileP(file.getPath())) {   //Failed to set the path of the image (no face found) must take new photo! (it initialized to nuul)
                         imageCount--;
@@ -401,14 +402,14 @@ public class NewSession extends AppCompatActivity {
 
         file = Uri.fromFile(getOutputMediaFile(posString));
         try {
-            String[] filePathColumn = {MediaStore.Images.Media.DATA};
-            Cursor cursor = getContentResolver().query(source, filePathColumn, null, null, null);
-            cursor.moveToFirst();
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String sourcePath = cursor.getString(columnIndex);
-            cursor.close();
+//            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+//            Cursor cursor = getContentResolver().query(source, filePathColumn, null, null, null);
+//            cursor.moveToFirst();
+//            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+//            String sourcePath = cursor.getString(columnIndex);
+//            cursor.close();
 
-            InputStream in = new FileInputStream(sourcePath);
+            InputStream in = getContentResolver().openInputStream(source);
             OutputStream out = new FileOutputStream(file.getPath());
 
             byte[] buf = new byte[1024];
@@ -420,10 +421,10 @@ public class NewSession extends AppCompatActivity {
             out.close();
             return RESULT_OK;
         } catch (IOException e) {
-            Toast.makeText(this, "Failed copy image to application directory", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "IO: Failed copy image to application directory", Toast.LENGTH_SHORT).show();
             return RESULT_CANCELED;
         } catch (NullPointerException e) {
-            Toast.makeText(this, "Failed copy image to application directory", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Null: Failed copy image to application directory", Toast.LENGTH_SHORT).show();
             return RESULT_CANCELED;
         }
     }

@@ -150,7 +150,11 @@ public class PreviousAnalysis extends AppCompatActivity {
                 allDataSets.add(sets.get(i));
             }
 
-            chart.setData(new LineData(allDataSets));
+            try {
+                chart.setData(new LineData(allDataSets));
+            } catch (Exception e) {
+                chart.setData(null);
+            }
             chart.invalidate(); // refresh
         }
     }
