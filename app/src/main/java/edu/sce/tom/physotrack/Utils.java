@@ -25,6 +25,11 @@ public final class Utils {
     public static final String SIDE = "defSide";
     public static final String THERAPIST_MAIL = "therapistMail";
     public static final String NEW_SESSION_SP_FILE = "newSession";
+    public static final String PATIENT_TYPE = "patientType";
+
+    //Paitent Type Constant//
+    public static final String ACUTE = "Acute";
+    public static final String CHRONIC = "Chronic";
 
     //Graphs Colors//
     public static final int Colors[]={Color.rgb(40,220,117),Color.rgb(255,211,5),Color.rgb(251,75,56),Color.rgb(47,161,237),Color.rgb(231,54,218),Color.rgb(250,111,35)};

@@ -233,8 +233,6 @@ public class NewSession extends AppCompatActivity {
         }
     }
 
-
-
     //saves in storage/emulated/0/pictures/PhysoAblum
     //here we can devide into folders by date
     private File getOutputMediaFile(String s) {
@@ -453,7 +451,7 @@ public class NewSession extends AppCompatActivity {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
                         setTitle("Kiss Expression").
-                        setIcon(R.drawable.logo).
+                        setIcon(R.mipmap.ic_launcher).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -471,7 +469,7 @@ public class NewSession extends AppCompatActivity {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
                         setTitle("Blankly Expression").
-                        setIcon(R.drawable.logo).
+                        setIcon(R.mipmap.ic_launcher).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -489,7 +487,7 @@ public class NewSession extends AppCompatActivity {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
                         setTitle("Brow Lift Expression").
-                        setIcon(R.drawable.logo).
+                        setIcon(R.mipmap.ic_launcher).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -507,7 +505,7 @@ public class NewSession extends AppCompatActivity {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
                         setTitle("Eye Closed Expression").
-                        setIcon(R.drawable.logo).
+                        setIcon(R.mipmap.ic_launcher).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -525,7 +523,7 @@ public class NewSession extends AppCompatActivity {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
                         setTitle("Rabbit Expression").
-                        setIcon(R.drawable.logo).
+                        setIcon(R.mipmap.ic_launcher).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -543,7 +541,7 @@ public class NewSession extends AppCompatActivity {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this).
                         setTitle("Smile Expression").
-                        setIcon(R.drawable.logo).
+                        setIcon(R.mipmap.ic_launcher).
                         setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -560,6 +558,5 @@ public class NewSession extends AppCompatActivity {
         Intent intent = new Intent(this, ShowLandmarks.class);
         startActivity(intent);
     }
-
 
 }

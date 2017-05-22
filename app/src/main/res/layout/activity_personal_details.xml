@@ -80,10 +80,41 @@
                 android:textSize="18sp"/>
         </RadioGroup>
 
+        <TextView
+            android:id="@+id/patient_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20"
+            android:ems="10"
+            android:gravity="start|center"
+            android:text="@string/txt_patienttype"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioPatient"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="0.4">
+
+            <RadioButton
+                android:id="@+id/radio_Acute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_acute"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radio_Chronic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_chronic"
+                android:textSize="18sp"/>
+        </RadioGroup>
+
         <Button
             android:id="@+id/btn_PD_submit"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"

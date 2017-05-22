@@ -10,47 +10,107 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.sce.tom.physotrack.PreviousAnalysis" >
+    tools:context="edu.sce.tom.physotrack.PreviousAnalysis"
+    android:layoutDirection="ltr" >
 
     <TextView
+        android:id="@+id/TextView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/lbl_privAnalysis"
-        android:id="@+id/TextView8"/>
+        android:text="@string/lbl_privAnalysis" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/TextView8" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_below="@id/spinner"/>
+        android:layout_below="@id/spinner" />
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chart">
+
+        <TableRow>
+            <CheckBox
+                android:id="@+id/box_eyeToBrowDisstance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_eyeToBrow"
+                android:textSize="10sp"
+                android:visibility="invisible" />
+
+            <CheckBox
+                android:id="@+id/box_eyeArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_eyeArea"
+                android:textSize="10sp"
+                android:visibility="invisible" />
+
+            <CheckBox
+                android:id="@+id/box_mouthAngle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_mouthAngle"
+                android:textSize="10sp"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow>
+            <CheckBox
+                android:id="@+id/box_mouthDisstance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_moutDist"
+                android:textSize="10sp"
+                android:visibility="invisible" />
+
+            <CheckBox
+                android:id="@+id/box_innerMouthArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_innerMouthArea"
+                android:textSize="10sp"
+                android:visibility="invisible" />
+
+            <CheckBox
+                android:id="@+id/box_outerMouthArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_OuterMouthArea"
+                android:textSize="10sp"
+                android:visibility="invisible" />
+        </TableRow>
+    </TableLayout>
 
     <Button
         android:id="@+id/btn_send_therapist"
         android:layout_width="260dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/buttonshape"
+        android:drawablePadding="-25dp"
+        android:drawableStart="@android:drawable/ic_dialog_email"
         android:onClick="btn_send_therapist_on_click"
+        android:paddingEnd="0dp"
+        android:paddingStart="40dp"
         android:shadowColor="#2328A8"
         android:shadowDx="-0"
         android:shadowDy="0"
         android:shadowRadius="0"
         android:text="@string/PreviousAnalysis_send_therapist_btn"
         android:textColor="#D3DCE0"
-        android:textSize="15sp"
-        android:paddingStart="40dp"
-        android:paddingEnd="0dp"
-        android:drawableStart="@android:drawable/ic_dialog_email"
-        android:drawablePadding="-25dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:textSize="15sp" />
 
 </RelativeLayout>
 
