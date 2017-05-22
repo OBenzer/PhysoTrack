@@ -12,7 +12,7 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
     private static final char RIGHT_SIDE = 'R';
 
     LandmarksAnalyzer(FaceLandmarks f, String exp) {
-        expression = exp;
+        super(exp);
         this.face = f;
     }
 
@@ -115,12 +115,16 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
     private Point calcAvg(ArrayList<Point> land) {
         int sumx = 0;
         int sumy = 0;
-        for (Point point : land) {
-            sumx += point.x;
-            sumy += point.y;
+        if(land!=null && land.size()>0) {
+            for (Point point : land) {
+                sumx += point.x;
+                sumy += point.y;
+            }
+            int size = land.size();
+            return new Point(sumx / size, sumy / size);
         }
-        int size = land.size();
-        return new Point(sumx / size, sumy / size);
+        System.out.println("**********SomeThing went wrong with the eay Landmarks!!**********");
+        return null;
     }
 
     private float calcPolygonArea(ArrayList<Point> points) {
@@ -141,7 +145,7 @@ public class LandmarksAnalyzer extends LandmarksAnalyzerViewer {
     }
 
     private float calcAngleBySlopes(final float m1, final float m2) {
-        return (float) (Math.atan(m1) - Math.atan(m2));
+        return (float) Math.atan((m1-m2)/(1+m1*m2));
     }
 
     private Boolean contains(int[] arr, int var) {

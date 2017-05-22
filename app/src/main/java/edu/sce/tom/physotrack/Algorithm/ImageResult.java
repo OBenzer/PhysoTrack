@@ -7,7 +7,7 @@ public class ImageResult extends ImageResultViewer{
     private LandmarksAnalyzer metrics;
 
     ImageResult(LandmarksAnalyzer analyzer, String exp){
-        expression = exp;
+        super(exp);
         this.metrics = analyzer;
     }
 
@@ -25,7 +25,7 @@ public class ImageResult extends ImageResultViewer{
         eyeArea = sumUpMetric(left,right);
 
         //Mouth Angle//
-        mouthAngle = metrics.getLeftMouthEdgeAngle();
+        mouthAngle = sumUpAngle(metrics.getLeftMouthEdgeAngle());
 
         //Mouth Edges Disstance//
         left = metrics.getLeftMouthDistance();
@@ -52,5 +52,9 @@ public class ImageResult extends ImageResultViewer{
             res *= (-1);
         }
         return res;
+    }
+
+    private float sumUpAngle(float angle) {
+        return angle;
     }
 }

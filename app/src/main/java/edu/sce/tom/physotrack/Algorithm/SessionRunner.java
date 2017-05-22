@@ -254,7 +254,7 @@ public class SessionRunner {
     public ImageResult getSmileR() { return smileR; }
     public ImageResult getKissR() { return kissR; }
 
-    private void printAllData(){
+    public void printAllData(){
         if(kissAR!=null)
             System.out.println(kissAR.toString());
         if(smileAR!=null)

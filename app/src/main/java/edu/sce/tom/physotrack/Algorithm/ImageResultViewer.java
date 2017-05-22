@@ -1,5 +1,7 @@
 package edu.sce.tom.physotrack.Algorithm;
 
+import edu.sce.tom.physotrack.Utils;
+
 public class ImageResultViewer {
 
     protected String date;
@@ -11,7 +13,10 @@ public class ImageResultViewer {
     protected float outerMouthArea;
     protected String expression;
 
-    ImageResultViewer() { }
+    ImageResultViewer(String Exp) {
+        date = Utils.todaysDateToString();
+        expression = Exp;
+    }
 
     public ImageResultViewer(String date, float eyeToBrowDisstance, float eyeArea, float mouthAngle, float mouthDisstance,
                              float innerMouthArea, float outerMouthArea, String expression) {

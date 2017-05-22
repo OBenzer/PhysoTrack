@@ -2,6 +2,8 @@ package edu.sce.tom.physotrack.Algorithm;
 
 import android.graphics.Point;
 
+import edu.sce.tom.physotrack.Utils;
+
 
 public class LandmarksAnalyzerViewer {
 
@@ -25,7 +27,9 @@ public class LandmarksAnalyzerViewer {
     protected float rightMouthDistance;
     protected String expression;
 
-    public LandmarksAnalyzerViewer() {
+    public LandmarksAnalyzerViewer(String Exp) {
+        date = Utils.todaysDateToString();
+        expression = Exp;
     }
 
     public LandmarksAnalyzerViewer(String date, Point leftEyeCenter, Point rightEyeCenter, float leftEyeArea,
