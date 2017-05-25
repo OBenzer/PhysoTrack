@@ -41,7 +41,7 @@ public class PhotoGuide extends AppCompatActivity {
         blankly.setImageDrawable(resizeImage(R.drawable.blankly_info));
     }
 
-    //try to reduce image size using these functions
+    // reduce image size using these functions
 
     public Drawable resizeImage(int imageID) {
         // Get device dimensions
