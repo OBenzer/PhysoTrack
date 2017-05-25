@@ -168,6 +168,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
+
+    //get all metrics from database
+    //returns an ArrayList of @LandmarksAnalyzerViewer
     public ArrayList<LandmarksAnalyzerViewer> getAllMetricsFromDB() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(
@@ -221,6 +224,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    //get all metrics from database by Date
+    //returns an ArrayList of @LandmarksAnalyzerViewer
     public ArrayList<LandmarksAnalyzerViewer> getMetricsFromDBByDate(String date) {
         SQLiteDatabase db = this.getReadableDatabase();
 
