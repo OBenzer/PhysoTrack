@@ -57,10 +57,9 @@ public class PhotoGuide extends AppCompatActivity {
         int newImageHeight = (int) (imageHeight * ratio);
 
         Bitmap bMap = BitmapFactory.decodeResource(getResources(), imageID);
-        Drawable drawable = new BitmapDrawable(this.getResources(),
-                getResizedBitmap(bMap, newImageHeight, (int) deviceWidth));
 
-        return drawable;
+        return new BitmapDrawable(this.getResources(),
+                getResizedBitmap(bMap, newImageHeight, (int) deviceWidth));
     }
 
     /************************ Resize Bitmap *********************************/
@@ -79,9 +78,8 @@ public class PhotoGuide extends AppCompatActivity {
         matrix.postScale(scaleWidth, scaleHeight);
 
         // recreate the new Bitmap
-        Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height,
-                matrix, false);
 
-        return resizedBitmap;
+        return Bitmap.createBitmap(bm, 0, 0, width, height,
+                matrix, false);
     }
 }
