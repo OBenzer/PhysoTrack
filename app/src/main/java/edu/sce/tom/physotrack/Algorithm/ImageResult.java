@@ -45,21 +45,11 @@ public class ImageResult extends ImageResultViewer{
 
     //Check Sumup Metrics with udi and yael//
     private float sumUpMetric(float left, float right) {
-        float res;
-        if(left>=right)
-            res = left/right;
-        else {
-            res = right / left;
-            res *= (-1);
-        }
-        return res;
+        return ((left-right)/(right+left))*100;
     }
 
     //Check with udi&yael for values//
     private float sumUpAngle(float angle) {
-        if(WANTED_ANGLE>=angle)
-            return angle/WANTED_ANGLE;
-        else
-            return (-1)*(WANTED_ANGLE/angle);
+        return WANTED_ANGLE-angle;
     }
 }
