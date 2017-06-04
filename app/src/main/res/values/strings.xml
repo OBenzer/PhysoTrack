@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PhysioTrack</string>
+    <string name="app_name">Bell\'s Track</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_photo_guide">PhotoGuide</string>
     <string name="title_activity_new_session">NewSession</string>
@@ -7,24 +7,24 @@
     <string name="title_activity_previous_analysis">PreviousAnalysis</string>
     <string name="new_photo_button">Session</string>
     <string name="previous_analysis_button">Previous analysis</string>
-    <string name="medical_information_button">medical information</string>
+    <string name="medical_information_button">Medical information</string>
     <string name="personal_detail_button">Personal Details</string>
-    <string name="new_session_button">new session</string>
+    <string name="new_session_button">New session</string>
     <string name="photo_guide_button">Guide</string>
-    <string name="session_analysis_button">session analysis</string>
+    <string name="session_analysis_button">Session analysis</string>
     <string name="therapist_mail">Therapist Email</string>
     <string name="user_name">Your name</string>
     <string name="left_side_radio_button">left side</string>
-    <string name="right_side_radio_button">right side</string>
-    <string name="submit_Personal_Details">submit</string>
+    <string name="right_side_radio_button">Right side</string>
+    <string name="submit_Personal_Details">Submit</string>
     <string name="medical_info_text">Bells palsy is a type of facial paralysis that results in an inability to control the facial muscles on the affected side. Symptoms can vary from mild to severe. They may include muscle twitching, weakness, or total loss of the ability to move one or rarely both sides of the face. Other symptoms include drooping of the eyelid, a change in taste, pain around the ear, and increased sensitivity to sound. Typically symptoms come on over 48 hours.</string>
     <string name="New_Session_kiss_btn">kiss</string>
-    <string name="New_session_smile_btn">smile</string>
-    <string name="New_Session_eyes_close_btn">eyes close</string>
-    <string name="New_Session_blankly_btn">blankly</string>
-    <string name="New_Session_rabbit_btn">rabbit</string>
-    <string name="New_Session_eyebrow_lifts_btn">eyebrow lifts</string>
-    <string name="PreviousAnalysis_send_therapist_btn">send to therapist</string>
+    <string name="New_session_smile_btn">Smile</string>
+    <string name="New_Session_eyes_close_btn">Eyes closed</string>
+    <string name="New_Session_blankly_btn">Blankly</string>
+    <string name="New_Session_rabbit_btn">Rabbit</string>
+    <string name="New_Session_eyebrow_lifts_btn">Eyebrow lifts</string>
+    <string name="PreviousAnalysis_send_therapist_btn">Send to therapist</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
