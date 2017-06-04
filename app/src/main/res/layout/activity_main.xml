@@ -103,9 +103,10 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         app:srcCompat="@drawable/physiotrack_logo"
-        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/logo"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:contentDescription="@string/logo" />
+        android:layout_marginTop="38dp" />
 
 </RelativeLayout>
 

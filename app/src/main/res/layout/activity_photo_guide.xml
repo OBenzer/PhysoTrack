@@ -22,85 +22,6 @@
             android:text="@string/photo_guide_text"
             android:textSize="20sp" />
 
-        <!-- Kiss Expression -->
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Kiss Expression :\n"
-            android:textColor="#0000FF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/img_kiss_info"
-            android:layout_width="270dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
-            android:contentDescription="kiss info picture" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="\nSelf-portrait with a simple kiss.\n"
-            android:textSize="20sp" />
-
-        <!-- Smile Expression -->
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Smile Expression :\n"
-            android:textColor="#0000FF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/img_smile_info"
-            android:layout_width="270dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
-            android:contentDescription="smile info picture" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="\nSelf-portrait with a simple smile.\n"
-            android:textSize="20sp" />
-
-
-        <!-- eyes close Expression -->
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Eyes close Expression :\n"
-            android:textColor="#0000FF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/img_eyes_closed_info"
-            android:layout_width="270dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
-            android:contentDescription="eyes close info picture" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="\nA self-portrait in which you close your eyes.\n"
-            android:textSize="20sp" />
-
         <!-- Blankly Expression -->
 
         <TextView
@@ -108,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Blankly Expression :\n"
+            android:text="Natural\n"
             android:textColor="#0000FF"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -118,40 +39,13 @@
             android:layout_width="270dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
-            android:contentDescription="Blankly info picture" />
+            android:contentDescription="Blankly info picture"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="\nSelf-portrait without expression, a normal face.\n"
-            android:textSize="20sp" />
-
-
-        <!-- Rabbit Expression -->
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Rabbit Expression :\n"
-            android:textColor="#0000FF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/img_rabit_info"
-            android:layout_width="270dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
-            android:contentDescription="Rabbit info picture" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="\nSelf-portrait in the shape of a rabbit.\n"
+            android:text="\nSelf-portrait without any expression, a normal face.\n"
             android:textSize="20sp" />
 
         <!-- Eye Brow Lift Expression -->
@@ -161,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Eye Brow Lift Expression :\n"
+            android:text="Eye Brow Lift\n"
             android:textColor="#0000FF"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -171,8 +65,8 @@
             android:layout_width="270dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
-            android:contentDescription="Eye Brow Lift info picture" />
+            android:contentDescription="Eye Brow Lift info picture"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:layout_width="match_parent"
@@ -180,6 +74,110 @@
             android:text="\nSelf-portrait with eyebrow lift.\n"
             android:textSize="20sp" />
 
+        <!-- eyes close Expression -->
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Eyes closed\n"
+            android:textColor="#0000FF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_eyes_closed_info"
+            android:layout_width="270dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:contentDescription="eyes close info picture"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\nA self-portrait in which you close your eyes.\n"
+            android:textSize="20sp" />
+
+        <!-- Rabbit Expression -->
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Rabbit\n"
+            android:textColor="#0000FF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_rabit_info"
+            android:layout_width="270dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:contentDescription="Rabbit info picture"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\nSelf-portrait in the shape of a rabbit.\n"
+            android:textSize="20sp" />
+
+        <!-- Smile Expression -->
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Smile\n"
+            android:textColor="#0000FF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_smile_info"
+            android:layout_width="270dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:contentDescription="smile info picture"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\nSelf-portrait with a simple smile.\n"
+            android:textSize="20sp" />
+
+
+        <!-- Kiss Expression -->
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Kiss\n"
+            android:textColor="#0000FF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_kiss_info"
+            android:layout_width="270dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:contentDescription="kiss info picture"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\nSelf-portrait with a simple kiss.\n"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
