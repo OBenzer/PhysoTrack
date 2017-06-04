@@ -254,33 +254,6 @@ public class SessionRunner {
     public ImageResult getSmileR() { return smileR; }
     public ImageResult getKissR() { return kissR; }
 
-    private void printAllData(){
-        if(kissAR!=null)
-            System.out.println(kissAR.toString());
-        if(smileAR!=null)
-            System.out.println(smileAR.toString());
-        if(upperlipRasiedAR!=null)
-            System.out.println(upperlipRasiedAR.toString());
-        if(eyesClosedAR!=null)
-            System.out.println(eyesClosedAR.toString());
-        if(eyebrowRaisedAR!=null)
-            System.out.println(eyebrowRaisedAR.toString());
-        if(naturalAR!=null)
-            System.out.println(naturalAR.toString());
-        if(kissR!=null)
-            System.out.println(kissR.toString());
-        if(smileR!=null)
-            System.out.println(smileR.toString());
-        if(upperlipRasiedR!=null)
-            System.out.println(upperlipRasiedR.toString());
-        if(eyesClosedR!=null)
-            System.out.println(eyesClosedR.toString());
-        if(eyebrowRaisedR!=null)
-            System.out.println(eyebrowRaisedR.toString());
-        if(naturalR!=null)
-            System.out.println(naturalR.toString());
-    }
-
     public void initialRunner(){
         naturalP=null;
         naturalL=null;

@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.Chart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
@@ -69,7 +70,7 @@ public class PreviousAnalysis extends AppCompatActivity implements CompoundButto
         setContentView(R.layout.activity_previous_analysis);
 
         pref = getApplicationContext().getSharedPreferences(USER_DETAILS_SP_FILE, MODE_PRIVATE);
-        chart = (Chart) findViewById(R.id.chart);
+        chart = (LineChart) findViewById(R.id.chart);
 
         //Adding Dropdown Values//
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);

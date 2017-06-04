@@ -400,13 +400,6 @@ public class NewSession extends AppCompatActivity {
 
         file = Uri.fromFile(getOutputMediaFile(posString));
         try {
-//            String[] filePathColumn = {MediaStore.Images.Media.DATA};
-//            Cursor cursor = getContentResolver().query(source, filePathColumn, null, null, null);
-//            cursor.moveToFirst();
-//            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-//            String sourcePath = cursor.getString(columnIndex);
-//            cursor.close();
-
             InputStream in = getContentResolver().openInputStream(source);
             OutputStream out = new FileOutputStream(file.getPath());
 

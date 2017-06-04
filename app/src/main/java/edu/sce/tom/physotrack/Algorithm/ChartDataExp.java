@@ -36,13 +36,13 @@ public class ChartDataExp {
                 outerMouthAreaEntries.add(new Entry(i, iterObj.getOuterMouthArea()));
             }
 
-            eyeToBrowDisstanceSet = new LineDataSet(eyeToBrowDisstanceEntries, "EyeToBrow Disstance");
+            eyeToBrowDisstanceSet = new LineDataSet(eyeToBrowDisstanceEntries, "EyeToBrow Distance");
             eyeToBrowDisstanceSet.setColor(Colors[0]);
             eyeAreaSet = new LineDataSet(eyeAreaEntries, "Eye Area");
             eyeAreaSet.setColor(Colors[1]);
             mouthAngleSet = new LineDataSet(mouthAngleEntries, "Mouth Angle");
             mouthAngleSet.setColor(Colors[2]);
-            mouthDisstanceSet = new LineDataSet(mouthDisstanceEntries, "Mouth Edges Disstance");
+            mouthDisstanceSet = new LineDataSet(mouthDisstanceEntries, "Mouth Edges Distance");
             mouthDisstanceSet.setColor(Colors[3]);
             innerMouthAreaSet = new LineDataSet(innerMouthAreaEntries, "Inner Mouth Area");
             innerMouthAreaSet.setColor(Colors[4]);
