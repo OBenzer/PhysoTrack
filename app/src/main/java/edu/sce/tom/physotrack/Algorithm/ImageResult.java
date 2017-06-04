@@ -27,7 +27,7 @@ public class ImageResult extends ImageResultViewer{
         //Mouth Angle//
         mouthAngle = sumUpAngle(metrics.getLeftMouthEdgeAngle());
 
-        //Mouth Edges Disstance//
+        //Mouth Edges Distance//
         left = metrics.getLeftMouthDistance();
         right = metrics.getRightMouthDistance();
         mouthDisstance = sumUpMetric(left,right);

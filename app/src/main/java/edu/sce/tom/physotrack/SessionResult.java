@@ -55,7 +55,9 @@ public class SessionResult extends AppCompatActivity implements View.OnClickList
         YAxis y = chart.getAxisLeft();
         y.setAxisMaximum(100);
         y.setAxisMinimum(-100);
-
+        y = chart.getAxisRight();
+        y.setAxisMaximum(100);
+        y.setAxisMinimum(-100);
         ExtractData();
     }
 
