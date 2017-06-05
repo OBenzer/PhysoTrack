@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,47 +14,42 @@
     android:orientation="vertical">
 
 
-
-        <TextView
-            android:id="@+id/txt_medical_information"
-            style="@android:style/DeviceDefault.Light.ButtonBar"
-            android:layout_width="250dp"
-            android:layout_height="450dp"
-            android:layout_gravity="start"
-            android:layout_weight="0.25"
-            android:gravity="start"
-            android:text="@string/medical_info_text"
-            android:textAlignment="textStart"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="20sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <TextView
+        android:id="@+id/txt_medical_information"
+        style="@android:style/DeviceDefault.Light.ButtonBar"
+        android:layout_width="100dp"
+        android:layout_height="380dp"
+        android:layout_gravity="start"
+        android:gravity="start"
+        android:text="@string/medical_info_text"
+        android:textAlignment="textStart"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/btn_medical_info_Reader"
-        android:layout_width="38dp"
+        android:layout_width="77dp"
         android:layout_height="36dp"
         android:background="@drawable/voice_logo"
-        android:onClick="TTS"/>
-
-        <Space
-            android:layout_width="80dp"
-            android:layout_height="30dp"/>
-
-        <Button
-            android:id="@+id/btn_youtube_information"
-            android:layout_width="110dp"
-            android:layout_height="90dp"
-            android:layout_gravity="start"
-            android:background="@drawable/youtube"
-            android:foregroundGravity="left"
-            android:gravity="start"
-            android:onClick="btn_youtube_exercises_On_click" />
-
-    </LinearLayout>
-</LinearLayout>
+        android:onClick="TTS"
+        android:layout_below="@+id/txt_medical_information"
+        android:layout_alignParentStart="true" />
 
 
+    <Button
+        android:id="@+id/btn_youtube_information"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_gravity="start"
+        android:background="@drawable/youtube"
+        android:foregroundGravity="left"
+        android:gravity="start"
+        android:onClick="btn_youtube_exercises_On_click"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

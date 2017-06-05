@@ -17,7 +17,7 @@
     <string name="left_side_radio_button">left side</string>
     <string name="right_side_radio_button">Right side</string>
     <string name="submit_Personal_Details">Submit</string>
-    <string name="medical_info_text">Bells palsy is a type of facial paralysis that results in an inability to control the facial muscles on the affected side. Symptoms can vary from mild to severe. They may include muscle twitching, weakness, or total loss of the ability to move one or rarely both sides of the face. Other symptoms include drooping of the eyelid, a change in taste, pain around the ear, and increased sensitivity to sound. Typically symptoms come on over 48 hours.</string>
+    <string name="medical_info_text">Bells palsy is a type of facial paralysis that results in an inability to control the facial muscles on the affected side. symptoms can vary from mild to severe.\nthey may include muscle twitching, weakness, or total loss of the ability to move one or rarely both sides of the face.\nother symptoms include drooping of the eyelid, a change in taste, pain around the ear, and increased sensitivity to sound. typically symptoms come on over 48 hours.</string>
     <string name="New_Session_kiss_btn">Kiss</string>
     <string name="New_session_smile_btn">Smile</string>
     <string name="New_Session_eyes_close_btn">Eyes closed</string>
@@ -26,7 +26,6 @@
     <string name="New_Session_eyebrow_lifts_btn">Eyebrows lift</string>
     <string name="PreviousAnalysis_send_therapist_btn">Send to therapist</string>
     <string name="title_activity_login">Sign in</string>
-
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
