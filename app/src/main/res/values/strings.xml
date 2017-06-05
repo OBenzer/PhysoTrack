@@ -26,7 +26,6 @@
     <string name="New_Session_eyebrow_lifts_btn">Eyebrows lift</string>
     <string name="PreviousAnalysis_send_therapist_btn">Send to therapist</string>
     <string name="title_activity_login">Sign in</string>
-
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
