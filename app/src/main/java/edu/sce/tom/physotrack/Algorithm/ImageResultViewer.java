@@ -64,8 +64,8 @@ public class ImageResultViewer {
 
     @Override
     public String toString() {
-        return
-                "date of image = " + date +
+        return ""+date+"    "+expression+"   "+eyeToBrowDisstance+"   "+eyeArea+"  "+mouthAngle+"   "+innerMouthArea+"   "+outerMouthArea+" ";
+               /* "date of image = " + date +
                 ", expression = " + expression +
                 ", eye To eyebrow Distance = " + eyeToBrowDisstance +
                 ", eye Area = " + eyeArea +
@@ -73,6 +73,6 @@ public class ImageResultViewer {
                 ", mouth Distance = " + mouthDisstance +
                 ", inner Mouth Area = " + innerMouthArea +
                 ", outer Mouth Area = " + outerMouthArea +
-                "\n\n";
+                "\n\n";*/
     }
 }

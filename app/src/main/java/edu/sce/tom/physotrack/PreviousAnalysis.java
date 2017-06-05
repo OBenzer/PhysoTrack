@@ -22,7 +22,9 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import edu.sce.tom.physotrack.Algorithm.ChartDataExp;
 import edu.sce.tom.physotrack.Algorithm.ImageResultViewer;
@@ -337,17 +339,7 @@ public class PreviousAnalysis extends AppCompatActivity implements CompoundButto
 
     //********** Other Buttons **********//
     public void btn_send_therapist_on_click(View v) {
-        String filename = "analysis.txt";
 
-        File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
-        Uri path = Uri.fromFile(filelocation);
-        FileWriter writer;
-        try {
-            writer = new FileWriter(filelocation);
-        } catch (IOException e) {
-            Toast.makeText(this, "Error Creating File", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
         DatabaseHelper db = new DatabaseHelper(this);
 
@@ -355,23 +347,38 @@ public class PreviousAnalysis extends AppCompatActivity implements CompoundButto
         ArrayList<LandmarksAnalyzerViewer> arrLandmarks = db.getAllMetricsFromDB();
         String email = pref.getString(THERAPIST_MAIL, "");// getting therapist email
         String name = pref.getString(USER_NAME, "");//getting name of user
+        //String date =Utils.todaysDateToString();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        String currentDate = sdf.format(new Date());
+        //create a txt file and write stuff and send to physiotherapist mail
+        String filename =name+"'s analysis by Bell's Track until "+currentDate+".txt";
+
+        File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
+        Uri path = Uri.fromFile(filelocation);
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
-        //create a txt file and write stuff and send to physiotherapist mail
-
+        FileWriter writer;
+        try {
+            writer = new FileWriter(filelocation);
+        } catch (IOException e) {
+            Toast.makeText(this, "Error Creating File", Toast.LENGTH_SHORT).show();
+            return;
+        }
         intent.setType("plain/text");
         try {
+
+            writer.append("Date expression  eye To eyebrow Distance eye Area    mouth Angle mouth Distance  inner Mouth Area    outer Mouth Area    leftBrowCenter  rightEyeCenter  leftEyeArea rightEyeArea    rightBrowCenter leftBrowCenter  leftEyeToBrowDistance   rightEyeToBrowDistance  leftInnerMouthArea  rightInnerMouthArea leftOuterMouthArea  rightOuterMouthArea rightMouthEdgeAngle leftMouthEdgeAngle  leftMouthDistance   rightMouthDistance");
             for (int i = 0; i < arr.size(); i++) {
-                writer.append(arr.get(i).toString());
-                writer.append(arrLandmarks.get(i).toString());
+              writer.append(arr.get(i).toString());
+              writer.append(arrLandmarks.get(i).toString());
             }
 
             writer.close();
         } catch (IOException e) {
             Toast.makeText(this, "Error Writing File", Toast.LENGTH_SHORT).show();
         }
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis of " + name + " by PhysioTrack");
-        intent.putExtra(Intent.EXTRA_TEXT, "hi ,\nhere is my analysis by image attached");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Analysis of " + name);
+        intent.putExtra(Intent.EXTRA_TEXT, "hey ! \n My analysis attached below .");
         intent.putExtra(Intent.EXTRA_STREAM, path);
         startActivity(Intent.createChooser(intent, ""));
     }

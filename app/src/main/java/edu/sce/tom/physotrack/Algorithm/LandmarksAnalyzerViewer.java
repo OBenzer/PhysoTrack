@@ -135,24 +135,7 @@ public class LandmarksAnalyzerViewer {
 
     @Override
     public String toString() {
-        return "Landmarks  :\n" +
-                ", leftEyeCenter=" + leftEyeCenter +
-                ", rightEyeCenter=" + rightEyeCenter +
-                ", leftEyeArea=" + leftEyeArea +
-                ", rightEyeArea=" + rightEyeArea +
-                ", rightBrowCenter=" + rightBrowCenter +
-                ", leftBrowCenter=" + leftBrowCenter +
-                ", leftEyeToBrowDistance=" + leftEyeToBrowDistance +
-                ", rightEyeToBrowDistance=" + rightEyeToBrowDistance +
-                ", leftInnerMouthArea=" + leftInnerMouthArea +
-                ", rightInnerMouthArea=" + rightInnerMouthArea +
-                ", leftOuterMouthArea=" + leftOuterMouthArea +
-                ", rightOuterMouthArea=" + rightOuterMouthArea +
-                ", rightMouthEdgeAngle=" + rightMouthEdgeAngle +
-                ", leftMouthEdgeAngle=" + leftMouthEdgeAngle +
-                ", leftMouthDistance=" + leftMouthDistance +
-                ", rightMouthDistance=" + rightMouthDistance +
-                ", expression='" + expression + "\n\n"
-                ;
+        return leftBrowCenter+" "+rightEyeCenter+" "+leftEyeArea+"  "+rightEyeArea+"    "+rightBrowCenter+" "+leftBrowCenter+"  "+leftEyeToBrowDistance+"   "+rightEyeToBrowDistance+"  "+leftInnerMouthArea+"  "+rightInnerMouthArea+" "+leftOuterMouthArea+"  "+rightOuterMouthArea+" "+rightMouthEdgeAngle+" "+leftMouthEdgeAngle+"  "+leftMouthDistance+"   "+rightMouthDistance;
+
     }
 }
